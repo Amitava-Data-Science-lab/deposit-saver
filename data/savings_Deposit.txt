@@ -1,0 +1,126 @@
+# UK Savings Deposit by Product and Provider with AER and other Data
+
+
+
+| Provider | Product | Interest Rate (AER) | Rate Type | Account Type | Min/Max Deposit | Managed Through |
+
+| --- | --- | --- | --- | --- | --- | --- |
+
+| National Bank of Egypt (UK) Limited | Raisin UK - 1 Year Fixed Term Deposit | 4.38 | Fixed | 1 year Fixed | £10,000 to £85,000 | Managed through web and app |
+
+| Punjab National Bank | Raisin UK - 1 Year Fixed Term Deposit | 4.31 | Fixed | 1 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Ziraat Bank | Raisin UK - 1 Year Fixed Term Deposit | 4.31 | Fixed | 1 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| United Bank UK | Raisin UK - 4 Year Fixed Term Deposit | 4.26 | Fixed | 4 year Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| United Bank UK | Raisin UK - 5 Year Fixed Term Deposit | 4.26 | Fixed | 5 year Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| Kuwait Finance House | Raisin UK - 1 Year Fixed Term Deposit | 4.25 | Fixed | 1 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| RCI Bank UK | 2 Year Fixed Term Savings Account | 4.25 | Fixed | 2 year Fixed | £1,000 to £1,000,000 | Managed through web and app |
+
+| Bank of Ceylon | Raisin UK - 3 Year Fixed Term Deposit | 4.2 | Fixed | 3 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| RCI Bank UK | Raisin UK - 3 Year Fixed Term Deposit | 4.2 | Fixed | 3 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| National Bank of Egypt (UK) Limited | Raisin UK - 6 Month Fixed Term Deposit | 4.19 | Fixed | 6 month Fixed | £10,000 to £85,000 | Managed through web and app |
+
+| LHV Bank | Raisin UK - 1 Year Fixed Term Deposit | 4.15 | Fixed | 1 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Kuwait Finance House | Raisin UK - 9 Month Fixed Term Deposit | 4.14 | Fixed | 9 month Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| United Trust Bank | UTB 6 Month Bond | 4.14 | Fixed | 6 month Fixed | £5,000 to £1,000,000 | Managed through web, post and telephone |
+
+| Punjab National Bank | Raisin UK - 3 Year Fixed Term Deposit | 4.13 | Fixed | 3 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Punjab National Bank | Raisin UK - 5 Year Fixed Term Deposit | 4.13 | Fixed | 5 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Punjab National Bank | Raisin UK - 4 Year Fixed Term Deposit | 4.13 | Fixed | 4 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Bank of Ceylon | Raisin UK - 1 Year Fixed Term Deposit | 4.11 | Fixed | 1 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| FBN Bank (UK) Limited | Raisin UK - 1 Year Fixed Term Deposit | 4.11 | Fixed | 1 year Fixed | £10,000 to £85,000 | Managed through web and app |
+
+| National Bank of Egypt (UK) Limited | Raisin UK - 2 Year Fixed Term Deposit | 4.1 | Fixed | 2 year Fixed | £10,000 to £85,000 | Managed through web and app |
+
+| National Bank of Egypt (UK) Limited | Raisin UK - 3 Year Fixed Term Deposit | 4.1 | Fixed | 3 year Fixed | £10,000 to £85,000 | Managed through web and app |
+
+| National Bank of Egypt (UK) Limited | Raisin UK - 4 Year Fixed Term Deposit | 4.1 | Fixed | 4 year Fixed | £10,000 to £85,000 | Managed through web and app |
+
+| National Bank of Egypt (UK) Limited | Raisin UK - 5 Year Fixed Term Deposit | 4.1 | Fixed | 5 year Fixed | £10,000 to £85,000 | Managed through web and app |
+
+| Bank of Ceylon | Raisin UK - 2 Year Fixed Term Deposit | 4.1 | Fixed | 2 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Bank of Ceylon | Raisin UK - 4 Year Fixed Term Deposit | 4.1 | Fixed | 4 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Bank of Ceylon | Raisin UK - 5 Year Fixed Term Deposit | 4.1 | Fixed | 5 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| LHV Bank | Raisin UK - 2 Year Fixed Term Deposit | 4.08 | Fixed | 2 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| RCI Bank UK | 1 Year Fixed Term Savings Account | 4.07 | Fixed | 1 year Fixed | £1,000 to £1,000,000 | Managed through web and app |
+
+| United Trust Bank | UTB 1 Year Bond | 4.06 | Fixed | 1 year Fixed | £5,000 to £1,000,000 | Managed through web, post and telephone |
+
+| United Bank UK | Raisin UK - 1 Year Fixed Term Deposit | 4.05 | Fixed | 1 year Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| Allica Bank | 1 Year Fixed Rate Business Savings Account | 4.05 | Fixed | 1 year Fixed | £1,000 to £5,000,000 | Managed through web and app |
+
+| Metro Bank | 1 Year Fixed Rate Saver | 4.05 | Fixed | 1 year Fixed | £500 to £2,000,000 | Managed through branch, web and app |
+
+| United Trust Bank | UTB 9 Month Bond | 4.05 | Fixed | 9 month Fixed | £5,000 to £1,000,000 | Managed through web, post and telephone |
+
+| Ziraat Bank | Raisin UK - 2 Year Fixed Term Deposit | 4.03 | Fixed | 2 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Ziraat Bank | Raisin UK - 3 Year Fixed Term Deposit | 4.03 | Fixed | 3 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Ziraat Bank | Raisin UK - 4 Year Fixed Term Deposit | 4.03 | Fixed | 4 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| Ziraat Bank | Raisin UK - 5 Year Fixed Term Deposit | 4.03 | Fixed | 5 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| UBL UK | Raisin UK - 1 Year Fixed Term Deposit | 4.02 | Fixed | 1 year Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| UBL UK | Raisin UK - 9 Month Fixed Term Deposit | 4.02 | Fixed | 9 month Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| UBL UK | Raisin UK - 2 Year Fixed Term Deposit | 4.01 | Fixed | 2 year Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| UBL UK | Raisin UK - 3 Year Fixed Term Deposit | 4.01 | Fixed | 3 year Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| UBL UK | Raisin UK - 4 Year Fixed Term Deposit | 4.01 | Fixed | 4 year Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| UBL UK | Raisin UK - 5 Year Fixed Term Deposit | 4.01 | Fixed | 5 year Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| JN Bank | Raisin UK - 2 Year Fixed Term Deposit | 4.0 | Fixed | 2 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| JN Bank | Raisin UK - 3 Year Fixed Term Deposit | 4.0 | Fixed | 3 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| JN Bank | Raisin UK - 4 Year Fixed Term Deposit | 4.0 | Fixed | 4 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| JN Bank | Raisin UK - 5 Year Fixed Term Deposit | 4.0 | Fixed | 5 year Fixed | £1,000 to £85,000 | Managed through web and app |
+
+| UBL UK | Raisin UK - 6 Month Fixed Term Deposit | 3.99 | Fixed | 6 month Fixed | £2,000 to £85,000 | Managed through web and app |
+
+| Allica Bank | 2 Year Fixed Rate Business Savings Account | 3.95 | Fixed | 2 year Fixed | £1,000 to £5,000,000 | Managed through web and app |
+
+| Skipton Building Society | 2 Year Fixed Rate Bond (Issue 228) | 3.9 | Fixed | 2 year Fixed | £500 to £1,000,000 | Managed through web and app |
+
+| Metro Bank | 2 Year Fixed Rate Saver | 3.9 | Fixed | 2 year Fixed | £500 to £2,000,000 | Managed through branch, web and app |
+
+| Skipton Building Society | 1 Year Fixed Rate Bond (Issue 227) | 3.8 | Fixed | 1 year Fixed | £500 to £1,000,000 | Managed through web and app |
+
+| Close Brothers Savings | 2 Year Fixed Rate Bond | 3.7 | Fixed | 2 year Fixed | £10,000 to £2,000,000 | Managed through web and app |
+
+| Close Brothers Savings | 1 Year Fixed Rate Bond | 3.65 | Fixed | 1 year Fixed | £10,000 to £2,000,000 | Managed through web and app |
+
+| Shawbrook Bank | 1 Year Fixed Rate Bond | 3.65 | Fixed | 1 year Fixed | £1,000 to £2,000,000 | Managed through web and app |
+
+| Shawbrook Bank | 2 Year Fixed Rate Bond | 3.55 | Fixed | 2 year Fixed | £1,000 to £2,000,000 | Managed through web and app |
+
+| Metro Bank | 3 Year Fixed Rate Saver | 3.45 | Fixed | 3 year Fixed | £500 to £2,000,000 | Managed through branch, web and app |
+
+| Close Brothers Savings | 3 Year Fixed Rate Bond | 3.4 | Fixed | 3 year Fixed | £10,000 to £2,000,000 | Managed through web and app |
+
+| Shawbrook Bank | 3 Year Fixed Rate Bond | 3.35 | Fixed | 3 year Fixed | £1,000 to £2,000,000 | Managed through web and app |
+
+
+

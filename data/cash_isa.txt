@@ -1,0 +1,20 @@
+# **Top Cash ISA Accounts (UK)**
+
+```markdown
+| Provider | Product | Interest Rate (AER) | Rate Type | Account Type / Notice | Min/Max Deposit | Managed Through | Notes |
+|---------|---------|----------------------|-----------|------------------------|------------------|------------------|-------|
+| Trading 212 | Cash ISA Promo Rate | 4.56% | Variable | Notice: none | £1 to No limit | Web & App | Includes 0.71% bonus for first 12 months. Current tax-year contributions only. |
+| Plum | Plum Cash ISA | 4.49% | Variable | Notice: none | £1 to No limit | App | Includes 1.70% bonus for 12 months. Plum is not a bank. |
+| Tembo Money Ltd | Tembo Cash ISA – Fixed Rate | 4.30% | Fixed | 1 Year Fixed | £500 to No limit | App | Funds locked for 12 months at rate available at deposit time. |
+| NatWest | 1 Year Fixed Rate ISA Issue 386 | 4.20% | Fixed | Fixed until 07.01.27 | £1,000 to No limit | Branch, Web, Telephone, App | — |
+| Royal Bank of Scotland | 1 Year Fixed Rate ISA Issue 386 | 4.20% | Fixed | Fixed until 07.01.27 | £1,000 to No limit | Branch & Telephone | — |
+| Aldermore | Reward ISA Single Access Account (Issue 7) | 4.15% | Variable | Notice: none | £100 to No limit | Web | — |
+| Bank of Ireland UK | Online ISA Easy Access Issue 40 | 4.11% | Variable | Notice: none | £100 to No limit | Web | Includes 3.11% bonus for 12 months. |
+| Aldermore | 9 Month Fixed Rate Cash ISA | 4.06% | Fixed | 9 Month Fixed | £1,000 to No limit | Web | — |
+| Monument Bank (via HL Active Savings) | Easy Access Cash ISA | 4.06% | Variable | Notice: none | £1 to No limit | Web | — |
+| Aldermore | 1 Year Fixed Rate Cash ISA | 4.05% | Fixed | 1 Year Fixed | £1,000 to No limit | Web | — |
+| Leeds Building Society | Online Access Cash ISA (Issue 12) | 4.05% | Variable | Notice: none | £1,000 to No limit | Web | — |
+| Paragon Bank | 1 Year Fixed Rate Cash ISA | 4.05% | Fixed | 1 Year Fixed | £500 to £500,000 | Web & Post | — |
+| Aldermore | 3 Year Fixed Rate Cash ISA | 4.02% | Fixed | 3 Year Fixed | £1,000 to No limit | Web | — |
+```
+
