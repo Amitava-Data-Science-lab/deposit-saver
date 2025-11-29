@@ -1,0 +1,162 @@
+{
+  "id": "8c70c416-8ebe-4c9d-b108-b607be2d1f11",
+  "appName": "mortgage_deposit_agent",
+  "userId": "user",
+  "state": {
+    "housing_goal": "{\"postcode\": \"HPXX\", \"property_type\": \"2-bedroom apartment\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": null, \"status\": \"error\"}",
+    "user:preferences": "{\"stage\":\"housing\",\"housing_goal\":{\"status\":\"error\",\"postcode\":\"HPXX\",\"property_type\":\"2-bedroom apartment\",\"min_price\":null,\"max_price\":null,\"deposit_target\":null,\"price_options\":null,\"error_message\":null},\"bank_capacity\":null,\"risk_profile\":null,\"final_plan\":null}"
+  },
+  "events": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Can you help me with a 2-bedroom apartment in HPXX"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-df5eb00d-7e3a-4f1f-b745-256c0ae9083b",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "b6bc1a87-d44e-4b5d-8f46-ed866a2f5d37",
+      "timestamp": 1764415586.27852
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-060c5080-3edf-4f2d-992d-d9d0ff04b640",
+              "args": {
+                "postcode": "HPXX",
+                "property_type": "2-bedroom apartment"
+              },
+              "name": "housing_goal_agent"
+            },
+            "thoughtSignature": "CvgCAePx_14Bh75XmA-kVAPR77-81qYeiyO8MVIuC7fF2ZwozpaWFYT27qGciX1FXRlKNcn5FuogYfFvNKuSpk7RRALDgBUOl_wTa8W0uDoH3gnQLaWxcb7CvX_vAUMVhieDg8wjLRAtPBKGzZ8r9vTD6twrdUoS1h4LY1gAe7d73VoaCHLbwTJ9lzaYY7M4eCVpTkjNHLYEMEKU7_HNx6f5Jn_JJq9qbmrc_pxKc0Glh-s1KyrnNUeurn_spBCg1Lzko0dL9jW5fQB-l7HBlfRzLEUb5-982TfwcfIrF412K2a7BZBZR-w5CyKNLU3WpYPF87ow5vCBqS3eTOuB7sfRIhcjuNPvpIqqTFLQtJK2FPPWGfhxoQlefZjxk-aCe1Q88XDpXuhNMdmgCps9WvPEmH6A3_Um6nb7JHzRFeykbpJcRgxguSG02rSZCP42VntNxQXOOfMII9DSAg3kZ2TS3pGuqEZJfxN-Zh7VIX8ImgcmJwFb-UrWGw=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 15,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 15
+          }
+        ],
+        "promptTokenCount": 2984,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2984
+          }
+        ],
+        "thoughtsTokenCount": 93,
+        "totalTokenCount": 3092,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.5926347096761068,
+      "invocationId": "e-df5eb00d-7e3a-4f1f-b745-256c0ae9083b",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "f29b2c65-aa5e-4a6b-ada4-f1b158d5bad5",
+      "timestamp": 1764415586.285431
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-060c5080-3edf-4f2d-992d-d9d0ff04b640",
+              "name": "housing_goal_agent",
+              "response": {
+                "result": "{\"postcode\": \"HPXX\", \"property_type\": \"2-bedroom apartment\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": null, \"status\": \"error\"}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-df5eb00d-7e3a-4f1f-b745-256c0ae9083b",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "housing_goal": "{\"postcode\": \"HPXX\", \"property_type\": \"2-bedroom apartment\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": null, \"status\": \"error\"}",
+          "user:preferences": "{\"stage\":\"housing\",\"housing_goal\":{\"status\":\"error\",\"postcode\":\"HPXX\",\"property_type\":\"2-bedroom apartment\",\"min_price\":null,\"max_price\":null,\"deposit_target\":null,\"price_options\":null,\"error_message\":null},\"bank_capacity\":null,\"risk_profile\":null,\"final_plan\":null}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "6befb138-3c63-4a10-8943-b497ff9e1874",
+      "timestamp": 1764415643.076331
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "I'm sorry, but \"HPXX\" doesn't seem to be a valid postcode. Could you please provide a valid UK postcode area (e.g., HP12, SW1, M4) so I can help you find a 2-bedroom apartment?",
+            "thoughtSignature": "CtsBAePx_16Tu42_q2ubdYTWSza2_ny33xKOGriOANoSYa4PLYWUdQECIavLljdnzdJeC8ppHVD9rjNGjmRRO1nWnhf_B0nwas1-RKmaEeW0wlS3561JX8u2yDjAgcR9XVHWylh8Uh8vo_PzYdzjE_BM6bQGPzNseKWErnXPXB5jsGYTLh36YjiACKrjEIjkZ5QrHMA-2MHnmCh22Y844XjSR-mTe-hKaXKhPViogOj1KJdBiCiZXRL95BzwclrzdqsvG-sCvONghYkwrgKn5Jsusj4o8VL9uqdF6M5n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2413
+          }
+        ],
+        "cachedContentTokenCount": 2413,
+        "candidatesTokenCount": 57,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 57
+          }
+        ],
+        "promptTokenCount": 3057,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3148
+          }
+        ],
+        "thoughtsTokenCount": 50,
+        "totalTokenCount": 3164,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.2052426254540159,
+      "invocationId": "e-df5eb00d-7e3a-4f1f-b745-256c0ae9083b",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "1702eb66-246a-4d79-b111-1d1054b0f10b",
+      "timestamp": 1764415643.081847
+    }
+  ],
+  "lastUpdateTime": 1764415643.081847
+}

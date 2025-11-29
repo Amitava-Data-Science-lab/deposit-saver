@@ -52,13 +52,13 @@ class Transaction:
     def is_debit(self):
         return self.transaction_type == TransactionType.DEBIT
 
-def estimate_surplus(file_content: str) -> float:
+def estimate_affordability(file_content: str, house_price: float) -> dict:
     """
     Analyzes transactions from a bank statement to estimate monthly surplus and provide estimate of investable funds.
 
     Args:
         file_content (str): Contents of the bank statement CSV file.List[Transaction]): A list of Transaction objects containing financial data.
-            
+        house_price: The estimated house price for the property   
     Returns:
         dict: A dictionary containing the following keys:
             - status: "error" or "success" indicating the analysis status
@@ -66,6 +66,11 @@ def estimate_surplus(file_content: str) -> float:
             - available_investment: 80% of median monthly surplus (conservative estimate for safe investing)
             - average_surplus: Mean of all monthly surpluses across the period
             - median_surplus: Middle value of monthly surpluses (less affected by outliers)
+            - average_income : Mean of all the monthly income across the period
+            - median_income : Median of all the monthly income across the period
+            - is_affordable: Indicates if the house price is affordable based on the income.
+            - max_affordability: Maximum value of the mortgage that a bank will approve.
+
 
     Note:
         The function handles errors gracefully by returning a dictionary with status "error"
@@ -95,16 +100,23 @@ def estimate_surplus(file_content: str) -> float:
         4. Compare low_surplus against available_investment to validate safety margin
         5. If median differs significantly from average, investigate outlier months
     """
+
+    AFFORABILITY_MULTIPLIER = 80
+
     output = {
         "status": "error",
         "message": "no transactions found",
         "available_investment": 0.0,
         "average_surplus": 0.0,
         "median_surplus": 0.0,
+        "average_income": 0.0,
+        "median_income": 0.0,
+        "max_affordability": 0.0,
+        "is_affordable": False
     }
 
     try:
-
+        logger.info(f"Starting affordability Estimate with house price: {house_price}")
         df = pd.read_csv(StringIO(file_content))
 
         if df.empty:
@@ -125,14 +137,33 @@ def estimate_surplus(file_content: str) -> float:
             .sum()
             .reset_index()
         )
+        logger.info("Calculating monthly aggregates")
         monthly["surplus"] = monthly["Credit amount"] - monthly["Debit amount"]
-
+        output["average_income"] = round(monthly["Credit amount"].mean())
+        output["median_income"] = round(monthly["Credit amount"].median())
         output["average_surplus"] = round(monthly["surplus"].mean())
         output["median_surplus"] = round(monthly["surplus"].median())
         output["available_investment"] = round(np.min([0.8 * output["median_surplus"], output["average_surplus"]]))
         output["status"] = "success"
         output["message"] = "Available Investment estimated successfully"
-        
+
+        max_loan_amount = output["median_income"]*AFFORABILITY_MULTIPLIER
+        logger.info(f"Max loan amount: {max_loan_amount}")
+        if (max_loan_amount > house_price):
+            is_affordable = True
+        else:
+            is_affordable = False
+
+        output["is_affordable"] = is_affordable
+        output["max_affordability"] = output["median_income"]*AFFORABILITY_MULTIPLIER
+
+        if not is_affordable:
+            output["status"] = "success"
+            output["message"] = f"""Based on your income estimates from the bank statement the average house 
+            price of {house_price} is outside your afforable range of {output["median_income"]*5} """
+            logger.info(f"Affordablility output: {output}")
+            return output
+
         logger.info(f"Surplus estimation successful - available_investment: {output['available_investment']}, average: {output['average_surplus']}, median: {output['median_surplus']}")
         return output
 
@@ -149,21 +180,30 @@ def estimate_surplus(file_content: str) -> float:
         output["message"] = f"Unexpected error during surplus estimation"
         return output 
 
-def deposit_calculator(house_price: float, deposit_percent: float) -> float:
+def deposit_calculator(min_value: float, max_value: float, deposit_percent: float) -> dict:
     """
     Calculate the deposit amount based on house price and deposit percentage.
 
     Args:
-        house_price: The total price of the house
+        min_price: minimum value of the house price
+        max_price: maximum value of the house price
         deposit_percent: The percentage of house price to use as deposit (default 0.1 for 10%)
 
     Returns:
-        The calculated deposit amount
+        1. Deposit Amount: Amount of deposit needed.
+        2. House Price: Estimated house price to target.
     """
-    logger.info(f"Calculating deposit for house_price={house_price}, deposit_percent={deposit_percent}")
-    deposit = house_price * deposit_percent
+    
+    logger.info(f"Starting deposit calculation - min_value: {min_value}, max_value: {max_value}, deposit_percent: {deposit_percent}")
+    house_price = np.ceil(min_value + (max_value - min_value) / 5 ) ## Little bit higher than mon value
+    logger.info(f"Calculating deposit for house_price of {house_price} with  deposit_percent={deposit_percent}")
+    deposit = np.ceil(house_price * deposit_percent)
     logger.info(f"Calculated deposit: {deposit}")
-    return deposit
+    
+    return {
+        "deposit_amount": deposit,
+        "house_price": house_price
+    }
     
 def feasibility_calculator(planInput: PlanInput):
     """
@@ -279,10 +319,10 @@ def feasibility_calculator(planInput: PlanInput):
     logger.info(f"Feasibility calculation complete - Result: {result}")
     return result
 
-def time_to_savings(saving_per_month: float, target_deposit: float, monthly_rate:float):
+def time_to_savings(saving_per_month: float, target_deposit: float, monthly_rate:float) -> int:
 
    n_months = np.log(1 + (target_deposit * monthly_rate) / saving_per_month) / np.log(1 + monthly_rate)
-   return np.ceil(n_months/12)
+   return np.ceil(n_months/12).astype(int)
 
 def risk_classification(income_stability: int, time_horizon_years: int, loss_reaction: int):
     """

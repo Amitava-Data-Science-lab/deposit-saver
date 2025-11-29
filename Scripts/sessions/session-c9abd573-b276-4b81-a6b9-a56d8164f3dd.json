@@ -1,0 +1,160 @@
+{
+  "id": "c9abd573-b276-4b81-a6b9-a56d8164f3dd",
+  "appName": "mortgage_deposit_agent",
+  "userId": "user",
+  "state": {
+    "house_prices": "```json\n{\n\"status\": \"success\",\n\"price_data\": [\n{\n\"postCode\": \"HP12\",\n\"type\": \"Terraced\",\n\"bedrooms\": 2,\n\"priceMin\": 259950,\n\"priceMax\": 375000,\n\"sources\": [\n\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\",\n\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\",\n\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\",\n\"https://www.onthemarket.com/for-sale/terraced-houses/high-wycombe/?max-beds=2&min-beds=2&radius=0.5&search-type=2&sort-order=newly-added\"\n]\n},\n{\n\"postCode\": \"HP12\",\n\"type\": \"Semi-Detached\",\n\"bedrooms\": 2,\n\"priceMin\": 385000,\n\"priceMax\": 429950,\n\"sources\": [\n\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\",\n\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\"\n]\n},\n{\n\"postCode\": \"HP12\",\n\"type\": \"Detached Bungalow\",\n\"bedrooms\": 2,\n\"priceMin\": 400000,\n\"priceMax\": 400000,\n\"sources\": [\n\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\"\n]\n}\n],\n\"message\": \"house prices found\"\n}\n```",
+    "housing_goal": "{\"postcode\": \"HP12\", \"property_type\": \"2-bed house\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": [{\"postCode\": \"HP12\", \"type\": \"Terraced\", \"bedrooms\": 2, \"priceMin\": 259950, \"priceMax\": 375000, \"sources\": [\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\", \"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\", \"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\", \"https://www.onthemarket.com/for-sale/terraced-houses/high-wycombe/?max-beds=2&min-beds=2&radius=0.5&search-type=2&sort-order=newly-added\"]}, {\"postCode\": \"HP12\", \"type\": \"Semi-Detached\", \"bedrooms\": 2, \"priceMin\": 385000, \"priceMax\": 429950, \"sources\": [\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\", \"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\"]}, {\"postCode\": \"HP12\", \"type\": \"Detached Bungalow\", \"bedrooms\": 2, \"priceMin\": 400000, \"priceMax\": 400000, \"sources\": [\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\"]}], \"status\": \"AWAITING_CONFIRMATION\"}",
+    "user:preferences": "{\"stage\":\"housing\",\"housing_goal\":{\"status\":\"AWAITING_CONFIRMATION\",\"postcode\":\"HP12\",\"property_type\":\"2-bed house\",\"min_price\":null,\"max_price\":null,\"deposit_target\":null,\"price_options\":null,\"error_message\":null},\"bank_capacity\":null,\"risk_profile\":null,\"final_plan\":null}"
+  },
+  "events": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Can you help me save for the deposit on a 2-bed house at HP12"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-8b680df3-9d56-48ed-8a78-0ee9f7f03190",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "55564b2a-131b-4805-ab44-ded879275ef4",
+      "timestamp": 1764389293.563206
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Great! I can certainly help you with that.\n\nFirst, I'll get an estimate for a 2-bedroom house in the HP12 area.\n",
+            "thoughtSignature": "CvgCAePx_14lWn0xH8bFyLzIvuL0V9pCjqYZoQAzkIA9OjSn4cy79sNOli_dyHJD7g5MeO0k8Qm332G1zTCZTilibxZ9oYkmLnWJzHTt2j75FGPif58c6rpTEnkDoL9tumN16mZ00MNvyHP0sNkcHPzh7tJi53gZ9zZNlaAOmyxLCb937S0keODbfwNpM2J8MhYt4BPNED24iMayS10cF9FZLrswetr2h7puNYFhEY5L4tw3K5Z2BfTdvl4-upJIR4T0H0pU1erVo59PzTvYXmCXIZ5Ptl15f63w8CtDvN2_l92tcG7TWAjxgUc-9TMN8KE7SY4BbcPVlfYm0XgSbeb5hQUH2_3MVsmsyTzBh141nnG1HEbKjRHyiU11IZzF_e9UDMD0Y1NBBihfOsncf3hGwC6Lo0wZo5r6_cOt9DYYrbN3QaGDsbbJXnGJEw5RJbwrK5ckVthgCr9EC5oylBGSD48hdFXAo5KdXb3SDfNBP-OPLsNR84Pahg=="
+          },
+          {
+            "functionCall": {
+              "id": "adk-f757f67e-e9c1-4526-af74-507fd7abd8ea",
+              "args": {
+                "postcode": "HP12",
+                "property_type": "2-bed house"
+              },
+              "name": "housing_goal_agent"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 50,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 50
+          }
+        ],
+        "promptTokenCount": 2989,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2989
+          }
+        ],
+        "thoughtsTokenCount": 81,
+        "totalTokenCount": 3120,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.37395999908447264,
+      "invocationId": "e-8b680df3-9d56-48ed-8a78-0ee9f7f03190",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "b3b61831-c5fc-43b2-8327-a0eb6608ce5c",
+      "timestamp": 1764389293.574087
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-f757f67e-e9c1-4526-af74-507fd7abd8ea",
+              "name": "housing_goal_agent",
+              "response": {
+                "result": "{\"postcode\": \"HP12\", \"property_type\": \"2-bed house\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": [{\"postCode\": \"HP12\", \"type\": \"Terraced\", \"bedrooms\": 2, \"priceMin\": 259950, \"priceMax\": 375000, \"sources\": [\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\", \"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\", \"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\", \"https://www.onthemarket.com/for-sale/terraced-houses/high-wycombe/?max-beds=2&min-beds=2&radius=0.5&search-type=2&sort-order=newly-added\"]}, {\"postCode\": \"HP12\", \"type\": \"Semi-Detached\", \"bedrooms\": 2, \"priceMin\": 385000, \"priceMax\": 429950, \"sources\": [\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\", \"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\"]}, {\"postCode\": \"HP12\", \"type\": \"Detached Bungalow\", \"bedrooms\": 2, \"priceMin\": 400000, \"priceMax\": 400000, \"sources\": [\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\"]}], \"status\": \"AWAITING_CONFIRMATION\"}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-8b680df3-9d56-48ed-8a78-0ee9f7f03190",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "house_prices": "```json\n{\n\"status\": \"success\",\n\"price_data\": [\n{\n\"postCode\": \"HP12\",\n\"type\": \"Terraced\",\n\"bedrooms\": 2,\n\"priceMin\": 259950,\n\"priceMax\": 375000,\n\"sources\": [\n\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\",\n\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\",\n\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\",\n\"https://www.onthemarket.com/for-sale/terraced-houses/high-wycombe/?max-beds=2&min-beds=2&radius=0.5&search-type=2&sort-order=newly-added\"\n]\n},\n{\n\"postCode\": \"HP12\",\n\"type\": \"Semi-Detached\",\n\"bedrooms\": 2,\n\"priceMin\": 385000,\n\"priceMax\": 429950,\n\"sources\": [\n\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\",\n\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\"\n]\n},\n{\n\"postCode\": \"HP12\",\n\"type\": \"Detached Bungalow\",\n\"bedrooms\": 2,\n\"priceMin\": 400000,\n\"priceMax\": 400000,\n\"sources\": [\n\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\"\n]\n}\n],\n\"message\": \"house prices found\"\n}\n```",
+          "housing_goal": "{\"postcode\": \"HP12\", \"property_type\": \"2-bed house\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": [{\"postCode\": \"HP12\", \"type\": \"Terraced\", \"bedrooms\": 2, \"priceMin\": 259950, \"priceMax\": 375000, \"sources\": [\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\", \"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\", \"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\", \"https://www.onthemarket.com/for-sale/terraced-houses/high-wycombe/?max-beds=2&min-beds=2&radius=0.5&search-type=2&sort-order=newly-added\"]}, {\"postCode\": \"HP12\", \"type\": \"Semi-Detached\", \"bedrooms\": 2, \"priceMin\": 385000, \"priceMax\": 429950, \"sources\": [\"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\", \"https://www.rightmove.co.uk/properties/140027780#/?channel=RES_BUY\"]}, {\"postCode\": \"HP12\", \"type\": \"Detached Bungalow\", \"bedrooms\": 2, \"priceMin\": 400000, \"priceMax\": 400000, \"sources\": [\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\"]}], \"status\": \"AWAITING_CONFIRMATION\"}",
+          "user:preferences": "{\"stage\":\"housing\",\"housing_goal\":{\"status\":\"AWAITING_CONFIRMATION\",\"postcode\":\"HP12\",\"property_type\":\"2-bed house\",\"min_price\":null,\"max_price\":null,\"deposit_target\":null,\"price_options\":null,\"error_message\":null},\"bank_capacity\":null,\"risk_profile\":null,\"final_plan\":null}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "c4bcb6aa-ff6a-4e7d-8295-1523d7849fc6",
+      "timestamp": 1764389372.490564
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Okay, I've found some options for a 2-bedroom house in the HP12 area:\n\n*   **Terraced house:** between £259,950 and £375,000\n*   **Semi-Detached house:** between £385,000 and £429,950\n*   **Detached Bungalow:** around £400,000\n\nWhich of these options would you like to use for your savings plan? Please choose one of the ranges or a specific price.",
+            "thoughtSignature": "CqgFAePx_17QhM7sGhUTdl5KCXma102GTpWJ7DATrw5qwK038hhcqlfaIpEM1lYIz0f2jVHW-RGfK-Ti1mrL6Q8tD8tyB71GUnbJlhDAN7s43IxcQ352uTXhFwizYBsT9R-BnWfo7NbJJH1mC9PYksOlZw-Ifge0WpluNXfaPuibxhR3kU5wUrqobHm87-u_HsWvduUJp9hWFSp3fTWsWmzhKI1JvGCRMYrVK-6LtGGAKEXV2spFoLkTaIrTNal2MnTJjjvZgaaod7Wj31Fqd7Ipy-UzXVZ4NgoJHk48aWpf3ij1yEE4qz-7Gq7zVH7uQz4293uVoGR2dc1PtfEiRDosBHT9SiHlUF5F8EKm6U7jajg-nhTCfXMhhRPdiRLOtLZ3uFagSgeV1tIuW9B2LcDjZ96gw131fPBfimhHgBOCCbDaZaD8S14F3jtXFHF8gzrSccFOJbhQjmTTTcc6eZk--1x7LPo77z8TzNQkSShcfdxn65QHa8Ud58M1umHZDQWrQYBT0Lu1I50Fw5nwcGLTag714iA2Ym94EYkStJ4uk-cpusF9cYf1GOCujyJiP2DR7--cU6kyqru6HbKWzg71Mcd3msFBcZeP4_fr9B7N-LXZxNvJl6PNU-aH4ZcxtwJbZd18NW4efOWaXwWCUc8fd7yKCQJysU5fnJqTuOKSOdOGj85jfVHeFnqSAdrH88Rr-c_WYasLrKPVd_qvYfar5QQu14EM_mEQHuAzY5MVwBy-xmzdELXtZjZ9PDT8synE10spqxzPGTPkiKwaffEQuz67We-tJ8tbDJRntFP9XU3qPagetfGJfkGoV_59ocZhIXeF_d0Zsj90UiIoPIJeZkZRI2GJj5wxxQ9O5tcSYq3al2WvNsFi70Ut7bLAHbGdhmM6F-tbVu0="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 117,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 117
+          }
+        ],
+        "promptTokenCount": 3484,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3563
+          }
+        ],
+        "thoughtsTokenCount": 207,
+        "totalTokenCount": 3808,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.20030784606933594,
+      "invocationId": "e-8b680df3-9d56-48ed-8a78-0ee9f7f03190",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "79b3c8c3-2b74-435b-875d-038c14c60364",
+      "timestamp": 1764389372.495848
+    }
+  ],
+  "lastUpdateTime": 1764389372.495848
+}

@@ -69,8 +69,11 @@ def outcode_checker(outcode: str) -> dict:
             else:
                 output["message"] = f"Outcode {outcode} doesn't exist"
                 logger.warning(f"Outcode {outcode} not found in API")
+        elif r.status_code == 404:
+            output["message"] = f"Outcode {outcode} doesn't exist"
+            logger.warning(f"Outcode {outcode} not found in API")
         else:
-            output["message"] = f"Unable to find the outcode {outcode} (HTTP {r.status_code})"
+            output["message"] = f"Unable to find the outcode {outcode}"
             logger.error(f"API returned status code {r.status_code}")
 
     except requests.exceptions.RequestException as e:
@@ -78,10 +81,10 @@ def outcode_checker(outcode: str) -> dict:
         output["message"] = f"Network error: Unable to check outcode {outcode}"
     except json.JSONDecodeError as e:
         logger.error(f"JSON decode error for outcode {outcode}: {e}")
-        output["message"] = f"Invalid response format from API"
+        output["message"] = f"Unable to check outcode {outcode}"
     except Exception as e:
         logger.error(f"Unexpected error checking outcode {outcode}: {e}")
-        output["message"] = f"Unexpected error: {str(e)}"
+        output["message"] = f"Unable to check outcode {outcode}"
 
     return output
 
@@ -108,7 +111,7 @@ def nearby_outcodes(outcode: str) -> dict:
     uri = f"https://api.postcodes.io/outcodes/{outcode}/nearest"
 
     try:
-        
+        logger.info(f"Searching for nearby outcodes for: {outcode}")
         r = requests.get(uri)
 
         if r.status_code == 200:
@@ -123,11 +126,12 @@ def nearby_outcodes(outcode: str) -> dict:
                         codes.append(item.get("outcode"))
                 if len(codes) >0:
                     output["message"] = "Nearby Postcodes found"
+                    logger.info(f"Found {len(codes)} nearby outcodes for {outcode}: {codes}")
                 else:
                     output["message"] = "No nearby postcodes found"
+                    logger.warning(f"No nearby outcodes found for {outcode}")
 
                 output["nearby_postcodes"] = codes
-                logger.info(f"Outcode {outcode} is valid")
             else:
                 output["message"] = f"Outcode {outcode} doesn't exist"
                 logger.warning(f"Outcode {outcode} not found in API")

@@ -15,27 +15,38 @@ PROCESS YOU MUST FOLLOW
 - If the tool returns an error (invalid CSV, missing columns, parse error),
   return the error JSON (as defined in Step 5).
 
-2. COMPUTE MONTHLY SURPLUS
-- After successful validation, call the `estimate_surplus` tool with the exact contents of the Bank Statement CSV file.
-- **CRITICAL REQUIREMENT:** The `estimate_surplus` tool requires a minimum of 3 distinct months of transactions.
-- The tool will return a dictionary containing `available_investment`, `average_surplus`, and `median_surplus`.
+2. COMPUTE AFFORDABILITY
+- After successful validation, call the `estimate_affordability` tool with the exact contents of the Bank Statement CSV file.
+- **CRITICAL REQUIREMENT:** The `estimate_affordability` tool requires a minimum of 3 distinct months of transactions.
+- The tool will return a dictionary containing `available_investment`, and an indicator of afforadability(`is_affordable`), `average_surplus`, and 
+  `median_surplus`.
 - If the tool returns a status of "error" (e.g., 'not enough transactions to estimate surplus'), return the general error JSON (as defined in Step 5).
 
-3. COMPUTE CAPACITY STATISTICS
-The final metrics are provided directly by the `estimate_surplus` tool. You must map them to the final output keys:
-- suggested_investment = value of `available_investment` returned by the tool.
+3. COMPUTE AFFORDABILITY STATISTICS
+The final metrics are provided directly by the `estimate_affordability` tool. You must map them to the final output keys:
+- available_investment = value of `available_investment` returned by the tool.
 - average_surplus = value of `average_surplus` returned by the tool.
 - median_surplus = value of `median_surplus` returned by the tool.
 
-4. OUTPUT
+4. Input
+Return a STRICT JSON object with this schema:
+{
+"file_content": "Contents of the banks file",
+"house_price": <Calculated house price from housing goal>
+}
+
+5. OUTPUT
 Return a STRICT JSON object with this schema:
 
 {
   "status": "success",
-  "message": "Saving capacity estimated successfully",
+  "message": "<text from estimate_affordability>",
   "suggested_investment": <number>,
   "average_surplus": <number>,
-  "median_surplus": <number>
+  "median_surplus": <number>,
+  "average_income": <number>,
+  "median_income": <number>,
+  "is_affordable": <boolean>
 }
 
 5. ERROR OUTPUT (Mandated Structure for ALL Errors)

@@ -7,9 +7,6 @@ from src.agent.housinggoal import housing_goalagent
 from src.agent.BankData import bank_data_agent
 from src.agent.RiskProfiler import risk_profiler_agent
 from src.agent.PlanGenerator import plan_generator_agent
-from src.tools.StatePersisterTool import state_persister_tool
-
-
 
 logger = logging.getLogger(__name__)
 
@@ -34,6 +31,6 @@ orchestrator_agent = LlmAgent(
     tools=[agent_tool.AgentTool(agent=housing_goalagent),
            agent_tool.AgentTool(agent=bank_data_agent),
            agent_tool.AgentTool(agent=risk_profiler_agent),
-           agent_tool.AgentTool(agent=plan_generator_agent),
-           state_persister_tool],
+           agent_tool.AgentTool(agent=plan_generator_agent)
+           ],
 )

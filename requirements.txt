@@ -8,3 +8,5 @@ python-dotenv
 uvicorn[standard]
 fastapi
 opentelemetry-instrumentation-google-genai
+pytest
+pytest-asyncio

@@ -1,0 +1,78 @@
+{
+  "eval_set_id": "evalset_8c70c416-8ebe-4c9d-b108-b607be2d1f11",
+  "name": "evalset_8c70c416-8ebe-4c9d-b108-b607be2d1f11",
+  "eval_cases": [
+    {
+      "eval_id": "case_8c70c416-8ebe-4c9d-b108-b607be2d1f11",
+      "conversation": [
+        {
+          "invocation_id": "e-df5eb00d-7e3a-4f1f-b745-256c0ae9083b",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Can you help me with a 2-bedroom apartment in HPXX"
+              }
+            ],
+            "role": "user"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "orchestrator_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-060c5080-3edf-4f2d-992d-d9d0ff04b640",
+                        "args": {
+                          "postcode": "HPXX",
+                          "property_type": "2-bedroom apartment"
+                        },
+                        "name": "housing_goal_agent"
+                      },
+                      "thoughtSignature": "CvgCAePx_14Bh75XmA-kVAPR77-81qYeiyO8MVIuC7fF2ZwozpaWFYT27qGciX1FXRlKNcn5FuogYfFvNKuSpk7RRALDgBUOl_wTa8W0uDoH3gnQLaWxcb7CvX_vAUMVhieDg8wjLRAtPBKGzZ8r9vTD6twrdUoS1h4LY1gAe7d73VoaCHLbwTJ9lzaYY7M4eCVpTkjNHLYEMEKU7_HNx6f5Jn_JJq9qbmrc_pxKc0Glh-s1KyrnNUeurn_spBCg1Lzko0dL9jW5fQB-l7HBlfRzLEUb5-982TfwcfIrF412K2a7BZBZR-w5CyKNLU3WpYPF87ow5vCBqS3eTOuB7sfRIhcjuNPvpIqqTFLQtJK2FPPWGfhxoQlefZjxk-aCe1Q88XDpXuhNMdmgCps9WvPEmH6A3_Um6nb7JHzRFeykbpJcRgxguSG02rSZCP42VntNxQXOOfMII9DSAg3kZ2TS3pGuqEZJfxN-Zh7VIX8ImgcmJwFb-UrWGw=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "orchestrator_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-060c5080-3edf-4f2d-992d-d9d0ff04b640",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "{\"postcode\": \"HPXX\", \"property_type\": \"2-bedroom apartment\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": null, \"status\": \"error\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764415586.27852,
+          "final_response": {
+            "parts": [
+              {
+                "text": "I'm sorry, but \"HPXX\" doesn't seem to be a valid postcode. Could you please provide a valid UK postcode area (e.g., HP12, SW1, M4) so I can help you find a 2-bedroom apartment?",
+                "thoughtSignature": "CtsBAePx_16Tu42_q2ubdYTWSza2_ny33xKOGriOANoSYa4PLYWUdQECIavLljdnzdJeC8ppHVD9rjNGjmRRO1nWnhf_B0nwas1-RKmaEeW0wlS3561JX8u2yDjAgcR9XVHWylh8Uh8vo_PzYdzjE_BM6bQGPzNseKWErnXPXB5jsGYTLh36YjiACKrjEIjkZ5QrHMA-2MHnmCh22Y844XjSR-mTe-hKaXKhPViogOj1KJdBiCiZXRL95BzwclrzdqsvG-sCvONghYkwrgKn5Jsusj4o8VL9uqdF6M5n"
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "mortgage_deposit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764415643.081847
+    }
+  ],
+  "creation_timestamp": 1764415643.081847
+}

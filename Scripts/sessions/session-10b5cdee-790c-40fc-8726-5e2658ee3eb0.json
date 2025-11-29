@@ -1,0 +1,957 @@
+{
+  "id": "10b5cdee-790c-40fc-8726-5e2658ee3eb0",
+  "appName": "mortgage_deposit_agent",
+  "userId": "user",
+  "state": {
+    "house_prices": "```json\n{\n\"status\": \"success\",\n\"price_data\": [\n{\n\"postCode\": \"HP12\",\n\"type\": \"Apartment\",\n\"bedrooms\": 1,\n\"priceMin\": 165000,\n\"priceMax\": 215000,\n\"sources\": [\n\"https://www.zoopla.co.uk/for-sale/flats/hp12/\",\n\"https://www.onthemarket.com/for-sale/1-bed-flats/hp12/\"\n]\n}\n],\n\"message\": \"house prices found\"\n}\n```",
+    "housing_goal": "{\"postcode\": \"HP12\", \"property_type\": \"1-bed apartment\", \"min_price\": 165000.0, \"max_price\": 215000.0, \"deposit_target\": 17500, \"house_prices\": null, \"status\": \"success\"}",
+    "saving_capacity": "{\"status\": \"success\", \"message\": \"Based on your income estimates from the bank statement the average house \\n            price of 165000 is outside your afforable range of 10000 \", \"suggested_investment\": 190.0, \"average_surplus\": 231.0, \"median_surplus\": 238.0, \"average_income\": 2000.0, \"median_income\": 2000.0, \"is_affordable\": false}",
+    "user:preferences": "{\"stage\":\"capacity\",\"housing_goal\":{\"status\":\"success\",\"postcode\":\"HP12\",\"property_type\":\"1-bed apartment\",\"min_price\":165000.0,\"max_price\":215000.0,\"deposit_target\":17500.0,\"price_options\":null,\"error_message\":null},\"bank_capacity\":{\"status\":\"success\",\"suggested_investment\":190,\"avg_surplus\":null,\"median_surplus\":238.0,\"error_message\":null},\"risk_profile\":null,\"final_plan\":null}"
+  },
+  "events": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Can you help me save for the deposit on a 2-bed house at HP12"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-195cd8b4-30fb-4a6b-b8da-190feccf75d1",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "1c8260d9-5480-451e-91dc-88a8b62b9acd",
+      "timestamp": 1764390465.060957
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-13e1ef44-90c1-44f8-8549-db8ed27607a6",
+              "args": {
+                "postcode": "HP12",
+                "property_type": "2-bed house"
+              },
+              "name": "housing_goal_agent"
+            },
+            "thoughtSignature": "Cv8CAePx_16hi53SwTDsQCfF2yjYllt6S1Xk7NSx1AwP1S_-ybclYCNRM5FVUxKZ800BdPhmUeLQKeqjIGRZGldu8vrlTAO6vfCZhc-Lywx7qseS2z8Y2xfXezAiViNwcMKFdJRJMSnI8LpQkc1hRG7Tq2spcNUMhbKbKi5b8HT0c-IaeVkzHSCbrpbY8SosQ87NVgVsFAgkQf7-rk2XM816E2YLfhFzLCT1pUNjsm5nrhgbZRHNHriR6KkOZX62u331Q1OOmw_9RrF6k9_I2q6Y1QTbPJ11rPQqvysgEh9jUiG16VntK5Fp78PoE5UUje6DfDc6SSf6r6wPtez71quN3-8hM2iL9uSkRIlkKuFbDwJNGeOwPz8PZLoKhcW2H3xnX_1R_dBt45OkI1q64ii4qqUtmSVqTvOifFpyXHU_s2LjyMF8u85BL9eHZ14s9VYIOxq8yYN7Jyyt2iNTaa8x5W8d1zUNSTgePjpB4piUyYGaqcl7vMbnY6CUxMmQwvE="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 16,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 16
+          }
+        ],
+        "promptTokenCount": 2989,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2989
+          }
+        ],
+        "thoughtsTokenCount": 96,
+        "totalTokenCount": 3101,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.4949454665184021,
+      "invocationId": "e-195cd8b4-30fb-4a6b-b8da-190feccf75d1",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "2f3d73ce-c225-458f-a0e2-caa9c48e96c7",
+      "timestamp": 1764390465.067372
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-13e1ef44-90c1-44f8-8549-db8ed27607a6",
+              "name": "housing_goal_agent",
+              "response": {
+                "result": "{\"postcode\": \"HP12\", \"property_type\": \"2-bed house\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": [{\"postCode\": \"HP12\", \"type\": \"Terraced\", \"bedrooms\": 2, \"priceMin\": 239950, \"priceMax\": 429950, \"sources\": [\"https://www.rightmove.co.uk/property-for-sale/HP12.html\", \"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\"]}, {\"postCode\": \"HP12\", \"type\": \"Detached\", \"bedrooms\": 2, \"priceMin\": 400000, \"priceMax\": 660000, \"sources\": [\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\", \"https://www.zoopla.co.uk/house-prices/hp12/\"]}], \"status\": \"AWAITING_CONFIRMATION\"}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-195cd8b4-30fb-4a6b-b8da-190feccf75d1",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "house_prices": "```json\n{\n\"status\": \"success\",\n\"price_data\": [\n{\n\"postCode\": \"HP12\",\n\"type\": \"Terraced\",\n\"bedrooms\": 2,\n\"priceMin\": 239950,\n\"priceMax\": 429950,\n\"sources\": [\n\"https://www.rightmove.co.uk/property-for-sale/HP12.html\",\n\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\"\n]\n},\n{\n\"postCode\": \"HP12\",\n\"type\": \"Detached\",\n\"bedrooms\": 2,\n\"priceMin\": 400000,\n\"priceMax\": 660000,\n\"sources\": [\n\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\",\n\"https://www.zoopla.co.uk/house-prices/hp12/\"\n]\n}\n],\n\"message\": \"house prices found\"\n}\n```",
+          "housing_goal": "{\"postcode\": \"HP12\", \"property_type\": \"2-bed house\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": [{\"postCode\": \"HP12\", \"type\": \"Terraced\", \"bedrooms\": 2, \"priceMin\": 239950, \"priceMax\": 429950, \"sources\": [\"https://www.rightmove.co.uk/property-for-sale/HP12.html\", \"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\"]}, {\"postCode\": \"HP12\", \"type\": \"Detached\", \"bedrooms\": 2, \"priceMin\": 400000, \"priceMax\": 660000, \"sources\": [\"https://www.onthemarket.com/for-sale/2-bed-houses/hp12/\", \"https://www.zoopla.co.uk/house-prices/hp12/\"]}], \"status\": \"AWAITING_CONFIRMATION\"}",
+          "user:preferences": "{\"stage\":\"housing\",\"housing_goal\":{\"status\":\"AWAITING_CONFIRMATION\",\"postcode\":\"HP12\",\"property_type\":\"2-bed house\",\"min_price\":null,\"max_price\":null,\"deposit_target\":null,\"price_options\":null,\"error_message\":null},\"bank_capacity\":null,\"risk_profile\":null,\"final_plan\":null}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "07509d6c-93ca-44a4-bd93-fe748c8a7294",
+      "timestamp": 1764390515.204802
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Great! I've found some information for 2-bedroom houses in HP12.\n\nIt looks like you have a couple of options:\n*   **Terraced house:** Prices typically range from £239,950 to £429,950.\n*   **Detached house:** Prices typically range from £400,000 to £660,000.\n\nWhich of these options would you like to focus on for your savings goal?",
+            "thoughtSignature": "Cs8DAePx_14zcm0xvjS7c4SMdC45nttZCjj4NmNSfZGVYVdBefcOeKkB1_9EVyVbnYAios9prC51wk7s_W4qcZnlBgfS1C5dEKT0Gi3iCPvYuJQK0H8_f2ejqTQ4feq1jWBwSYemC9BiNvgSs461DOaRH_2WeXz6kxHkqwmVDTw5_mbyITnUGj58en0pK0vmPUabTIi8rWl-8VLe4dhjCopHs2T3fVxvogamS-xC2CDUs7Xky2NGBdHgqJ5sQokYMXQIneRP6vEM7bVGcV6opdmibjWn9z01BgUah0RUltcoCjnYRkqXJWCq-VOsOFmSKiRBTVsTRyUy1O6fcqMlxoPQTZRTRq8A1ozNVDQM1Kl6fBuUPkXmFxFIP2CGibKaVjGS__iAlguPhOgCEJTnuJISvCr9wbZtUsMqb7H-TNI7ntBAU0xmrmg_A0xkgj2vGT3MK7bD9VMsPHYcaeKBlLOoPN-fiVLPlR2a7hZhTEewtcLY69Mv__jlvTxtE80fo-jQ8ndYt0AXp0m1mDyY75Pna9Q6cMxBwvk7oiK6x6mJU0fGOGsXdSPHv8-rL2Mq08umPDeoNF4MMTp31WwW8Q0w373msCYUo3P1sbFJ1zuZbg=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2442
+          }
+        ],
+        "cachedContentTokenCount": 2442,
+        "candidatesTokenCount": 105,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 105
+          }
+        ],
+        "promptTokenCount": 3263,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3357
+          }
+        ],
+        "thoughtsTokenCount": 139,
+        "totalTokenCount": 3507,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.1663058144705636,
+      "invocationId": "e-195cd8b4-30fb-4a6b-b8da-190feccf75d1",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "7efc65ce-36c8-439a-b55d-899014dc2f7e",
+      "timestamp": 1764390515.211096
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Let's go with Terraced house"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-055f2394-4a4d-4bb8-a512-b19d534d5f56",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "96ffb856-408c-47d8-9d51-05b99b69b4a9",
+      "timestamp": 1764390537.52277
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-7d1816e2-db18-44a0-a5ec-2a1ee879a603",
+              "args": {
+                "property_type": "2-bed house",
+                "postcode": "HP12",
+                "max_price": 429950,
+                "human_approval": true,
+                "min_price": 239950
+              },
+              "name": "housing_goal_agent"
+            },
+            "thoughtSignature": "CtMDAePx_17G9NfSwyPFoSSkrYLg3jZOccYG1tnGT0Q_RX7iO3jAVwqztkS-NMhHorH2iq_R1hrHAwvpx8fQ9e_NYUVlqfF5mf807stE4SXLYtChKVzrxZwhYyAo-N_Ny35DAq6TX9xvBGGzcqmMtYdl1Mx7KM1HOxAraOLV_RaFJ5fIm6bfOAC8JqU14n4CAfrsGV3PHeiMTSOKhXIV3O4IbY-eelhxDSdpj8imW8hh13NtGSBSIoKL4Ww1RWwuCgrtiCOVrp80Z_3lglrNCnBAwF6CsED_04aXZDmXneT7RdbYUd8aQFxhUnOM7rp-8QRjE_V4ovtxvO4pQjCbt-Xvw-LX0xontQLjkMz3wggwE70vd7GEp_hGp6vGh-iCJwTnoV-JW_nn7vh-vu9HDqoQTgDIiKLnXGF44Eh9FE1qKhFck8KWO3S2GkFoKnRxpjwHJx8d9k5fMGEcl1apyLK7qxNmPMnmrpZb_PZqZENE5pSR6jsKoFE8TwSbow-EY_Cv45zh8uh_DVyt7jMgOQLngasM1wKorvGS-tEwFTMEuqm8YgvrKcVCh8Au6Nl9TS1y1cyjaQVQGPH24boBGSeiuWwPIMrEyMe8cpERDIVNA9PVS8w="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 28,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 28
+          }
+        ],
+        "promptTokenCount": 3376,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3607
+          }
+        ],
+        "thoughtsTokenCount": 125,
+        "totalTokenCount": 3529,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.6629208156040737,
+      "invocationId": "e-055f2394-4a4d-4bb8-a512-b19d534d5f56",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "b217bcc9-82fb-4c37-b14b-50b88f1df7c0",
+      "timestamp": 1764390537.528495
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-7d1816e2-db18-44a0-a5ec-2a1ee879a603",
+              "name": "housing_goal_agent",
+              "response": {
+                "result": "{\"postcode\": \"HP12\", \"property_type\": \"2-bed house\", \"min_price\": 239950.0, \"max_price\": 429950.0, \"deposit_target\": 27795, \"house_prices\": null, \"status\": \"success\"}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-055f2394-4a4d-4bb8-a512-b19d534d5f56",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "housing_goal": "{\"postcode\": \"HP12\", \"property_type\": \"2-bed house\", \"min_price\": 239950.0, \"max_price\": 429950.0, \"deposit_target\": 27795, \"house_prices\": null, \"status\": \"success\"}",
+          "user:preferences": "{\"stage\":\"housing\",\"housing_goal\":{\"status\":\"success\",\"postcode\":\"HP12\",\"property_type\":\"2-bed house\",\"min_price\":239950.0,\"max_price\":429950.0,\"deposit_target\":27795.0,\"price_options\":null,\"error_message\":null},\"bank_capacity\":null,\"risk_profile\":null,\"final_plan\":null}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "56c33685-a1c4-4e59-9238-df9889a5b879",
+      "timestamp": 1764390550.305739
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Great! We've set your housing goal to a 2-bedroom terraced house in HP12, with a target deposit of £27,795.\n\nNow, to figure out how much you can comfortably save each month, I'll need to look at your recent transactions. Could you please upload a CSV file of your bank statements from the last three months?",
+            "thoughtSignature": "CvUCAePx_14Ta75I7nMA2OdZwQXFd8LzQG7Pz5ItNxk8yDMxeV_38okEwz4gffGlpRpl02EmJUtItaun1zdSRNrgO7LYmbT3xjuoqZIgIldg5YgAX77qUZLHJWb9By6PXYJBCPCptTcsdeRCt3g_LCKj7tuPrpCWtLk8yMjV3V6u2vf-vxC9MyXO8PBghL113zHApnYoLMoJr3Z6AbV5rzj-L4vqL4jtZV0SCg3_2j5YPYuKjl_JZdj1RZqDmV-zLVeJwIDwGvIQpgS8X7_5r4WhQzGbsoGA0cG8rFE02pXbk2YtZKFtCjyJ8JGt8P7xS6svARhtj1YrouvyJA1TDshJ0PbR8S8SJQVTyMigejjrPG18JeRyJVtQAwTWAMULrsfB2uWQ-vigh5Wt6RQ4P-dztPvKzjCutooVwCvZnYS6lqCoseIwF1Ex1McjrLTulpN29618TGIcsYkW7rJ0TPFiNpBywntoEvef1ZVcRscm65TtpqHuwA=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3290
+          }
+        ],
+        "cachedContentTokenCount": 3290,
+        "candidatesTokenCount": 78,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 78
+          }
+        ],
+        "promptTokenCount": 3484,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3838
+          }
+        ],
+        "thoughtsTokenCount": 87,
+        "totalTokenCount": 3649,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.264073860950959,
+      "invocationId": "e-055f2394-4a4d-4bb8-a512-b19d534d5f56",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "3d2834df-66e7-4286-af0a-870e4d1e2de8",
+      "timestamp": 1764390550.311739
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Here is the bank statement"
+          },
+          {
+            "inlineData": {
+              "data": "VHJhbnNhY3Rpb24gRGF0ZSxEZXNjcmlwdGlvbixDcmVkaXQgYW1vdW50LERlYml0IGFtb3VudA0KMjAyNS0wMS0wMSxBQ01FIFBBWVJPTEwsMjAwMC4wMCwNCjIwMjUtMDEtMDIsUkVOVCBQQVlNRU5ULCw5MDAuMDANCjIwMjUtMDEtMDMsVEVTQ08gU1RPUkUgIzEsLDQxLjAwDQoyMDI1LTAxLTA0LFRFU0NPIFNUT1JFICMyLCw3MC4wMA0KMjAyNS0wMS0wNSxURVNDTyBTVE9SRSAjMywsNTEuMDANCjIwMjUtMDEtMDYsVEVTQ08gU1RPUkUgIzQsLDEyOS4wMA0KMjAyNS0wMS0wOCxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDg3LjAwDQoyMDI1LTAxLTEwLFVUSUxJVFkgQklMTCBHQVMsLDQxLjAwDQoyMDI1LTAxLTEyLFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMSwsMjguMDANCjIwMjUtMDEtMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAyLCwyMi4wMA0KMjAyNS0wMS0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDMsLDI3LjAwDQoyMDI1LTAxLTIwLFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgNCwsMTkuMDANCjIwMjUtMDEtMjIsTkVURkxJWCwsOS45OQ0KMjAyNS0wMS0yNCxTUE9USUZZLCwxNS45OQ0KMjAyNS0wMS0yNSxHWU0gTUVNQkVSU0hJUCwsMjkuOTkNCjIwMjUtMDEtMjcsUkVTVEFVUkFOVCAjMSwsMzMuMDANCjIwMjUtMDEtMjgsUkVTVEFVUkFOVCAjMiwsMzUuMDANCjIwMjUtMDEtMjgsUkVTVEFVUkFOVCAjMywsMzYuMDANCjIwMjUtMDEtMjgsQU1BWk9OIE9SREVSICMxLCwyOS4wMA0KMjAyNS0wMS0yOCxBTUFaT04gT1JERVIgIzIsLDI2LjAwDQoyMDI1LTAxLTI4LEFNQVpPTiBPUkRFUiAjMywsNDIuMDANCjIwMjUtMDEtMjgsQ0FTSCBXSVRIRFJBV0FMLCwxNDcuMDINCjIwMjUtMDItMDEsQUNNRSBQQVlST0xMLDIwMDAuMDAsDQoyMDI1LTAyLTAyLFJFTlQgUEFZTUVOVCwsOTAwLjAwDQoyMDI1LTAyLTAzLFRFU0NPIFNUT1JFICMxLCw1MC4wMA0KMjAyNS0wMi0wNSxURVNDTyBTVE9SRSAjMiwsNzMuMDANCjIwMjUtMDItMDYsVEVTQ08gU1RPUkUgIzMsLDMyLjAwDQoyMDI1LTAyLTA3LFRFU0NPIFNUT1JFICM0LCwxMDguMDANCjIwMjUtMDItMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCw5Mi4wMA0KMjAyNS0wMi0xMSxVVElMSVRZIEJJTEwgR0FTLCw1My4wMA0KMjAyNS0wMi0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDMxLjAwDQoyMDI1LTAyLTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMTguMDANCjIwMjUtMDItMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwxOS4wMA0KMjAyNS0wMi0xOCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDIwLjAwDQoyMDI1LTAyLTIwLE5FVEZMSVgsLDkuOTkNCjIwMjUtMDItMjIsU1BPVElGWSwsMTUuOTkNCjIwMjUtMDItMjQsR1lNIE1FTUJFUlNISVAsLDI5Ljk5DQoyMDI1LTAyLTI1LFJFU1RBVVJBTlQgIzEsLDM5LjAwDQoyMDI1LTAyLTI2LFJFU1RBVVJBTlQgIzIsLDM2LjAwDQoyMDI1LTAyLTI3LFJFU1RBVVJBTlQgIzMsLDMxLjAwDQoyMDI1LTAyLTI4LEFNQVpPTiBPUkRFUiAjMSwsMzcuMDANCjIwMjUtMDItMjgsQU1BWk9OIE9SREVSICMyLCwzOS4wMA0KMjAyNS0wMi0yOCxBTUFaT04gT1JERVIgIzMsLDI5LjAwDQoyMDI1LTAyLTI4LENBU0ggV0lUSERSQVdBTCwsOTkuMDMNCjIwMjUtMDMtMDEsQUNNRSBQQVlST0xMLDIwMDAuMDAsDQoyMDI1LTAzLTAyLFJFTlQgUEFZTUVOVCwsOTAwLjAwDQoyMDI1LTAzLTAzLFRFU0NPIFNUT1JFICMxLCwzOS4wMA0KMjAyNS0wMy0wNCxURVNDTyBTVE9SRSAjMiwsNjYuMDANCjIwMjUtMDMtMDYsVEVTQ08gU1RPUkUgIzMsLDQzLjAwDQoyMDI1LTAzLTA3LFRFU0NPIFNUT1JFICM0LCwxMzEuMDANCjIwMjUtMDMtMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCw4Ny4wMA0KMjAyNS0wMy0xMSxVVElMSVRZIEJJTEwgR0FTLCw0NC4wMA0KMjAyNS0wMy0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDE4LjAwDQoyMDI1LTAzLTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMjAuMDANCjIwMjUtMDMtMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwyNC4wMA0KMjAyNS0wMy0xOSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDMzLjAwDQoyMDI1LTAzLTIxLE5FVEZMSVgsLDkuOTkNCjIwMjUtMDMtMjMsU1BPVElGWSwsMTUuOTkNCjIwMjUtMDMtMjUsR1lNIE1FTUJFUlNISVAsLDI5Ljk5DQoyMDI1LTAzLTI2LFJFU1RBVVJBTlQgIzEsLDM5LjAwDQoyMDI1LTAzLTI3LFJFU1RBVVJBTlQgIzIsLDM1LjAwDQoyMDI1LTAzLTI4LFJFU1RBVVJBTlQgIzMsLDI3LjAwDQoyMDI1LTAzLTI4LEFNQVpPTiBPUkRFUiAjMSwsMzkuMDANCjIwMjUtMDMtMjgsQU1BWk9OIE9SREVSICMyLCw0MS4wMA0KMjAyNS0wMy0yOCxBTUFaT04gT1JERVIgIzMsLDI4LjAwDQoyMDI1LTAzLTI4LENBU0ggV0lUSERSQVdBTCwsMTAyLjAyDQoyMDI1LTA0LTAxLEFDTUUgUEFZUk9MTCwyMDAwLjAwLA0KMjAyNS0wNC0wMixSRU5UIFBBWU1FTlQsLDkwMC4wMA0KMjAyNS0wNC0wMyxURVNDTyBTVE9SRSAjMSwsNTEuMDANCjIwMjUtMDQtMDUsVEVTQ08gU1RPUkUgIzIsLDY1LjAwDQoyMDI1LTA0LTA2LFRFU0NPIFNUT1JFICMzLCw0NC4wMA0KMjAyNS0wNC0wOCxURVNDTyBTVE9SRSAjNCwsMTI0LjAwDQoyMDI1LTA0LTEwLFVUSUxJVFkgQklMTCBFTEVDVFJJQ0lUWSwsODMuMDANCjIwMjUtMDQtMTIsVVRJTElUWSBCSUxMIEdBUywsMzkuMDANCjIwMjUtMDQtMTQsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwyMC4wMA0KMjAyNS0wNC0xNixUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDE2LjAwDQoyMDI1LTA0LTE4LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsMjguMDANCjIwMjUtMDQtMTksVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCwyMy4wMA0KMjAyNS0wNC0yMSxORVRGTElYLCw5Ljk5DQoyMDI1LTA0LTIzLFNQT1RJRlksLDE1Ljk5DQoyMDI1LTA0LTI1LEdZTSBNRU1CRVJTSElQLCwyOS45OQ0KMjAyNS0wNC0yNixSRVNUQVVSQU5UICMxLCwzNy4wMA0KMjAyNS0wNC0yNyxSRVNUQVVSQU5UICMyLCwzNC4wMA0KMjAyNS0wNC0yOCxSRVNUQVVSQU5UICMzLCwyNi4wMA0KMjAyNS0wNC0yOCxBTUFaT04gT1JERVIgIzEsLDM5LjAwDQoyMDI1LTA0LTI4LEFNQVpPTiBPUkRFUiAjMiwsMzMuMDANCjIwMjUtMDQtMjgsQU1BWk9OIE9SREVSICMzLCw0MS4wMA0KMjAyNS0wNC0yOCxDQVNIIFdJVEhEUkFXQUwsLDgzLjAyDQoyMDI1LTA1LTAxLEFDTUUgUEFZUk9MTCwyMDAwLjAwLA0KMjAyNS0wNS0wMixSRU5UIFBBWU1FTlQsLDkwMC4wMA0KMjAyNS0wNS0wMyxURVNDTyBTVE9SRSAjMSwsNDUuMDANCjIwMjUtMDUtMDQsVEVTQ08gU1RPUkUgIzIsLDYzLjAwDQoyMDI1LTA1LTA2LFRFU0NPIFNUT1JFICMzLCw0NS4wMA0KMjAyNS0wNS0wNyxURVNDTyBTVE9SRSAjNCwsMTI0LjAwDQoyMDI1LTA1LTA5LFVUSUxJVFkgQklMTCBFTEVDVFJJQ0lUWSwsODIuMDANCjIwMjUtMDUtMTEsVVRJTElUWSBCSUxMIEdBUywsNDkuMDANCjIwMjUtMDUtMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwyOC4wMA0KMjAyNS0wNS0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDIyLjAwDQoyMDI1LTA1LTE3LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsMTkuMDANCjIwMjUtMDUtMTgsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCwyMi4wMA0KMjAyNS0wNS0yMCxORVRGTElYLCw5Ljk5DQoyMDI1LTA1LTIyLFNQT1RJRlksLDE1Ljk5DQoyMDI1LTA1LTI0LEdZTSBNRU1CRVJTSElQLCwyOS45OQ0KMjAyNS0wNS0yNSxSRVNUQVVSQU5UICMxLCw0My4wMA0KMjAyNS0wNS0yNixSRVNUQVVSQU5UICMyLCwzMS4wMA0KMjAyNS0wNS0yNyxSRVNUQVVSQU5UICMzLCwyNy4wMA0KMjAyNS0wNS0yOCxBTUFaT04gT1JERVIgIzEsLDQzLjAwDQoyMDI1LTA1LTI4LEFNQVpPTiBPUkRFUiAjMiwsMjguMDANCjIwMjUtMDUtMjgsQU1BWk9OIE9SREVSICMzLCwzNS4wMA0KMjAyNS0wNS0yOCxDQVNIIFdJVEhEUkFXQUwsLDg5LjAzDQo=",
+              "displayName": "bankstatement.csv",
+              "mimeType": "text/csv"
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-d80a4b85-d95e-4204-b636-0dddd46c01c6",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "5635f5b4-81f1-4309-81f6-b347deede1f2",
+      "timestamp": 1764390572.518959
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-48e80084-9f88-467f-aaac-e3c8e0bcfcda",
+              "args": {
+                "house_price": 239950,
+                "file_content": "Transaction Date,Description,Credit amount,Debit amount\n2025-01-01,ACME PAYROLL,2000.00,\n2025-01-02,RENT PAYMENT,,900.00\n2025-01-03,TESCO STORE #1,,41.00\n2025-01-04,TESCO STORE #2,,70.00\n2025-01-05,TESCO STORE #3,,51.00\n2025-01-06,TESCO STORE #4,,129.00\n2025-01-08,UTILITY BILL ELECTRICITY,,87.00\n2025-01-10,UTILITY BILL GAS,,41.00\n2025-01-12,TRANSPORT OYSTER TOPUP 1,,28.00\n2025-01-13,TRANSPORT OYSTER TOPUP 2,,22.00\n2025-01-15,TRANSPORT OYSTER TOPUP 3,,27.00\n2025-01-20,TRANSPORT OYSTER TOPUP 4,,19.00\n2025-01-22,NETFLIX,,9.99\n2025-01-24,SPOTIFY,,15.99\n2025-01-25,GYM MEMBERSHIP,,29.99\n2025-01-27,RESTAURANT #1,,33.00\n2025-01-28,RESTAURANT #2,,35.00\n2025-01-28,RESTAURANT #3,,36.00\n2025-01-28,AMAZON ORDER #1,,29.00\n2025-01-28,AMAZON ORDER #2,,26.00\n2025-01-28,AMAZON ORDER #3,,42.00\n2025-01-28,CASH WITHDRAWAL,,147.02\n2025-02-01,ACME PAYROLL,2000.00,\n2025-02-02,RENT PAYMENT,,900.00\n2025-02-03,TESCO STORE #1,,50.00\n2025-02-05,TESCO STORE #2,,73.00\n2025-02-06,TESCO STORE #3,,32.00\n2025-02-07,TESCO STORE #4,,108.00\n2025-02-09,UTILITY BILL ELECTRICITY,,92.00\n2025-02-11,UTILITY BILL GAS,,53.00\n2025-02-13,TRANSPORT OYSTER TOPUP 1,,31.00\n2025-02-15,TRANSPORT OYSTER TOPUP 2,,18.00\n2025-02-17,TRANSPORT OYSTER TOPUP 3,,19.00\n2025-02-18,TRANSPORT OYSTER TOPUP 4,,20.00\n2025-02-20,NETFLIX,,9.99\n2025-02-22,SPOTIFY,,15.99\n2025-02-24,GYM MEMBERSHIP,,29.99\n2025-02-25,RESTAURANT #1,,39.00\n2025-02-26,RESTAURANT #2,,36.00\n2025-02-27,RESTAURANT #3,,31.00\n2025-02-28,AMAZON ORDER #1,,37.00\n2025-02-28,AMAZON ORDER #2,,39.00\n2025-02-28,AMAZON ORDER #3,,29.00\n2025-02-28,CASH WITHDRAWAL,,99.03\n2025-03-01,ACME PAYROLL,2000.00,\n2025-03-02,RENT PAYMENT,,900.00\n2025-03-03,TESCO STORE #1,,39.00\n2025-03-04,TESCO STORE #2,,66.00\n2025-03-06,TESCO STORE #3,,43.00\n2025-03-07,TESCO STORE #4,,131.00\n2025-03-09,UTILITY BILL ELECTRICITY,,87.00\n2025-03-11,UTILITY BILL GAS,,44.00\n2025-03-13,TRANSPORT OYSTER TOPUP 1,,18.00\n2025-03-15,TRANSPORT OYSTER TOPUP 2,,20.00\n2025-03-17,TRANSPORT OYSTER TOPUP 3,,24.00\n2025-03-19,TRANSPORT OYSTER TOPUP 4,,33.00\n2025-03-21,NETFLIX,,9.99\n2025-03-23,SPOTIFY,,15.99\n2025-03-25,GYM MEMBERSHIP,,29.99\n2025-03-26,RESTAURANT #1,,39.00\n2025-03-27,RESTAURANT #2,,35.00\n2025-03-28,RESTAURANT #3,,27.00\n2025-03-28,AMAZON ORDER #1,,39.00\n2025-03-28,AMAZON ORDER #2,,41.00\n2025-03-28,AMAZON ORDER #3,,28.00\n2025-03-28,CASH WITHDRAWAL,,102.02\n2025-04-01,ACME PAYROLL,2000.00,\n2025-04-02,RENT PAYMENT,,900.00\n2025-04-03,TESCO STORE #1,,51.00\n2025-04-05,TESCO STORE #2,,65.00\n2025-04-06,TESCO STORE #3,,44.00\n2025-04-08,TESCO STORE #4,,124.00\n2025-04-10,UTILITY BILL ELECTRICITY,,83.00\n2025-04-12,UTILITY BILL GAS,,39.00\n2025-04-14,TRANSPORT OYSTER TOPUP 1,,20.00\n2025-04-16,TRANSPORT OYSTER TOPUP 2,,16.00\n2025-04-18,TRANSPORT OYSTER TOPUP 3,,28.00\n2025-04-19,TRANSPORT OYSTER TOPUP 4,,23.00\n2025-04-21,NETFLIX,,9.99\n2025-04-23,SPOTIFY,,15.99\n2025-04-25,GYM MEMBERSHIP,,29.99\n2025-04-26,RESTAURANT #1,,37.00\n2025-04-27,RESTAURANT #2,,34.00\n2025-04-28,RESTAURANT #3,,26.00\n2025-04-28,AMAZON ORDER #1,,39.00\n2025-04-28,AMAZON ORDER #2,,33.00\n2025-04-28,AMAZON ORDER #3,,41.00\n2025-04-28,CASH WITHDRAWAL,,83.02\n2025-05-01,ACME PAYROLL,2000.00,\n2025-05-02,RENT PAYMENT,,900.00\n2025-05-03,TESCO STORE #1,,45.00\n2025-05-04,TESCO STORE #2,,63.00\n2025-05-06,TESCO STORE #3,,45.00\n2025-05-07,TESCO STORE #4,,124.00\n2025-05-09,UTILITY BILL ELECTRICITY,,82.00\n2025-05-11,UTILITY BILL GAS,,49.00\n2025-05-13,TRANSPORT OYSTER TOPUP 1,,28.00\n2025-05-15,TRANSPORT OYSTER TOPUP 2,,22.00\n2025-05-17,TRANSPORT OYSTER TOPUP 3,,19.00\n2025-05-18,TRANSPORT OYSTER TOPUP 4,,22.00\n2025-05-20,NETFLIX,,9.99\n2025-05-22,SPOTIFY,,15.99\n2025-05-24,GYM MEMBERSHIP,,29.99\n2025-05-25,RESTAURANT #1,,43.00\n2025-05-26,RESTAURANT #2,,31.00\n2025-05-27,RESTAURANT #3,,27.00\n2025-05-28,AMAZON ORDER #1,,43.00\n2025-05-28,AMAZON ORDER #2,,28.00\n2025-05-28,AMAZON ORDER #3,,35.00\n2025-05-28,CASH WITHDRAWAL,,89.03"
+              },
+              "name": "bank_data_agent"
+            },
+            "thoughtSignature": "CvgDAePx_1799N9197_VZASwRZ9awaijufFMsmmHXZtMgjkKtqGAFmyjr11B2M7H_6uoWXATHl5YD_IQAkCHjqSLIirGQyZHyZ21bATELdOE64Q8UhEOtDbL4c-FubS33TH6hWBwEgryRLs1scg0mHaGtIBn118VYgFK2PSMf2-CfTJOJnMnopB06xX3QQwO7V_SNJZqSD2pg0wsEZc_KIY73ujaa5xVCZWwmgDtBT1vilj6KdD5rkg5KzdnIEntO-duTFuWpsbtmdkzrpyvFL2LuwF5eLk2eCmAdNYtejCWqxGlice0Cbymz_CLbb5cszE5YwzdRoRMw7CVKVO6Ty2WsXwLeBPwYwM9hKmt4qsa614ZqRW48ldgofFcPT3FAaBJDQgoV_xU8UxXaMBoW9-QRgaLpop2yCpqV7wAe4ZmH6cfMZU2N9exEYuDb_4BUVA975MaepImYryzugtFNWylmgv9zVkvUw3vI5-ypFBSrB8Xu5CJzCFRvoCSK1cEjvHYuT3PasC5zlabsQYMGuUYgZlQvkNcCpEdoOMKDwGsuKBzxLakA3rcDUJs9X8BUlqacMPdunwezMIqAUk0AkvMwOO6KtBsxNGCfpFG7Z3P12AKzYb3FpaxCU_xEJVMEiYqhijoURITibRe-wdJqZLTwoDlA_qou_ND"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3595
+          }
+        ],
+        "cachedContentTokenCount": 3595,
+        "candidatesTokenCount": 2534,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2534
+          }
+        ],
+        "promptTokenCount": 6196,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 6635
+          }
+        ],
+        "thoughtsTokenCount": 140,
+        "totalTokenCount": 8870,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.00749641379316491,
+      "invocationId": "e-d80a4b85-d95e-4204-b636-0dddd46c01c6",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "cd7412d7-9601-428d-9f29-f7cc306d74ca",
+      "timestamp": 1764390572.524235
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-48e80084-9f88-467f-aaac-e3c8e0bcfcda",
+              "name": "bank_data_agent",
+              "response": {
+                "result": "{\"status\": \"success\", \"message\": \"Based on your income estimates from the bank statement the average house \\n            price of 239950 is outside your afforable range of 10000 \", \"suggested_investment\": 190.0, \"average_surplus\": 231.0, \"median_surplus\": 238.0, \"average_income\": 2000.0, \"median_income\": 2000.0, \"is_affordable\": false}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-d80a4b85-d95e-4204-b636-0dddd46c01c6",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "saving_capacity": "{\"status\": \"success\", \"message\": \"Based on your income estimates from the bank statement the average house \\n            price of 239950 is outside your afforable range of 10000 \", \"suggested_investment\": 190.0, \"average_surplus\": 231.0, \"median_surplus\": 238.0, \"average_income\": 2000.0, \"median_income\": 2000.0, \"is_affordable\": false}",
+          "user:preferences": "{\"stage\":\"capacity\",\"housing_goal\":{\"status\":\"success\",\"postcode\":\"HP12\",\"property_type\":\"2-bed house\",\"min_price\":239950.0,\"max_price\":429950.0,\"deposit_target\":27795.0,\"price_options\":null,\"error_message\":null},\"bank_capacity\":{\"status\":\"success\",\"suggested_investment\":190,\"avg_surplus\":null,\"median_surplus\":238.0,\"error_message\":null},\"risk_profile\":null,\"final_plan\":null}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "75af52d8-b71c-4c89-be57-35450a6493ac",
+      "timestamp": 1764390669.629667
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Thanks for providing your bank statement! I've analyzed it, and it looks like the average house price of £239,950 for a terraced house in HP12 is currently outside of your affordable range based on your income.\n\nHowever, I've calculated that you could comfortably save around £190 per month.\n\nTo help us move forward, would you like to:\n1. Look for a different property type?\n2. Look for a property in a different postcode?\n3. Upload a new bank statement (if you think there might be more income or fewer expenses to consider)?",
+            "thoughtSignature": "CuMHAePx_15lfowe9AHIw0cDPyGBvUYpifvD1bJSnNuvR7Ki-Ts0a1cvwGHfLlA7Yt0Nsslboevn5_kjr4gxBLYlFvgIeahJopYoG03cRCj9D8iIY4viioGNuDDfFtVbDhyHrEFg3y36-Q5lSlGyt1WcgAaXmG1Ia4uNlMLhyCv1pn-urjCaQdlew43_L1-0Y7nRp8nKXQLULLtH-ob_yj7pt8ovcruJx7bZyDVRP0w-nJP8g5-pYlbAcwGxrT5uLjxtNYpciIi5ripQgKOd34gENESOzGehnz5H9o_WlaKt87JLFcFnAwnfw5kNyoCC7WsAryxASinIuA18FDE2PN0nldFdqZwuJX69Im0MkChdNO2Pwg1DmcBHX81NHaozBoGdCuJ_OMjFIPA89riq_xTKHsGXEazvPmhhZOfgtS6YgaFAHrESw2Z-VsMNoYNVwl8zUrQuQRNH3R9TA078g5jNMVxn69thgHj-YUEXhED_t7CDMSBQv91U9Mdd1vpmzDadlTOzxBG2ODQKbxMry-w_erQ3sglgcM_GUxRXMv-isJGYaf2xoaINPoQwbZYsNc7qA-4xx2QyWJfG8bKIyqNbzMBAKzn6Ede0THBcrcbM_ndXA41RxWHDG2hiVPy_IaCgJYIQ2_oILkEkL1OAHYgOvmhRs_EQiPCiPVsSUIuXpPw5Xa6e03_huRq4OQBhXAft-00Yf8wMP9gHvcBqf34Zm89CcJAZxrZUgfFiaInbfd7O_bTY1XMriuCCYcOGsO_AAiF89-ewBDvzMdFgfLPWeulFQECuF6ThFf8CGtSg3F8avndUi5jY4GDoWhN120XKB0fLATKON5DCVFUzp289B3173U5HHM2C8owfDqaBxjF6IbQheQksapMeY4U8NNeptlt9M4WqrMTNgRpIyAyXvN5YjSfVIu8PERwvwpPvDrBOrUOm-oTGWyDwokpJrxz6TZPHVwQQ3c-Dr2RRwlcytuTvYjTJ_EJfk6lidZzZksUoUgpr_wJJkk80GJGlYE5fm8ISL82UrRbjxp4s6YkqFdeRnL5htUBk_nmq8HVwb9Y8dAWTcIuVpo0rVZM2pKoo-_-BjxkuCw3la1aB2VLEF0EJjT0UazBjr90aNHgmgvGzsaXYUmakCesLXzrAXbmbyDbkAJaKEwakllyTYM6MLOk9ZDtFLovQQo0n-IyHo1tRjfxfZC5r0kDnLd2KxBuqevrS2Hh1bkuGAvMtpF6X5qvgoOF0jliHUJVspl9o1Z-qMal9Jsc22rRo2TnFGcV3ckH6uoD2pPVn8p1BS-PyqbkK8gKNK0bNPZ6y5bu30kSjLlE="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 6389
+          }
+        ],
+        "cachedContentTokenCount": 6389,
+        "candidatesTokenCount": 127,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 127
+          }
+        ],
+        "promptTokenCount": 8855,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9432
+          }
+        ],
+        "thoughtsTokenCount": 256,
+        "totalTokenCount": 9238,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.3746176291638472,
+      "invocationId": "e-d80a4b85-d95e-4204-b636-0dddd46c01c6",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "456695bd-2225-4c07-9468-c6f5a23741e9",
+      "timestamp": 1764390669.638889
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Can we look for a 1-bed apartment"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-489df705-0454-4643-9348-6e5bb845a649",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "3fb46485-a83d-47b4-bfc2-34ffd49abd02",
+      "timestamp": 1764390766.141925
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-e0000ede-e30f-4f83-98e9-728c5b4f39e5",
+              "args": {
+                "property_type": "1-bed apartment",
+                "postcode": "HP12"
+              },
+              "name": "housing_goal_agent"
+            },
+            "thoughtSignature": "CqsCAePx_17l8-QzKjBtkLFi1qPMfDFjInorMT6Ul1hia003KGf1enxoeiCjzixnc_L0a2wbQmzMNxYp-yog6ryPp0D8zDvZky1Jtm9_aU9CTA9WoGu44_Mq1BLrUIL68FgtJ-N8NAoy-xI3mbuHzHl0-LaYr36OqUVSiRAXIQ1FB7QEwlYywtGAfjn68I-Ar78k9InrIMDt6EW5QrmmhNxmEleaByzvl9tyO4eQ0usZr_Zo_A340Qe8ZTZN6jOo7Lmw0JWIl__Iljtai5e4gopS7xTYR6oQwnXL15iLQI4RZ4JqoWJ3kWmSscLgxgzSshvm-CoszA8sucVMlRFN_Rvyy9_nJuwvXNgnvVQObm00dIEHLRMjGh9vySBT08HT6yfa745mIMO02ELjPCA="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9155
+          }
+        ],
+        "cachedContentTokenCount": 9155,
+        "candidatesTokenCount": 16,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 16
+          }
+        ],
+        "promptTokenCount": 8992,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9823
+          }
+        ],
+        "thoughtsTokenCount": 71,
+        "totalTokenCount": 9079,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.36480987071990967,
+      "invocationId": "e-489df705-0454-4643-9348-6e5bb845a649",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "265f8ef9-b162-472e-96ea-98d9454dcd3f",
+      "timestamp": 1764390766.146603
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-e0000ede-e30f-4f83-98e9-728c5b4f39e5",
+              "name": "housing_goal_agent",
+              "response": {
+                "result": "```json\n{\n\"postcode\": \"HP12\",\n\"property_type\": \"1-bed apartment\",\n\"min_price\": null,\n\"max_price\": null,\n\"deposit_target\": null,\n\"house_prices\": [\n{\n\"postCode\": \"HP12\",\n\"type\": \"Apartment\",\n\"bedrooms\": 1,\n\"priceMin\": 165000,\n\"priceMax\": 215000,\n\"sources\": [\n\"https://www.zoopla.co.uk/for-sale/flats/hp12/\",\n\"https://www.onthemarket.com/for-sale/1-bed-flats/hp12/\"\n]\n}\n],\n\"status\": \"AWAITING_CONFIRMATION\"\n}\n```"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-489df705-0454-4643-9348-6e5bb845a649",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "house_prices": "```json\n{\n\"status\": \"success\",\n\"price_data\": [\n{\n\"postCode\": \"HP12\",\n\"type\": \"Apartment\",\n\"bedrooms\": 1,\n\"priceMin\": 165000,\n\"priceMax\": 215000,\n\"sources\": [\n\"https://www.zoopla.co.uk/for-sale/flats/hp12/\",\n\"https://www.onthemarket.com/for-sale/1-bed-flats/hp12/\"\n]\n}\n],\n\"message\": \"house prices found\"\n}\n```",
+          "housing_goal": "```json\n{\n\"postcode\": \"HP12\",\n\"property_type\": \"1-bed apartment\",\n\"min_price\": null,\n\"max_price\": null,\n\"deposit_target\": null,\n\"house_prices\": [\n{\n\"postCode\": \"HP12\",\n\"type\": \"Apartment\",\n\"bedrooms\": 1,\n\"priceMin\": 165000,\n\"priceMax\": 215000,\n\"sources\": [\n\"https://www.zoopla.co.uk/for-sale/flats/hp12/\",\n\"https://www.onthemarket.com/for-sale/1-bed-flats/hp12/\"\n]\n}\n],\n\"status\": \"AWAITING_CONFIRMATION\"\n}\n```",
+          "user:preferences": "{\"stage\":\"housing\",\"housing_goal\":{\"status\":\"AWAITING_CONFIRMATION\",\"postcode\":\"HP12\",\"property_type\":\"1-bed apartment\",\"min_price\":null,\"max_price\":null,\"deposit_target\":null,\"price_options\":null,\"error_message\":null},\"bank_capacity\":{\"status\":\"success\",\"suggested_investment\":190,\"avg_surplus\":null,\"median_surplus\":238.0,\"error_message\":null},\"risk_profile\":null,\"final_plan\":null}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "d44a961f-29df-4449-a6f0-ad16af4c8d9b",
+      "timestamp": 1764390790.67724
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Okay, I've looked up 1-bedroom apartments in HP12.\n\nIt looks like prices for a 1-bedroom apartment typically range from £165,000 to £215,000.\n\nWould you like to proceed with this range?",
+            "thoughtSignature": "CqEDAePx_158go2Pny-LhJMa47l5ZfA-cKEMM9ZAYB2peHUNc0uzzB-VR8M5hJ4YUf7ZaSzOfq8IqwI5D9bxr0AN5H9OKP-_ZNh_nfZlRzmOkL62n1rjYOtLPqRPguvo5hT5IV_dtUJgeK9y0DV2ucvXh3cV06P3RA4TVysTc1FTrjLp9gFSyAQTRBJUxGgzFujgyFFbDWO-Q2-AuRZy5Lot0adPI_iB5DtZcEOhxwYbHgeSrmzvDnTTX8XYb_YnbZ15vNg6ITSftVJKz6IVXtJ_CbD0bDTQlXMu--iC-LUuSuqeUvZWFwBn3CHKKOGocS6n3a3Rg_cTYUPG85Ikb_fn0PM_r46kHLBKRa3KsE2gZmX-g4YnhflU8ymS3BHazKYRWTf6NGB-nEclkL6pDp5s1gZqi1S4HSGhJCnlZZpf853sNd0jE8JJUP10N8xh8CO7lLe6eouGY2tm9xB1UB2N7oKghawztcBACwINGCvt9QuLDJhBn0HR1yKn-XBhP_eu-GoAUDQiGH-F8pYPrYedTd2MHNMgr7Oly9PEXFHH5rAr"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3655
+          }
+        ],
+        "cachedContentTokenCount": 3655,
+        "candidatesTokenCount": 60,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 60
+          }
+        ],
+        "promptTokenCount": 9198,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10098
+          }
+        ],
+        "thoughtsTokenCount": 113,
+        "totalTokenCount": 9371,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.13029980659484863,
+      "invocationId": "e-489df705-0454-4643-9348-6e5bb845a649",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "f132dcad-7101-497f-a431-a3c2676a3632",
+      "timestamp": 1764390790.682665
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Yes please"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-2038caf0-fd5a-45f5-b461-c95a675117d1",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "e9909e15-32dd-45cd-9f2a-667b4d518829",
+      "timestamp": 1764390804.755082
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-54aca224-509a-401a-83db-192fcd34107b",
+              "args": {
+                "min_price": 165000,
+                "property_type": "1-bed apartment",
+                "max_price": 215000,
+                "postcode": "HP12",
+                "human_approval": true
+              },
+              "name": "housing_goal_agent"
+            },
+            "thoughtSignature": "CrcCAePx_159b325yTbxzxdryBO_HMA8gunxwymvZwkn_k1-4ifSovnUPLw4PnrJSMZ7tDJpAF4SP8jTFnrfjebxRjYQF24qpa7S1_Rkm0o5lCTQN_8i1uMIuSM7lPWdh3jT1jFgmKCIrNH-Ev3DEFLJ4IZVPGn2N3pGjhxDuqPtLzlJwpL-qfqnkb9Qcuy6cI0eyenlg3da6Gysc4QW4geIKXNc0tT5GnyBWOLsdmmkyhaGLKAeKn5GyJCJ9-1lWfCW7LlSlmbXO2lormzsGYfkI08azWh0h5t92Gm3oUKk8U51UexCFDJMQdsVB4hSjxoqs0J5i6sEb8QZcMNH64qo7TXCI1KFegu0D3X4_zN8itB2r0ihtkHANVQJANH3JaaK5uj7nJ3a6Fxi_e9AO7lBnc1jAHvG7ZI="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9143
+          }
+        ],
+        "cachedContentTokenCount": 9143,
+        "candidatesTokenCount": 28,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 28
+          }
+        ],
+        "promptTokenCount": 9260,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10271
+          }
+        ],
+        "thoughtsTokenCount": 82,
+        "totalTokenCount": 9370,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.22722979954310826,
+      "invocationId": "e-2038caf0-fd5a-45f5-b461-c95a675117d1",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "a0b99fc3-c519-4787-9ace-745b489a5914",
+      "timestamp": 1764390804.760734
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-54aca224-509a-401a-83db-192fcd34107b",
+              "name": "housing_goal_agent",
+              "response": {
+                "result": "{\"postcode\": \"HP12\", \"property_type\": \"1-bed apartment\", \"min_price\": 165000.0, \"max_price\": 215000.0, \"deposit_target\": 17500, \"house_prices\": null, \"status\": \"success\"}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-2038caf0-fd5a-45f5-b461-c95a675117d1",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "housing_goal": "{\"postcode\": \"HP12\", \"property_type\": \"1-bed apartment\", \"min_price\": 165000.0, \"max_price\": 215000.0, \"deposit_target\": 17500, \"house_prices\": null, \"status\": \"success\"}",
+          "user:preferences": "{\"stage\":\"housing\",\"housing_goal\":{\"status\":\"success\",\"postcode\":\"HP12\",\"property_type\":\"1-bed apartment\",\"min_price\":165000.0,\"max_price\":215000.0,\"deposit_target\":17500.0,\"price_options\":null,\"error_message\":null},\"bank_capacity\":{\"status\":\"success\",\"suggested_investment\":190,\"avg_surplus\":null,\"median_surplus\":238.0,\"error_message\":null},\"risk_profile\":null,\"final_plan\":null}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "e87ab2f4-535b-4c17-8f67-0a674696ac39",
+      "timestamp": 1764390817.246113
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Great! We've updated your housing goal to a 1-bedroom apartment in HP12, with a target deposit of £17,500.\n\nNow, let's re-evaluate your saving capacity with this new property goal. I'll use the bank statement you provided earlier.",
+            "thoughtSignature": "Co4EAePx_16EnfAKqMXmU89v2fvj4-Bd969zGmuYpIimUuatCtcfPKR52IR0Qo4rDoSh5vvqKghz6z8jQ3kreuuASVJwTCtx4Nrngy0ZlBO44fnDyfZgCVy0FLO2K1UcYKQBs5P-VmHBi9vUUUOWJZG6t7Zww-gHb5u6srXRguCMhqbEhfzEeb5GG23N3JrJoFA_9mz8Mp5ij7MZY61tMeDm-64SgzP7Zvf7BQJmOa8-M9tDnMGCEaoxg-cKBsOfvSjJVS0pN7PTV44b69DfCIcoTnBCdKXBJ-zBq0lEqBbARtSqspNv7d_p6LiIJRhVFYN92EtkmfgKoLpZOlOzIC7hu976F6Ekg21N40C1EGnxGH_XAh9676q272h5iJGErxvHiMDb2hyBHaijUZThd0g_09mHWGYIfCDzV3lJugX-IH066sutq6Vp2RK9ppdXyN8vZ4OK9P9BDjdNN1f9RbbAjuJ-eG_K4cJDwSltb-WzoSzPywu65cmgkb65cvFnxgB13v4qoeRpXiNo1lBXAgnU7lv-8AqbVUJ22QbHEAmMiAMvFwxGJmAtNv7BcYcHVtzQ57bURHynSjNtdFywsJ6jOsFhbF9wUfquVA9eQHvrGgLYB_WikISYyWD4kY44qz7M8TV8EOGgiX6o1xulBG3gHo0bbuWlLgSXXuOojDqYV_etMkwSoxpzyoKy5nyBmA=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10026
+          }
+        ],
+        "cachedContentTokenCount": 10026,
+        "candidatesTokenCount": 63,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 63
+          }
+        ],
+        "promptTokenCount": 9368,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10459
+          }
+        ],
+        "thoughtsTokenCount": 140,
+        "totalTokenCount": 9571,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.22780385093083458,
+      "invocationId": "e-2038caf0-fd5a-45f5-b461-c95a675117d1",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "f0110cc4-ba64-4348-9000-a886b58b0a1d",
+      "timestamp": 1764390817.251944
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Yes, Please use the earlier bank statement"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-e0a5b42e-e0ab-44db-a587-135f1cdbc5ee",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "b658cd97-6e69-4d91-960e-75fb45f74454",
+      "timestamp": 1764390845.671728
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-53752970-f15f-4b1f-b565-4e1939145ae6",
+              "args": {
+                "file_content": "Transaction Date,Description,Credit amount,Debit amount\n2025-01-01,ACME PAYROLL,2000.00,\n2025-01-02,RENT PAYMENT,,900.00\n2025-01-03,TESCO STORE #1,,41.00\n2025-01-04,TESCO STORE #2,,70.00\n2025-01-05,TESCO STORE #3,,51.00\n2025-01-06,TESCO STORE #4,,129.00\n2025-01-08,UTILITY BILL ELECTRICITY,,87.00\n2025-01-10,UTILITY BILL GAS,,41.00\n2025-01-12,TRANSPORT OYSTER TOPUP 1,,28.00\n2025-01-13,TRANSPORT OYSTER TOPUP 2,,22.00\n2025-01-15,TRANSPORT OYSTER TOPUP 3,,27.00\n2025-01-20,TRANSPORT OYSTER TOPUP 4,,19.00\n2025-01-22,NETFLIX,,9.99\n2025-01-24,SPOTIFY,,15.99\n2025-01-25,GYM MEMBERSHIP,,29.99\n2025-01-27,RESTAURANT #1,,33.00\n2025-01-28,RESTAURANT #2,,35.00\n2025-01-28,RESTAURANT #3,,36.00\n2025-01-28,AMAZON ORDER #1,,29.00\n2025-01-28,AMAZON ORDER #2,,26.00\n2025-01-28,AMAZON ORDER #3,,42.00\n2025-01-28,CASH WITHDRAWAL,,147.02\n2025-02-01,ACME PAYROLL,2000.00,\n2025-02-02,RENT PAYMENT,,900.00\n2025-02-03,TESCO STORE #1,,50.00\n2025-02-05,TESCO STORE #2,,73.00\n2025-02-06,TESCO STORE #3,,32.00\n2025-02-07,TESCO STORE #4,,108.00\n2025-02-09,UTILITY BILL ELECTRICITY,,92.00\n2025-02-11,UTILITY BILL GAS,,53.00\n2025-02-13,TRANSPORT OYSTER TOPUP 1,,31.00\n2025-02-15,TRANSPORT OYSTER TOPUP 2,,18.00\n2025-02-17,TRANSPORT OYSTER TOPUP 3,,19.00\n2025-02-18,TRANSPORT OYSTER TOPUP 4,,20.00\n2025-02-20,NETFLIX,,9.99\n2025-02-22,SPOTIFY,,15.99\n2025-02-24,GYM MEMBERSHIP,,29.99\n2025-02-25,RESTAURANT #1,,39.00\n2025-02-26,RESTAURANT #2,,36.00\n2025-02-27,RESTAURANT #3,,31.00\n2025-02-28,AMAZON ORDER #1,,37.00\n2025-02-28,AMAZON ORDER #2,,39.00\n2025-02-28,AMAZON ORDER #3,,29.00\n2025-02-28,CASH WITHDRAWAL,,99.03\n2025-03-01,ACME PAYROLL,2000.00,\n2025-03-02,RENT PAYMENT,,900.00\n2025-03-03,TESCO STORE #1,,39.00\n2025-03-04,TESCO STORE #2,,66.00\n2025-03-06,TESCO STORE #3,,43.00\n2025-03-07,TESCO STORE #4,,131.00\n2025-03-09,UTILITY BILL ELECTRICITY,,87.00\n2025-03-11,UTILITY BILL GAS,,44.00\n2025-03-13,TRANSPORT OYSTER TOPUP 1,,18.00\n2025-03-15,TRANSPORT OYSTER TOPUP 2,,20.00\n2025-03-17,TRANSPORT OYSTER TOPUP 3,,24.00\n2025-03-19,TRANSPORT OYSTER TOPUP 4,,33.00\n2025-03-21,NETFLIX,,9.99\n2025-03-23,SPOTIFY,,15.99\n2025-03-25,GYM MEMBERSHIP,,29.99\n2025-03-26,RESTAURANT #1,,39.00\n2025-03-27,RESTAURANT #2,,35.00\n2025-03-28,RESTAURANT #3,,27.00\n2025-03-28,AMAZON ORDER #1,,39.00\n2025-03-28,AMAZON ORDER #2,,41.00\n2025-03-28,AMAZON ORDER #3,,28.00\n2025-03-28,CASH WITHDRAWAL,,102.02\n2025-04-01,ACME PAYROLL,2000.00,\n2025-04-02,RENT PAYMENT,,900.00\n2025-04-03,TESCO STORE #1,,51.00\n2025-04-05,TESCO STORE #2,,65.00\n2025-04-06,TESCO STORE #3,,44.00\n2025-04-08,TESCO STORE #4,,124.00\n2025-04-10,UTILITY BILL ELECTRICITY,,83.00\n2025-04-12,UTILITY BILL GAS,,39.00\n2025-04-14,TRANSPORT OYSTER TOPUP 1,,20.00\n2025-04-16,TRANSPORT OYSTER TOPUP 2,,16.00\n2025-04-18,TRANSPORT OYSTER TOPUP 3,,28.00\n2025-04-19,TRANSPORT OYSTER TOPUP 4,,23.00\n2025-04-21,NETFLIX,,9.99\n2025-04-23,SPOTIFY,,15.99\n2025-04-25,GYM MEMBERSHIP,,29.99\n2025-04-26,RESTAURANT #1,,37.00\n2025-04-27,RESTAURANT #2,,34.00\n2025-04-28,RESTAURANT #3,,26.00\n2025-04-28,AMAZON ORDER #1,,39.00\n2025-04-28,AMAZON ORDER #2,,33.00\n2025-04-28,AMAZON ORDER #3,,41.00\n2025-04-28,CASH WITHDRAWAL,,83.02\n2025-05-01,ACME PAYROLL,2000.00,\n2025-05-02,RENT PAYMENT,,900.00\n2025-05-03,TESCO STORE #1,,45.00\n2025-05-04,TESCO STORE #2,,63.00\n2025-05-06,TESCO STORE #3,,45.00\n2025-05-07,TESCO STORE #4,,124.00\n2025-05-09,UTILITY BILL ELECTRICITY,,82.00\n2025-05-11,UTILITY BILL GAS,,49.00\n2025-05-13,TRANSPORT OYSTER TOPUP 1,,28.00\n2025-05-15,TRANSPORT OYSTER TOPUP 2,,22.00\n2025-05-17,TRANSPORT OYSTER TOPUP 3,,19.00\n2025-05-18,TRANSPORT OYSTER TOPUP 4,,22.00\n2025-05-20,NETFLIX,,9.99\n2025-05-22,SPOTIFY,,15.99\n2025-05-24,GYM MEMBERSHIP,,29.99\n2025-05-25,RESTAURANT #1,,43.00\n2025-05-26,RESTAURANT #2,,31.00\n2025-05-27,RESTAURANT #3,,27.00\n2025-05-28,AMAZON ORDER #1,,43.00\n2025-05-28,AMAZON ORDER #2,,28.00\n2025-05-28,AMAZON ORDER #3,,35.00\n2025-05-28,CASH WITHDRAWAL,,89.03",
+                "house_price": 165000
+              },
+              "name": "bank_data_agent"
+            },
+            "thoughtSignature": "CqUCAePx_1508Zfxn1-Atu2vFPbi8i9IlE6_fZEJYwh1gQwJR4_EaqaYM5sI5xdvCMBdzr2Hc6atmYUqHvWomAkgcY3yIkqEeaoKEMVl7mzI6866DCPV4QuuoXFHZY6yTlsdOUW8fmnbPNng3XzOpFiMDOS--UIkL_mrI8IBeHx0qWX4PrtN3LM0rgeFkQJo1LZ89ZotehZD3CBE30KK5yutpt72c3LpuihpzIzXZuKOtNoQ-Qm039yZWDDmnAHUvNiQhn_DDoyitGvN1zcrRDdLTrKiTm6GaEIaxrchyBWaC0bvn3F2eYD0pGsQX7l5UMZCp_0KXxPVp4JwCmzvw0xRBe_qCWvVyS7zHgdA-2puP7Gp45g_WecIv1d8djdBc66XpToTp2Y="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10036
+          }
+        ],
+        "cachedContentTokenCount": 10036,
+        "candidatesTokenCount": 2534,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2534
+          }
+        ],
+        "promptTokenCount": 9439,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10668
+          }
+        ],
+        "thoughtsTokenCount": 307,
+        "totalTokenCount": 12280,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.011949386385922932,
+      "invocationId": "e-e0a5b42e-e0ab-44db-a587-135f1cdbc5ee",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "74d71804-0be1-435f-a6bd-f3cb9a192f85",
+      "timestamp": 1764390845.676356
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-53752970-f15f-4b1f-b565-4e1939145ae6",
+              "name": "bank_data_agent",
+              "response": {
+                "result": "{\"status\": \"success\", \"message\": \"Based on your income estimates from the bank statement the average house \\n            price of 165000 is outside your afforable range of 10000 \", \"suggested_investment\": 190.0, \"average_surplus\": 231.0, \"median_surplus\": 238.0, \"average_income\": 2000.0, \"median_income\": 2000.0, \"is_affordable\": false}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-e0a5b42e-e0ab-44db-a587-135f1cdbc5ee",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "saving_capacity": "{\"status\": \"success\", \"message\": \"Based on your income estimates from the bank statement the average house \\n            price of 165000 is outside your afforable range of 10000 \", \"suggested_investment\": 190.0, \"average_surplus\": 231.0, \"median_surplus\": 238.0, \"average_income\": 2000.0, \"median_income\": 2000.0, \"is_affordable\": false}",
+          "user:preferences": "{\"stage\":\"capacity\",\"housing_goal\":{\"status\":\"success\",\"postcode\":\"HP12\",\"property_type\":\"1-bed apartment\",\"min_price\":165000.0,\"max_price\":215000.0,\"deposit_target\":17500.0,\"price_options\":null,\"error_message\":null},\"bank_capacity\":{\"status\":\"success\",\"suggested_investment\":190,\"avg_surplus\":null,\"median_surplus\":238.0,\"error_message\":null},\"risk_profile\":null,\"final_plan\":null}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "108f7945-fe37-4abb-9668-4392e217f8f5",
+      "timestamp": 1764390890.746619
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Thanks for confirming! I've re-analyzed your bank statement with the new housing goal of a 1-bedroom apartment at £165,000.\n\nUnfortunately, it still looks like this price is outside of your current affordable range based on your income.\n\nHowever, my analysis suggests you could still comfortably save around £190 per month.\n\nGiven this, would you like to:\n1. Continue with a self-selected monthly saving amount?\n2. Upload a new or cleaner bank statement?\n3. Revise your housing goal again (e.g., look for a property in a different area)?",
+            "thoughtSignature": "CpQHAePx_16thbQye-EQnOIBt70sk2FpmUjT_olNd-LYM1g_ESnRuIvdp0T44UCrsQZ6VmhV2Vah9j0b47-GxyGC0pv3ZavIUuWux5mq26kW5KdoEE1F836DcJVIC5FVW_to6W-lxJrSRc5-vWGh_pmj2nQn3IXLJaGRiMrLsvG_MoYLz7RYJDRH6MAdAdfrlXtXn9GpbEPz7DEMyLFt7wiMBdXaSPn17IZjdj-VBfRtcc1h9Zn9Qy9cNI8_KDu-Q9UjmIT1gZxDqehNHEvDTrKFPvSIyaKm1Kp1myIrlzjW3y-Cx4UBCLoIF5OPewPdStLvb9qnmH027QYgoCUXTNC3JhfMWe5IGIcr9-9VHZ6k-Q73CZDXKPCvC6K5NVHC1F6NdE5oJifVzb2JWnoUsoVW4cwqZ0Z5wrqF6H3afOgEbpf0k_NfFn5BZ1WP-jlR0wydQ2rVGaFqqp1As4RWiei87z0shs68Ur_RNbGZC8QUyr2G_InEReA0KXmWKoj30hrgi3ffQ4fuFSQtvBfPPDdlolMkmRqHl_6ftc61ZuDJlGJ1NvbU-W5jgIOjjEH2RMdMMQj1pQU3piNJtS7YjJWWyEuL9-e4bVbdqUg8X8OHragj1CPhw0r1j1HzDj1lx8FcHh0jeEm_uQ_TKaQ5P115nIO1J7qbaHlTHN5NS2HHuZZYyatGgFplSmz8OeT8_DM9JdwfF23EQ_inhk8_FFZtptBUiArr615zIEjAcwqvru3ELCUVd809FsA33uNvGWvknJqVbVm0krcC88848jspthJQIn5fjdlh9JI4mXYgtfakv_tu-wABfYIFmHCmd8AygFwsfLRyJKQLEkprarJvh21WquN3sc___BseNi7VOcwQSRSUyAtIHlB77i-l13lbRRTvLFPGl8DivmUz5ILoKhEkPK0kqRo7RirNWMYtH0CZbjZKQMqJ0410Db3himvicuHfwIu8xJT6YkI3p4VkJOXE50y_ulTE_K8yKMbWxBMAdXTUUtMBci84ikQ3Ahj_5REbHHZsCSEuPJVS4C_U9dOsVTJETwwNmGFMdJbfNfuaW_y3oVPNWSDtrmmZsKIV5fKmcmQpu98fr-dlTozkO31RzLP0NWDHkAHSn3ruyk7aMIKi3LRHQxm8y1CRSij5_FqEFzuZTSECOgs5Mtn64h7PolG3GbSI0a-EJt_QSkJgo4cFZrkLwz2tAT4qGr53kgwiNg=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10109
+          }
+        ],
+        "cachedContentTokenCount": 10109,
+        "candidatesTokenCount": 132,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 132
+          }
+        ],
+        "promptTokenCount": 12098,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 13403
+          }
+        ],
+        "thoughtsTokenCount": 239,
+        "totalTokenCount": 12469,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.2627950437141187,
+      "invocationId": "e-e0a5b42e-e0ab-44db-a587-135f1cdbc5ee",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "3c5560a7-8f20-49f7-a56d-31f05f3ead07",
+      "timestamp": 1764390890.752551
+    }
+  ],
+  "lastUpdateTime": 1764390890.752551
+}
