@@ -40,4 +40,5 @@ Error response:
 * Return a strictly JSON object (no commentary, no extra keys beyond the schema).
 * Return ONLY a raw JSON object.
 * Do NOT wrap the JSON in backticks or any code block formatting.
+
 """

@@ -1,12 +1,14 @@
 import json
+import sys
 from pathlib import Path
 from collections import defaultdict
 
 # ---- input/output ----
+# Can be overridden via command line arguments:
+# python convert_session_to_eval.py <session_path> [output_path]
 
-SESSION_PATH = Path("./Scripts/sessions/session-8c70c416-8ebe-4c9d-b108-b607be2d1f11.json")
-OUTPUT_PATH = Path("./Scripts/evals/evalset_postcode_error.evalset.json")
-EVALSET_NAME = "Happy-Path-1"
+SESSION_PATH = Path("./Scripts/sessions/session-6f12200f-99a3-4b8a-a38b-6a2147cd5ab0.json")
+OUTPUT_PATH = Path("./Scripts/evals/evalset_multi_turn_test.evalset.json")
 
 # ---- helpers ----
 
@@ -54,7 +56,8 @@ def extract_user_content(inv_events):
 def extract_final_response(inv_events):
     """
     Last model *text* response for this invocation.
-    Ignore pure tool-calls (functionCall) only events.
+    This should be the final user-facing text, without tool calls.
+    If the last text response also has tool calls, separate them out.
     """
     final_parts = None
     for ev in inv_events:
@@ -65,11 +68,12 @@ def extract_final_response(inv_events):
 
         # consider it a natural-language final response if there's at least one 'text' part
         has_text = any("text" in p for p in parts)
-        # and no functionCall / functionResponse at all
-        has_tool = any(("functionCall" in p) or ("functionResponse" in p) for p in parts)
 
-        if has_text and not has_tool:
-            final_parts = parts
+        if has_text:
+            # Extract only the text parts (no tool calls)
+            text_only_parts = [p for p in parts if "text" in p or "thoughtSignature" in p]
+            if text_only_parts:
+                final_parts = text_only_parts
 
     if final_parts is None:
         return None
@@ -173,7 +177,21 @@ def build_conversation(events):
 # ---- main ----
 
 def main():
-    session = load_session(SESSION_PATH)
+    # Parse command line arguments
+    session_path = SESSION_PATH
+    output_path = OUTPUT_PATH
+
+    if len(sys.argv) > 1:
+        session_path = Path(sys.argv[1])
+    if len(sys.argv) > 2:
+        output_path = Path(sys.argv[2])
+    else:
+        # Auto-generate output path based on session filename
+        if len(sys.argv) > 1:
+            session_name = session_path.stem
+            output_path = Path(f"./Scripts/evals/evalset_{session_name}.evalset.json")
+
+    session = load_session(session_path)
     session_id = session.get("id", "session")
     app_name = session.get("appName", "mortgage-deposit-agent")
     user_id = session.get("userId", "user")
@@ -201,8 +219,11 @@ def main():
         "creation_timestamp": last_ts,
     }
 
-    OUTPUT_PATH.write_text(json.dumps(eval_set, indent=2))
-    print(f"Wrote evalset to {OUTPUT_PATH.resolve()}")
+    # Ensure output directory exists
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps(eval_set, indent=2))
+    print(f"Converted {len(conversation)} conversation turns")
+    print(f"Wrote evalset to {output_path.resolve()}")
 
 if __name__ == "__main__":
     main()

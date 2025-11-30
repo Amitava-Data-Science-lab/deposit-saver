@@ -1,6 +1,7 @@
 import logging
 import requests
 import json
+from src.tools.ErrorAndStatus import StatusCodes, CommonErrorCodes, HousingErrorCode
 
 logger = logging.getLogger(__name__)
 
@@ -43,11 +44,12 @@ def outcode_checker(outcode: str) -> dict:
     Returns:
         dict: Response containing:
             - status: "success" or "error"
+            - error_code: "Code Identifying the error"
             - message: Error message if status is "error"
             - data: Outcode details if status is "success"
     """
     output = {
-        "status": "error",
+        "status": StatusCodes.ERROR,
         "message": "",
         "data": None
     }
@@ -62,27 +64,33 @@ def outcode_checker(outcode: str) -> dict:
             logger.info(f"API response: {response_body}")
 
             if response_body.get("status") == 200:
-                output["status"] = "success"
+                output["status"] = StatusCodes.SUCCESS
                 output["data"] = response_body.get("result", {})
                 output["message"] = f"Outcode {outcode} found successfully"
                 logger.info(f"Outcode {outcode} is valid")
             else:
+                output["error_code"] = HousingErrorCode.INVALID_POSTCODE
                 output["message"] = f"Outcode {outcode} doesn't exist"
                 logger.warning(f"Outcode {outcode} not found in API")
         elif r.status_code == 404:
+            output["error_code"] = HousingErrorCode.INVALID_POSTCODE
             output["message"] = f"Outcode {outcode} doesn't exist"
             logger.warning(f"Outcode {outcode} not found in API")
         else:
+            output["error_code"] = CommonErrorCodes.TOOL_ERROR
             output["message"] = f"Unable to find the outcode {outcode}"
             logger.error(f"API returned status code {r.status_code}")
 
     except requests.exceptions.RequestException as e:
+        output["error_code"] = CommonErrorCodes.TOOL_ERROR
         logger.error(f"Network error while checking outcode {outcode}: {e}")
         output["message"] = f"Network error: Unable to check outcode {outcode}"
     except json.JSONDecodeError as e:
+        output["error_code"] = CommonErrorCodes.TOOL_ERROR
         logger.error(f"JSON decode error for outcode {outcode}: {e}")
         output["message"] = f"Unable to check outcode {outcode}"
     except Exception as e:
+        output["error_code"] = CommonErrorCodes.TOOL_ERROR
         logger.error(f"Unexpected error checking outcode {outcode}: {e}")
         output["message"] = f"Unable to check outcode {outcode}"
 
@@ -103,7 +111,7 @@ def nearby_outcodes(outcode: str) -> dict:
             - data: Outcode details if status is "success"
     """
     output = {
-        "status": "error",
+        "status": StatusCodes.ERROR,
         "message": "",
         "nearby_postcodes": []
     }
@@ -119,7 +127,7 @@ def nearby_outcodes(outcode: str) -> dict:
             logger.info(f"API response: {response_body}")
 
             if response_body.get("status") == 200:
-                output["status"] = "success"
+                output["status"] = StatusCodes.SUCCESS
                 codes = []
                 for item in response_body.get("result", []):
                     if item.get("outcode") != outcode:
@@ -128,24 +136,30 @@ def nearby_outcodes(outcode: str) -> dict:
                     output["message"] = "Nearby Postcodes found"
                     logger.info(f"Found {len(codes)} nearby outcodes for {outcode}: {codes}")
                 else:
+                    output["error_code"] = HousingErrorCode.NO_NEARBY_CODES
                     output["message"] = "No nearby postcodes found"
                     logger.warning(f"No nearby outcodes found for {outcode}")
 
                 output["nearby_postcodes"] = codes
             else:
+                output["error_code"] = HousingErrorCode.INVALID_POSTCODE
                 output["message"] = f"Outcode {outcode} doesn't exist"
                 logger.warning(f"Outcode {outcode} not found in API")
         else:
+            output["error_code"] = CommonErrorCodes.TOOL_ERROR
             output["message"] = f"Unable to find the outcode {outcode} (HTTP {r.status_code})"
             logger.error(f"API returned status code {r.status_code}")
 
     except requests.exceptions.RequestException as e:
+        output["error_code"] = CommonErrorCodes.TOOL_ERROR
         logger.error(f"Network error while checking outcode {outcode}: {e}")
         output["message"] = f"Network error: Unable to check outcode {outcode}"
     except json.JSONDecodeError as e:
+        output["error_code"] = CommonErrorCodes.TOOL_ERROR
         logger.error(f"JSON decode error for outcode {outcode}: {e}")
         output["message"] = f"Invalid response format from API"
     except Exception as e:
+        output["error_code"] = CommonErrorCodes.TOOL_ERROR
         logger.error(f"Unexpected error checking outcode {outcode}: {e}")
         output["message"] = f"Unexpected error: {str(e)}"
 

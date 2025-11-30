@@ -6,6 +6,7 @@ from io import StringIO
 import numpy as np
 import pandas as pd
 from src.agent.schema import PlanInput
+from src.tools.ErrorAndStatus import StatusCodes, BankFileErrorCode, FeasibilityCode, CommonErrorCodes
 
 
 logger = logging.getLogger(__name__)
@@ -62,6 +63,7 @@ def estimate_affordability(file_content: str, house_price: float) -> dict:
     Returns:
         dict: A dictionary containing the following keys:
             - status: "error" or "success" indicating the analysis status
+            - error_code: Code identifying the specific error
             - message: Error or status message (e.g., "no transactions found", "not enough transactions...")
             - available_investment: 80% of median monthly surplus (conservative estimate for safe investing)
             - average_surplus: Mean of all monthly surpluses across the period
@@ -101,7 +103,7 @@ def estimate_affordability(file_content: str, house_price: float) -> dict:
         5. If median differs significantly from average, investigate outlier months
     """
 
-    AFFORABILITY_MULTIPLIER = 80
+    AFFORABILITY_MULTIPLIER = 100
 
     output = {
         "status": "error",
@@ -144,11 +146,13 @@ def estimate_affordability(file_content: str, house_price: float) -> dict:
         output["average_surplus"] = round(monthly["surplus"].mean())
         output["median_surplus"] = round(monthly["surplus"].median())
         output["available_investment"] = round(np.min([0.8 * output["median_surplus"], output["average_surplus"]]))
-        output["status"] = "success"
+        output["status"] = StatusCodes.SUCCESS
         output["message"] = "Available Investment estimated successfully"
 
         max_loan_amount = output["median_income"]*AFFORABILITY_MULTIPLIER
         logger.info(f"Max loan amount: {max_loan_amount}")
+        
+
         if (max_loan_amount > house_price):
             is_affordable = True
         else:
@@ -158,9 +162,9 @@ def estimate_affordability(file_content: str, house_price: float) -> dict:
         output["max_affordability"] = output["median_income"]*AFFORABILITY_MULTIPLIER
 
         if not is_affordable:
-            output["status"] = "success"
+            output["status"] = StatusCodes.SUCCESS
             output["message"] = f"""Based on your income estimates from the bank statement the average house 
-            price of {house_price} is outside your afforable range of {output["median_income"]*5} """
+            price of {house_price} is outside your afforable range of {output["max_affordability"]} """
             logger.info(f"Affordablility output: {output}")
             return output
 
@@ -184,23 +188,36 @@ def deposit_calculator(min_value: float, max_value: float, deposit_percent: floa
     """
     Calculate the deposit amount based on house price and deposit percentage.
 
-    Args:
+    Args:        
         min_price: minimum value of the house price
         max_price: maximum value of the house price
         deposit_percent: The percentage of house price to use as deposit (default 0.1 for 10%)
 
     Returns:
-        1. Deposit Amount: Amount of deposit needed.
-        2. House Price: Estimated house price to target.
+        - status: "error" or "success" indicating the analysis status
+        - error_code: Code identifying the specific error
+        -  Deposit Amount: Amount of deposit needed.
+        -  House Price: Estimated house price to target.
     """
-    
-    logger.info(f"Starting deposit calculation - min_value: {min_value}, max_value: {max_value}, deposit_percent: {deposit_percent}")
-    house_price = np.ceil(min_value + (max_value - min_value) / 5 ) ## Little bit higher than mon value
-    logger.info(f"Calculating deposit for house_price of {house_price} with  deposit_percent={deposit_percent}")
-    deposit = np.ceil(house_price * deposit_percent)
-    logger.info(f"Calculated deposit: {deposit}")
+    try:
+        logger.info(f"Starting deposit calculation - min_value: {min_value}, max_value: {max_value}, deposit_percent: {deposit_percent}")
+        house_price = np.ceil(min_value + (max_value - min_value) / 5 ) ## Little bit higher than mon value
+        logger.info(f"Calculating deposit for house_price of {house_price} with  deposit_percent={deposit_percent}")
+        deposit = np.ceil(house_price * deposit_percent)
+        logger.info(f"Calculated deposit: {deposit}")
+
+    except Exception as e:
+        return {
+        "status": StatusCodes.ERROR,
+        "error_code" : BankFileErrorCode.UNKNOWN_ERROR,
+        "deposit_amount": 0,
+        "house_price": 0
+        }
+
+        logger.info(f"Unknown Error: {e}")
     
     return {
+        "status": StatusCodes.SUCCESS,
         "deposit_amount": deposit,
         "house_price": house_price
     }
@@ -211,12 +228,14 @@ def feasibility_calculator(planInput: PlanInput):
 
     Args:
         PlanInput: Input to the plan generator step
-        
+
 
     Returns:
         dict: A dictionary containing:
-            - min_value (float): Minimum projected value based on risk tolerance                
-            - max_value (float): Maximum projected value based on risk tolerance               
+            - status (str): "success" or "error" indicating the calculation status
+            - error_code (str): Code identifying the specific error (if status is "error")
+            - min_value (float): Minimum projected value based on risk tolerance
+            - max_value (float): Maximum projected value based on risk tolerance
             - likelihood (str): Feasibility assessment
                 - "feasible": Deposit goal can be met with minimum projection
                 - "tight": Deposit goal is achievable but requires favorable conditions
@@ -245,84 +264,135 @@ def feasibility_calculator(planInput: PlanInput):
         The function uses compound interest formula: FV = PMT * ((1 + r)^n - 1) / r
         where PMT is the monthly saving, r is the monthly growth rate, and n is total months.
     """
-    
-    ## Extract required variables
-    available_investment = planInput.saving_capacity.suggested_investment
-    deposit = planInput.housing_goal.deposit
-    risk_band = planInput.risk_profile.risk_band
-    time_horizon = planInput.risk_profile.score_details.time_horizon_years
 
-    logger.info(f"Starting feasibility calculation - available_investment: {available_investment}, deposit: {deposit}, risk_band: {risk_band}, time_horizon: {time_horizon} years")
+    try:
+        ## Extract required variables
+        available_investment = planInput.available_investment
+        deposit = planInput.deposit_target
+        risk_band = planInput.risk_band
+        time_horizon = planInput.time_horizon_years
 
-    ## Calculate growth rates
+        logger.info(f"Starting feasibility calculation - available_investment: {available_investment}, deposit: {deposit}, risk_band: {risk_band}, time_horizon: {time_horizon} years")
 
-    r_month_base = pow(1 + BASE_GROWTH_RATE, 1/12) - 1
-    r_month_low = pow(1 + LOW_GROWTH_RATE, 1/12) - 1
-    r_month_moderate = pow(1 + MODERATE_GROWTH_RATE, 1/12) - 1
-    r_month_high = pow(1 + HIGH_GROWTH_RATE, 1/12) - 1
+        ## Calculate growth rates
 
-    logger.info(f"Monthly growth rates - base: {r_month_base:.6f}, low: {r_month_low:.6f}, moderate: {r_month_moderate:.6f}, high: {r_month_high:.6f}")
+        r_month_base = pow(1 + BASE_GROWTH_RATE, 1/12) - 1
+        r_month_low = pow(1 + LOW_GROWTH_RATE, 1/12) - 1
+        r_month_moderate = pow(1 + MODERATE_GROWTH_RATE, 1/12) - 1
+        r_month_high = pow(1 + HIGH_GROWTH_RATE, 1/12) - 1
 
-    base_value = available_investment*(pow(1+r_month_base, 12*time_horizon) -1)/r_month_base
-    low_value = available_investment*(pow(1+r_month_low, 12*time_horizon) -1)/r_month_low
-    high_value = available_investment*(pow(1+r_month_high, 12*time_horizon) -1)/r_month_high
-    avg_value = available_investment*(pow(1+r_month_moderate, 12*time_horizon) -1)/r_month_moderate
+        logger.info(f"Monthly growth rates - base: {r_month_base:.6f}, low: {r_month_low:.6f}, moderate: {r_month_moderate:.6f}, high: {r_month_high:.6f}")
 
-    logger.info(f"Projected values - base: {base_value:.2f}, low: {low_value:.2f}, moderate: {avg_value:.2f}, high: {high_value:.2f}")
+        base_value = available_investment*(pow(1+r_month_base, 12*time_horizon) -1)/r_month_base
+        low_value = available_investment*(pow(1+r_month_low, 12*time_horizon) -1)/r_month_low
+        high_value = available_investment*(pow(1+r_month_high, 12*time_horizon) -1)/r_month_high
+        avg_value = available_investment*(pow(1+r_month_moderate, 12*time_horizon) -1)/r_month_moderate
 
-    min_value = available_investment*12*time_horizon
-    max_value = available_investment*12*time_horizon
-    years_to_target = time_to_savings(available_investment, deposit, r_month_base)
-    if risk_band == 1:
-        logger.info(f"Risk Band 1 (No Risk) - Using base growth rate: {r_month_base:.6f}")
-        max_value = base_value
-        logger.info(f"Risk Band 1 final values - min: {min_value:.2f}, max: {max_value:.2f}")
-    elif risk_band == 2:
-        logger.info(f"Risk Band 2 (Low Risk) - Using low growth rate: {r_month_low:.6f}")
-        min_value = base_value
-        max_value = low_value
-        years_to_target = time_to_savings(available_investment, deposit, r_month_low)
-        logger.info(f"Risk Band 2 final values - min: {min_value:.2f}, max: {max_value:.2f}, years_to_target: {years_to_target}")
-    elif risk_band == 3:
-        logger.info(f"Risk Band 3 (Moderate Risk) - Using moderate growth rate: {r_month_moderate:.6f}")
-        min_value = low_value
-        max_value = avg_value
-        years_to_target = time_to_savings(available_investment, deposit, r_month_moderate)
-        logger.info(f"Risk Band 3 final values - min: {min_value:.2f}, max: {max_value:.2f}, years_to_target: {years_to_target}")
-    elif risk_band >= 4:
-        logger.info(f"Risk Band 4+ (High Risk) - Using high growth rate: {r_month_high:.6f}")
-        min_value = avg_value
-        max_value = high_value
-        years_to_target = time_to_savings(available_investment, deposit, r_month_high)
-        logger.info(f"Risk Band 4 final values - min: {min_value:.2f}, max: {max_value:.2f}, years_to_target: {years_to_target}")
+        logger.info(f"Projected values - base: {base_value:.2f}, low: {low_value:.2f}, moderate: {avg_value:.2f}, high: {high_value:.2f}")
 
-    goal = "tight"
-    if deposit <= min_value:
-        goal = "feasible"
-        logger.info(f"Goal assessment: FEASIBLE (deposit {deposit:.2f} <= min_value {min_value:.2f})")
-    elif high_value < deposit:
-        goal = "infeasible"
-        logger.info(f"Goal assessment: INFEASIBLE (high_value {high_value:.2f} < deposit {deposit:.2f})")
-    else:
-        logger.info(f"Goal assessment: TIGHT (deposit {deposit:.2f} between min {min_value:.2f} and max {max_value:.2f})")
+        min_value = available_investment*12*time_horizon
+        max_value = available_investment*12*time_horizon
+        years_to_target = time_to_savings(available_investment, deposit, r_month_base)
+        if risk_band == 1:
+            logger.info(f"Risk Band 1 (No Risk) - Using base growth rate: {r_month_base:.6f}")
+            max_value = base_value
+            logger.info(f"Risk Band 1 final values - min: {min_value:.2f}, max: {max_value:.2f}")
+        elif risk_band == 2:
+            logger.info(f"Risk Band 2 (Low Risk) - Using low growth rate: {r_month_low:.6f}")
+            min_value = base_value
+            max_value = low_value
+            years_to_target = time_to_savings(available_investment, deposit, r_month_low)
+            logger.info(f"Risk Band 2 final values - min: {min_value:.2f}, max: {max_value:.2f}, years_to_target: {years_to_target}")
+        elif risk_band == 3:
+            logger.info(f"Risk Band 3 (Moderate Risk) - Using moderate growth rate: {r_month_moderate:.6f}")
+            min_value = low_value
+            max_value = avg_value
+            years_to_target = time_to_savings(available_investment, deposit, r_month_moderate)
+            logger.info(f"Risk Band 3 final values - min: {min_value:.2f}, max: {max_value:.2f}, years_to_target: {years_to_target}")
+        elif risk_band >= 4:
+            logger.info(f"Risk Band 4+ (High Risk) - Using high growth rate: {r_month_high:.6f}")
+            min_value = avg_value
+            max_value = high_value
+            years_to_target = time_to_savings(available_investment, deposit, r_month_high)
+            logger.info(f"Risk Band 4 final values - min: {min_value:.2f}, max: {max_value:.2f}, years_to_target: {years_to_target}")
 
-    result = {
-        "status": "ok",
-        "min_final_value": round(min_value),
-        "max_final_value": round(max_value),
-        "likelihood": goal,
-        "years_to_target": years_to_target,
-        "user_input": planInput
-        
-    }
+        goal = FeasibilityCode.TIGHT
+        if deposit <= min_value:
+            goal = "feasible"
+            logger.info(f"Goal assessment: FEASIBLE (deposit {deposit:.2f} <= min_value {min_value:.2f})")
+        elif high_value < deposit:
+            goal = FeasibilityCode.INFEASIBLE
+            logger.info(f"Goal assessment: INFEASIBLE (high_value {high_value:.2f} < deposit {deposit:.2f})")
+        else:
+            logger.info(f"Goal assessment: TIGHT (deposit {deposit:.2f} between min {min_value:.2f} and max {max_value:.2f})")
 
-    logger.info(f"Feasibility calculation complete - Result: {result}")
-    return result
+        result = {
+            "status": StatusCodes.SUCCESS,
+            "error_code": None,
+            "min_final_value": round(min_value),
+            "max_final_value": round(max_value),
+            "likelihood": goal,
+            "years_to_target": round(years_to_target),
+            "user_input": planInput
 
-def time_to_savings(saving_per_month: float, target_deposit: float, monthly_rate:float) -> int:
+        }
+
+        logger.info(f"Feasibility calculation complete - Result: {result}")
+        return result
+
+    except AttributeError as e:
+        logger.error(f"AttributeError in feasibility_calculator: {e}")
+        return {
+            "status": StatusCodes.ERROR,
+            "error_code": CommonErrorCodes.INVALID_DATA,
+            "min_final_value": 0,
+            "max_final_value": 0,
+            "likelihood": "error",
+            "years_to_target": 0,
+            "user_input": planInput,
+            "message": f"Invalid plan input: missing required attributes - {str(e)}"
+        }
+    except (TypeError, ValueError) as e:
+        logger.error(f"TypeError/ValueError in feasibility_calculator: {e}")
+        return {
+            "status": StatusCodes.ERROR,
+            "error_code": CommonErrorCodes.INVALID_DATA,
+            "min_final_value": 0,
+            "max_final_value": 0,
+            "likelihood": "error",
+            "years_to_target": 0,
+            "user_input": planInput,
+            "message": f"Invalid data format in plan input - {str(e)}"
+        }
+    except ZeroDivisionError as e:
+        logger.error(f"ZeroDivisionError in feasibility_calculator: {e}")
+        return {
+            "status": StatusCodes.ERROR,
+            "error_code": CommonErrorCodes.INVALID_DATA,
+            "min_final_value": 0,
+            "max_final_value": 0,
+            "likelihood": "error",
+            "years_to_target": 0,
+            "user_input": planInput,
+            "message": "Division by zero error: available investment or deposit cannot be zero"
+        }
+    except Exception as e:
+        logger.error(f"Unexpected error in feasibility_calculator: {e}")
+        return {
+            "status": StatusCodes.ERROR,
+            "error_code": CommonErrorCodes.UNKNOWN_ERROR,
+            "min_final_value": 0,
+            "max_final_value": 0,
+            "likelihood": "error",
+            "years_to_target": 0,
+            "user_input": planInput,
+            "message": f"Unexpected error during feasibility calculation - {str(e)}"
+        }
+
+def time_to_savings(saving_per_month: float, target_deposit: float, monthly_rate:float) -> float:
 
    n_months = np.log(1 + (target_deposit * monthly_rate) / saving_per_month) / np.log(1 + monthly_rate)
-   return np.ceil(n_months/12).astype(int)
+   return round(np.ceil(n_months/12))
 
 def risk_classification(income_stability: int, time_horizon_years: int, loss_reaction: int):
     """

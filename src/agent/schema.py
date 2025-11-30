@@ -12,25 +12,30 @@ class PropertyPrice(BaseModel):
     sources: Optional[list[str]] = None
 
 class HousingGoalState(BaseModel):
-    status: Optional[str] = "error"
+    status: Optional[str] = None
     postcode: Optional[str] = None
     property_type: Optional[str] = None    
     # Final confirmed price and target
     min_price: Optional[float] = None
     max_price: Optional[float] = None
+    house_price: Optional[float] = None
     deposit_target: Optional[float] = None    
     # List of options returned by the price search tool
-    price_options: Optional[list[PropertyPrice]] = None # Renamed to avoid conflict
+    price_ranges: Optional[list[PropertyPrice]] = None 
+    message: Optional[str] = None
     
-    error_message: Optional[str] = None
 
 
 class CapacityState(BaseModel):
-    status: Literal["success", "error"]
+    status: Optional[str] = None
     suggested_investment: Optional[int] = None
-    avg_surplus: Optional[float] = None
+    average_surplus: Optional[float] = None
     median_surplus: Optional[float] = None
-    error_message: Optional[str] = None
+    is_affordable: Optional[bool] = None
+    max_affordability: Optional[float] = None
+    message: Optional[str] = None
+
+
 
 class HousingGoalInput(BaseModel):
     postcode: Optional[str] = None
@@ -49,27 +54,32 @@ class BankDataInput(BaseModel):
 
 
 class RiskProfileInput(BaseModel):
-    income_stability: int 
-    time_horizon_years: int 
-    loss_reaction: int
+    income_stability: Optional[int] = None
+    time_horizon_years: Optional[int] = None
+    loss_reaction: Optional[int] = None
 
 
 class RiskProfileOutput(BaseModel):
-    status: Literal["success", "error"]
-    risk_band: int
-    risk_band_text: str
-    score_details: RiskProfileInput
-    profile_summary: str
-    max_equity_share: float
+    status: Optional[str] = None
+    risk_band: Optional[int] = None
+    risk_band_text: Optional[str] = None
+    score_details: RiskProfileInput = None
+    profile_summary: Optional[str] = None
+    max_equity_share: Optional[float] = None 
 
 class PlanInput(BaseModel):
-    housing_goal: Optional[HousingGoalState] = None
-    saving_capacity: Optional[CapacityState] = None
-    risk_profile: Optional[RiskProfileOutput] = None
-
+    postcode: Optional[str] = None
+    property_type: Optional[str] = None    
+    deposit_target: Optional[float] = None 
+    available_investment: Optional[float] = None
+    income_stability: Optional[int] = None
+    time_horizon_years: Optional[int] = None
+    loss_reaction: Optional[int] = None
+    risk_band: Optional[int] = None
+    max_equity_share: Optional[float] = None 
 
 class PlanOutput(BaseModel):
-    time_horizon_years: Optional[int] = None
+    time_horizon_years: Optional[float] = None
     suggested_investment: Optional[float] = None
     risk_band: Optional[int] = None
     max_equity_share: Optional[float] = None
@@ -80,7 +90,6 @@ class WorkflowState(BaseModel):
     data_items_required_to_complete: Optional[list[str]] = None
     # Any free-form notes or metadata
     notes: Optional[str] = None
-
 
 
 class SessionState(BaseModel):

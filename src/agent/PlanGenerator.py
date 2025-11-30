@@ -2,8 +2,7 @@ import logging
 from google.adk.agents import LlmAgent
 from google.genai import types
 from src.tools.FinancialTools import feasibility_calculator
-from src.tools.utils import retry_config
-from src.Prompts.HousingGoalPrompt import system_prompt
+from src.Prompts.PlanGeneratorPrompt import system_prompt
 from src.agent.schema import PlanInput
 from src.tools.utils import system_safety_settings
 

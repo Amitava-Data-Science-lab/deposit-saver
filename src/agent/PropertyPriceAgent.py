@@ -5,6 +5,7 @@ from src.tools.utils import retry_config
 from google.adk.tools import google_search
 from src.Prompts.PropertyPricePrompt import system_prompt
 from src.agent.schema import HousingGoalInput
+from src.tools.utils import system_safety_settings
 
 
 logger = logging.getLogger(__name__)
@@ -17,12 +18,7 @@ property_price_agent = LlmAgent(
     generate_content_config=types.GenerateContentConfig(
         temperature=0.2,  # More deterministic output
         max_output_tokens=5000,
-        safety_settings=[
-            types.SafetySetting(
-                category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-                threshold=types.HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
-            )
-        ]
+        safety_settings=system_safety_settings
     ),
     description="""Determines the price range of a given property type in a given postcode using online web search""",
     instruction= system_prompt, 

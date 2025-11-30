@@ -2,7 +2,8 @@ import logging
 from google.adk.tools import ToolContext, FunctionTool
 from typing import Any, Dict
 from src.agent.schema import SessionState, WorkflowState, HousingGoalState, CapacityState, RiskProfileOutput, PlanOutput
-
+from src.tools.ErrorAndStatus import StatusCodes
+import json
 
 
 logger = logging.getLogger(__name__)
@@ -114,47 +115,41 @@ async def after_tool_store_state(tool, args, tool_context, tool_response):
     output_key = None
     if hasattr(tool, "agent") and getattr(tool.agent, "output_key", None):
         output_key = tool.agent.output_key
-        logger.info(f"Agent tool detected with output_key: {output_key}")
+        logger.debug(f"Agent tool detected with output_key: {output_key}")
 
     if not output_key:
         # Tool doesn't have an output key → nothing to persist
-        logger.info("No output key found, skipping preference storage")
+        logger.debug("No output key found, skipping preference storage")
         return None
 
-    # Read the agent-as-tool output
+      
     agent_output = state.get(output_key)
     agent_output = clean_llm_json_output(agent_output)
     logger.info(f"Agent output: {agent_output}")
+   
+    ## IF output status == "error" don't store in memory
     if agent_output is None:
-        logger.info(f"No output found for key '{output_key}', skipping preference storage")
+        logger.debug(f"No output found for key '{output_key}', skipping preference storage")
         return None
     
-    session_state = SessionState()
-    state_data = state.get("user:preferences", {})
-    if state_data:
-        session_state = SessionState.model_validate_json(state_data)
+    if isinstance(agent_output, str):
+        payload = json.loads(agent_output)
+    else:
+         payload = agent_output
+
+    if payload["status"] and payload["status"] == StatusCodes.ERROR:
+         logger.debug(f"Output with output key: {output_key} is in error. Skipping storage in user Preferences")
+         return None
     
-    ## Use the agent output and output key to populate the correct session state
-    if tool.agent.name == "housing_goal_agent":
-        session_state.housing_goal = HousingGoalState.model_validate_json(agent_output)
-        session_state.stage = "housing"
-    elif tool.agent.name == "bank_data_agent":
-        session_state.bank_capacity = CapacityState.model_validate_json(agent_output)
-        session_state.stage = "capacity"
-    elif tool.agent.name == "risk_profiler_agent":
-        session_state.risk_profile = RiskProfileOutput.model_validate_json(agent_output)
-        session_state.stage = "risk"
-    elif tool.agent.name == "plan_generator_agent":
-        session_state.final_plan = PlanOutput.model_validate_json(agent_output)
-        session_state.stage = "planning"
+    current_user_pref = state.get("user:preferences", {})
 
-        
-    logger.info(f"Storing agent output for: {tool.agent.name}")
-
-    # Update user preferences    
-    state_data = session_state.model_dump_json()
-    state["user:preferences"] = state_data
-    logger.info(f"Successfully stored preferences {state_data} for agent: {tool.agent.name}")
+    if current_user_pref and isinstance(current_user_pref, str):
+        current_user_pref = json.loads(current_user_pref)
+   
+    current_user_pref[output_key] = payload
+    
+    state["user:preferences"] = current_user_pref.model_dump_json()
+    logger.debug(f"Successfully stored preferences {current_user_pref} for agent: {tool.agent.name}")
    
     return None
 

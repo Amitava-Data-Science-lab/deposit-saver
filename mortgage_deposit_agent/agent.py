@@ -75,10 +75,10 @@ root_agent = LlmAgent(
            agent_tool.AgentTool(agent=bank_data_agent),
            agent_tool.AgentTool(agent=risk_profiler_agent),
            agent_tool.AgentTool(agent=plan_generator_agent),
-           agent_tool.AgentTool(agent=workflow_router_agent),
+           # agent_tool.AgentTool(agent=workflow_router_agent),
            PreloadMemoryTool()],
-    after_tool_callback=after_tool_store_state,
-    after_model_callback=debug_state
+    # after_tool_callback=after_tool_store_state,
+    # after_model_callback=debug_state
 )
 
 logger.info("Root orchestrator agent successfully initialized")

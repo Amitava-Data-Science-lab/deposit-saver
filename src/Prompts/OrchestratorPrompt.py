@@ -70,22 +70,28 @@ object **that strictly adheres to the required key names**:
 
 4) PLAN GENERATION
 - When you have:
-- a valid housing goal (including deposit target),
-- a valid bank capacity summary,
-- a valid risk profile,
+- postcode, property_type, and deposit_target from housing_goal_agent
+- available_investment from bank_data_agent,
+- income_stability, time_horizon_years, max_equity_share, and loss_reaction from risk_profiler_agent
+- affordibility indicated by is_affordable == true,
 **and the user has confirmed the monthly saving figure,**
-**call plan_generator_agent with a single JSON object** that combines all three state results under clear keys.
+**call plan_generator_agent with a single JSON object** that combines all the above elements.
 
 - **Payload Structure for Plan Generator Call:**
 ```json
 {{
- "housing_goal_result": <full JSON object from housing_goal_agent>,
- "saving_capacity_result": <full JSON object from bank_data_agent>,
- "risk_profile_result": <full JSON object from risk_profiler_agent>
+  "postcode": "HP12",
+  "property_type": "2-bedroom apartment",
+  "deposit_target": 25000,
+  "available_investment": 15000,
+  "income_stability": 4,
+  "time_horizon_years": 5,
+  "loss_reaction": 2,
+  "risk_band": 3,
+  "max_equity_share": 0.25
 }}
 ```
-- The PlanGeneratorAgent will call its own FeasibilityCalculator tool,
-and return a final plan plus a user-facing explanation.
+- The PlanGeneratorAgent will call its own FeasibilityCalculator tool, and return a final plan plus a user-facing explanation.
 
 5) PRESENT RESULTS
 - Present the plan to the user in simple language:

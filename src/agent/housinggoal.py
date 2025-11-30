@@ -8,6 +8,7 @@ from src.agent.schema import HousingGoalInput
 from src.agent.PropertyPriceAgent import property_price_agent
 from src.tools.utils import system_safety_settings
 from google.adk.tools import agent_tool
+from src.tools.HousePriceCache import save_house_price_to_gcs, load_house_price_from_gcs
 
 
 
@@ -33,7 +34,9 @@ housing_goalagent = LlmAgent(
     tools=[outcode_checker, 
            agent_tool.AgentTool(agent=property_price_agent), 
            deposit_calculator,
-           nearby_outcodes],
+           nearby_outcodes,
+           save_house_price_to_gcs,
+           load_house_price_from_gcs],
 )
 
 

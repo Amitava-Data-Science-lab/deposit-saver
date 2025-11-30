@@ -1,0 +1,954 @@
+{
+  "id": "6f12200f-99a3-4b8a-a38b-6a2147cd5ab0",
+  "appName": "mortgage_deposit_agent",
+  "userId": "user",
+  "state": {
+    "house_prices": "```json\n{\n\"status\": \"success\",\n\"price_data\": [\n{\n\"postCode\": \"TS10\",\n\"type\": \"Terraced\",\n\"bedrooms\": 2,\n\"priceMin\": 77500,\n\"priceMax\": 140500,\n\"sources\": [\n\"https://www.zoopla.co.uk/for-sale/2-bedroom-houses/ts10/\",\n\"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\",\n\"https://www.zoopla.co.uk/house-prices/ts10/\"\n]\n},\n{\n\"postCode\": \"TS10\",\n\"type\": \"Semi-Detached\",\n\"bedrooms\": 2,\n\"priceMin\": 116000,\n\"priceMax\": 170000,\n\"sources\": [\n\"https://www.zoopla.co.uk/for-sale/2-bedroom-houses/ts10/\",\n\"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\",\n\"https://www.rightmove.co.uk/house-prices/ts10.html\",\n\"https://www.zoopla.co.uk/house-prices/ts10/\"\n]\n},\n{\n\"postCode\": \"TS10\",\n\"type\": \"Detached\",\n\"bedrooms\": 2,\n\"priceMin\": 135000,\n\"priceMax\": 135000,\n\"sources\": [\n\"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\"\n]\n}\n],\n\"message\": \"house prices found\"\n}\n```",
+    "housing_goal": "{\"postcode\": \"TS10\", \"property_type\": \"2-bed house\", \"min_price\": 77500.0, \"max_price\": 140500.0, \"deposit_target\": 9010, \"house_prices\": null, \"status\": \"success\"}",
+    "saving_capacity": "{\"status\": \"success\", \"message\": \"Available Investment estimated successfully\", \"suggested_investment\": 190.0, \"average_surplus\": 231.0, \"median_surplus\": 238.0, \"average_income\": 2000.0, \"median_income\": 2000.0, \"is_affordable\": true}",
+    "risk_profile": "{\"status\": \"success\", \"risk_band\": \"4\", \"risk_band_Text\": \"High Risk\", \"max_equity_share\": 0.7, \"score_details\": {\"income_stability\": 4, \"time_horizon_years\": 4, \"loss_reaction\": 4}, \"profile_summary\": \"Your risk profile is classified as High Risk. This is because you have a stable income, a medium-term investment horizon of 4 years, and are comfortable with taking on risk for better rewards. This profile allows for a growth-focused investment strategy, with up to 70% of your savings potentially allocated to equities to target higher returns.\"}",
+    "final_plan": "```json\n{\n\"status\": \"success\",\n\"error_code\": null,\n\"likelihood\": \"feasible\",\n\"min_final_value\": 10246,\n\"max_final_value\": 10645,\n\"years_to_target\": 4,\n\"user_input\": {\n\"available_investment\": 190,\n\"deposit_target\": 9010,\n\"income_stability\": 4,\n\"loss_reaction\": 4,\n\"max_equity_share\": 0.7,\n\"postcode\": \"TS10\",\n\"property_type\": \"2-bed house\",\n\"risk_band\": 4,\n\"time_horizon_years\": 4\n},\n\"user_explanation\": \"Great news! Your goal of reaching a deposit of £9010 for a 2-bed house in TS10 appears feasible within your 4-year timeframe. With your current available investment of £190 and a risk band of 4, your projected final value is estimated to be between £10246 and £10645. This range comfortably exceeds your target deposit.\"\n}\n```"
+  },
+  "events": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Can you help me save for the deposit on a 2-bed house at TS10"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-ab33f3e7-b487-4d17-8a5c-b253772d1e77",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "99987cfc-153c-47cb-8591-8dc131f378ba",
+      "timestamp": 1764453936.290902
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-de0de19d-1515-4cc7-86a1-d7c20644d8db",
+              "args": {
+                "postcode": "TS10",
+                "property_type": "2-bed house"
+              },
+              "name": "housing_goal_agent"
+            },
+            "thoughtSignature": "CvIDAePx_16U6sh0w8sMmg4IVp_2Slp44lEfJXvSJYQcCfId5oF7ZQXbAyKQKBzkuIZzB3IldDSCSF3poA-qJAHSqzepxQyfo48CA7vV3SQqo53topN6APwzraCEyMJPMqd3RgX99f5CMdd0FaUsMjbGWspUcP1lmaal1tJ3AHL0yLVKCllHFIwy2URGy0lXSFk7I45ni4VbQQomQOIvaRratjiwn1dZ0IDGRlMqPkdZQLFs7Wy8hvMmCaaC3_LfRCQwZO6_4HZ1B8QBBrF0G-lmO4fYzLX39HerYlU6ledWvUDrysa-2MWXqbkqlP4Bq8rb6Hu97ztHnllRVSy30_nOTKJY84ZoGIYzT1U9nEXyR7-H-Os29HegBUyFQU-fVzqZTpEUHc48pdThgxh2xOCzFfZAi66q2RkJwxi4Jr3zaGX5U8kQoyxKUiEPeWJbwsjNvEKOjQlr3DYcw01Rxh_3HxQVvd-pKsEAOzIrZzl2Woyvw110XHMjw7rDh7sjXVwEWv19Ou5pzvgyuvgtb9ATeRi1bVr4FhAnnkfA2KJ90_Yuddx-t6Fj-0_wiTmuXTXRlJdyl5ZT-cCL7Q8dSMhP0aRewx2e2DZjxpgpHQfayGm0ILgMq1TsGQLuFfHkuDb6GXBvvqtAqmix2h1Sfkr5SHZk"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2426
+          }
+        ],
+        "cachedContentTokenCount": 2426,
+        "candidatesTokenCount": 16,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 16
+          }
+        ],
+        "promptTokenCount": 3121,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3121
+          }
+        ],
+        "thoughtsTokenCount": 127,
+        "totalTokenCount": 3264,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.7242302894592285,
+      "invocationId": "e-ab33f3e7-b487-4d17-8a5c-b253772d1e77",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "8c0984cd-1490-40c2-9f8c-f182539ed9e7",
+      "timestamp": 1764453936.297076
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-de0de19d-1515-4cc7-86a1-d7c20644d8db",
+              "name": "housing_goal_agent",
+              "response": {
+                "result": "{\"postcode\": \"TS10\", \"property_type\": \"2-bed house\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": [{\"postCode\": \"TS10\", \"type\": \"Terraced\", \"bedrooms\": 2, \"priceMin\": 77500, \"priceMax\": 140500, \"sources\": [\"https://www.zoopla.co.uk/for-sale/2-bedroom-houses/ts10/\", \"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\", \"https://www.zoopla.co.uk/house-prices/ts10/\"]}, {\"postCode\": \"TS10\", \"type\": \"Semi-Detached\", \"bedrooms\": 2, \"priceMin\": 116000, \"priceMax\": 170000, \"sources\": [\"https://www.zoopla.co.uk/for-sale/2-bedroom-houses/ts10/\", \"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\", \"https://www.rightmove.co.uk/house-prices/ts10.html\", \"https://www.zoopla.co.uk/house-prices/ts10/\"]}, {\"postCode\": \"TS10\", \"type\": \"Detached\", \"bedrooms\": 2, \"priceMin\": 135000, \"priceMax\": 135000, \"sources\": [\"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\"]}], \"status\": \"AWAITING_CONFIRMATION\"}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-ab33f3e7-b487-4d17-8a5c-b253772d1e77",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "house_prices": "```json\n{\n\"status\": \"success\",\n\"price_data\": [\n{\n\"postCode\": \"TS10\",\n\"type\": \"Terraced\",\n\"bedrooms\": 2,\n\"priceMin\": 77500,\n\"priceMax\": 140500,\n\"sources\": [\n\"https://www.zoopla.co.uk/for-sale/2-bedroom-houses/ts10/\",\n\"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\",\n\"https://www.zoopla.co.uk/house-prices/ts10/\"\n]\n},\n{\n\"postCode\": \"TS10\",\n\"type\": \"Semi-Detached\",\n\"bedrooms\": 2,\n\"priceMin\": 116000,\n\"priceMax\": 170000,\n\"sources\": [\n\"https://www.zoopla.co.uk/for-sale/2-bedroom-houses/ts10/\",\n\"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\",\n\"https://www.rightmove.co.uk/house-prices/ts10.html\",\n\"https://www.zoopla.co.uk/house-prices/ts10/\"\n]\n},\n{\n\"postCode\": \"TS10\",\n\"type\": \"Detached\",\n\"bedrooms\": 2,\n\"priceMin\": 135000,\n\"priceMax\": 135000,\n\"sources\": [\n\"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\"\n]\n}\n],\n\"message\": \"house prices found\"\n}\n```",
+          "housing_goal": "{\"postcode\": \"TS10\", \"property_type\": \"2-bed house\", \"min_price\": null, \"max_price\": null, \"deposit_target\": null, \"house_prices\": [{\"postCode\": \"TS10\", \"type\": \"Terraced\", \"bedrooms\": 2, \"priceMin\": 77500, \"priceMax\": 140500, \"sources\": [\"https://www.zoopla.co.uk/for-sale/2-bedroom-houses/ts10/\", \"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\", \"https://www.zoopla.co.uk/house-prices/ts10/\"]}, {\"postCode\": \"TS10\", \"type\": \"Semi-Detached\", \"bedrooms\": 2, \"priceMin\": 116000, \"priceMax\": 170000, \"sources\": [\"https://www.zoopla.co.uk/for-sale/2-bedroom-houses/ts10/\", \"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\", \"https://www.rightmove.co.uk/house-prices/ts10.html\", \"https://www.zoopla.co.uk/house-prices/ts10/\"]}, {\"postCode\": \"TS10\", \"type\": \"Detached\", \"bedrooms\": 2, \"priceMin\": 135000, \"priceMax\": 135000, \"sources\": [\"https://www.onthemarket.com/2-bed-properties/for-sale/in-ts10/\"]}], \"status\": \"AWAITING_CONFIRMATION\"}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "20a9155f-b954-4e9b-b80d-227ce8b95801",
+      "timestamp": 1764453980.841912
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Great! I can certainly help you with that.\n\nI've looked up 2-bedroom houses in the TS10 area, and here are some average price ranges based on property type:\n\n*   **Terraced:** between £77,500 and £140,500\n*   **Semi-Detached:** between £116,000 and £170,000\n*   **Detached:** around £135,000\n\nWhich of these options would you like to use for your savings plan? Please choose one of the property types.",
+            "thoughtSignature": "CosDAePx_15N3d2hN6VqupuQWXHwWbk02jP9GGZmFmt_zAkV8A_4du9ihlNagvaXe_x8KVLc2xrAUZWgGpjCwuPKTn0aJSfn2FFUyfqet4Ard0EKrHpUwozr_WRx-7WeJdZv_ZzimbEOOLff11dTi9fgvBO9-sSKa9oQlvwoBmN_ZATEAaxDdrMl6wOR8eIlscat6En3iVw6idnvNLQAPzeyeCFEha4tv82oOQ4WQIfKm1i0tUycx8aOS5cRc_REZJpkzJ4mXZLdzatiE6InXZJQSboWpKkwikExCMr_MPPmTSaOOtYXBMZm58iKpfoprs19_giY81WqshU4QHVyQ8U3q6brxYpB3qnbOAj0VMHx5qV1cqt2q5f_p-VQ0ZCVLMUL8p2CKmn0E73pdz-JXppPMiPdtT-5CADX1O6Lm66agxGznbL_wAM8GrGI4jl26DUM-TG0J3x7FY1D4pbT0_0BcaJJScCRAB8na0smn83QqUZE7jt_66axv3w9NuOCTGquPnuH2CvzL9X2498="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2476
+          }
+        ],
+        "cachedContentTokenCount": 2476,
+        "candidatesTokenCount": 128,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 128
+          }
+        ],
+        "promptTokenCount": 3550,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3675
+          }
+        ],
+        "thoughtsTokenCount": 91,
+        "totalTokenCount": 3769,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.15870635211467743,
+      "invocationId": "e-ab33f3e7-b487-4d17-8a5c-b253772d1e77",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "9fc96fb9-5c93-42fa-94a4-f51774c4fe6c",
+      "timestamp": 1764453980.848718
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Let's go with Terraced Houses"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-db9be15f-bb73-4a28-9169-53aef1249cb7",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "1b2b7252-cde3-4b2e-a869-70145b8eb624",
+      "timestamp": 1764454016.273229
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-d59b4e98-f435-47cf-a97e-7b86080da120",
+              "args": {
+                "human_approval": true,
+                "min_price": 77500,
+                "property_type": "2-bed house",
+                "postcode": "TS10",
+                "max_price": 140500
+              },
+              "name": "housing_goal_agent"
+            },
+            "thoughtSignature": "CqkEAePx_17VCSNzfFxGjTJ4m5rNhdIMTaHMMd95Ok2Elpm7xwQZBWg3bVp0nPHUctxgftH4XNyppmpmSJxVAJYUpmotZ_QIeeIHMZLmKGsZ2A9blJKt0PtFxWL_apEyJPgKjRB-eNLukljhCevcIK1J8uKUgmlWjydilkrXZZAtDKGQM226uYbteX4xnOqOuIEi_qADBIs5OJVYnPDpF7evS5HAf5wva3OkNi4ZvMgC7T2fxtb8-32-juOvMDHx5cB4m1T5HpgiPN-yUN4Q53OaKWgPcHSQnTtEtyobNPZ7yvu-_r53trOCc4ChlHX-CSu6iKv-UPoHbm9hsgXRbw6T9IfQ1LCu5aTcz5U0IT7J9zSIXkIilRZk5v-yTBNFb3jPRDKMUFlDO7iAViOSdf1kl0S94dK7JFHlvwXMMrIwB8a-LZPu2Mfj5wntbxKpUkiunIwZD8-gREyVFZohXwNMd6heBwNtHDZYSKQ03j2-j9iHO7oNmOSZ9hW5xF_1gTJd33Xh2ZlXuXxM1EY4HRjUKM8tjALGtc6J1aFZQ6hUjG4P-60XmV4PPBXvvPRHDlqku3lrK0MibzQWqPyrSOu4xWpRQpEZDIguzFkV5n0itIDXqCr5j3FQhskkNHze18HKKiamPeSJlycWGrmL63k8oBy_Pd1yJhVGoIgCud-CynZlAofc_14K1loe96Z74-5nzerMIuxowGMb4BKSR5rQkClxppnIXhjG-Q=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2496
+          }
+        ],
+        "cachedContentTokenCount": 2496,
+        "candidatesTokenCount": 28,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 28
+          }
+        ],
+        "promptTokenCount": 3686,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3900
+          }
+        ],
+        "thoughtsTokenCount": 149,
+        "totalTokenCount": 3863,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.7074595860072544,
+      "invocationId": "e-db9be15f-bb73-4a28-9169-53aef1249cb7",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "6e80e0bb-d3f5-4ae2-a040-43f47fc5577f",
+      "timestamp": 1764454016.277965
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-d59b4e98-f435-47cf-a97e-7b86080da120",
+              "name": "housing_goal_agent",
+              "response": {
+                "result": "{\"postcode\": \"TS10\", \"property_type\": \"2-bed house\", \"min_price\": 77500.0, \"max_price\": 140500.0, \"deposit_target\": 9010, \"house_prices\": null, \"status\": \"success\"}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-db9be15f-bb73-4a28-9169-53aef1249cb7",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "housing_goal": "{\"postcode\": \"TS10\", \"property_type\": \"2-bed house\", \"min_price\": 77500.0, \"max_price\": 140500.0, \"deposit_target\": 9010, \"house_prices\": null, \"status\": \"success\"}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "98ab271e-26d7-4aaf-a7f1-837c1e65bb48",
+      "timestamp": 1764454031.333618
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Great! We've set your housing goal to a 2-bedroom terraced house in TS10, with a target deposit of £9,010.\n\nNext, to understand your saving capacity, I need you to upload a bank statement in CSV format. Please make sure it includes at least 3 months of your recent transactions.",
+            "thoughtSignature": "CsACAePx_17KTOEeXOPVoiKLBzwdwQA8YFUqxVV4KFzd56pHKaku0K3WFz6yhljTyOD5v2Hiuz5FV-pikZ-ZRcEwd2ST7NRpPzzxgk_JV4NYXuA5UH8UTk6NTnBIZuAk1Rvn0uD5YCrhk8RdeBkGU2xYgsdF0iyrFj5ASZjCE0kUvxOq8eV047m9t7CZ5GF3uyuUsKBREBmOwZFtGAuWrSizxjfOKzybu5kKgsmW_ubexJZmIEJ56gM4k4S1i-i-3U1p8PXSKQPLlLfjUPpa8isxWh0JjS9XUJ4wXnJRYbho-YIzF5DzcmW77am7d4R0tCooU9Oa0aMwZaoyTc_1cZJ70nGtuAtZ5xWBu5YijRSuwQ36Mp5Ns_042jpblb8HWpx1tL055YDojGSrZiFtbPOzVFSf1I5kQxF-ayK0M6LqPdc="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3328
+          }
+        ],
+        "cachedContentTokenCount": 3328,
+        "candidatesTokenCount": 70,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 70
+          }
+        ],
+        "promptTokenCount": 3792,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4152
+          }
+        ],
+        "thoughtsTokenCount": 77,
+        "totalTokenCount": 3939,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.20922790254865373,
+      "invocationId": "e-db9be15f-bb73-4a28-9169-53aef1249cb7",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "b028b14e-6509-496f-8d84-a6b2823f1cfb",
+      "timestamp": 1764454031.338938
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Here is my bank statement for last 5 months"
+          },
+          {
+            "inlineData": {
+              "data": "VHJhbnNhY3Rpb24gRGF0ZSxEZXNjcmlwdGlvbixDcmVkaXQgYW1vdW50LERlYml0IGFtb3VudA0KMjAyNS0wMS0wMSxBQ01FIFBBWVJPTEwsMjAwMC4wMCwNCjIwMjUtMDEtMDIsUkVOVCBQQVlNRU5ULCw5MDAuMDANCjIwMjUtMDEtMDMsVEVTQ08gU1RPUkUgIzEsLDQxLjAwDQoyMDI1LTAxLTA0LFRFU0NPIFNUT1JFICMyLCw3MC4wMA0KMjAyNS0wMS0wNSxURVNDTyBTVE9SRSAjMywsNTEuMDANCjIwMjUtMDEtMDYsVEVTQ08gU1RPUkUgIzQsLDEyOS4wMA0KMjAyNS0wMS0wOCxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDg3LjAwDQoyMDI1LTAxLTEwLFVUSUxJVFkgQklMTCBHQVMsLDQxLjAwDQoyMDI1LTAxLTEyLFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMSwsMjguMDANCjIwMjUtMDEtMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAyLCwyMi4wMA0KMjAyNS0wMS0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDMsLDI3LjAwDQoyMDI1LTAxLTIwLFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgNCwsMTkuMDANCjIwMjUtMDEtMjIsTkVURkxJWCwsOS45OQ0KMjAyNS0wMS0yNCxTUE9USUZZLCwxNS45OQ0KMjAyNS0wMS0yNSxHWU0gTUVNQkVSU0hJUCwsMjkuOTkNCjIwMjUtMDEtMjcsUkVTVEFVUkFOVCAjMSwsMzMuMDANCjIwMjUtMDEtMjgsUkVTVEFVUkFOVCAjMiwsMzUuMDANCjIwMjUtMDEtMjgsUkVTVEFVUkFOVCAjMywsMzYuMDANCjIwMjUtMDEtMjgsQU1BWk9OIE9SREVSICMxLCwyOS4wMA0KMjAyNS0wMS0yOCxBTUFaT04gT1JERVIgIzIsLDI2LjAwDQoyMDI1LTAxLTI4LEFNQVpPTiBPUkRFUiAjMywsNDIuMDANCjIwMjUtMDEtMjgsQ0FTSCBXSVRIRFJBV0FMLCwxNDcuMDINCjIwMjUtMDItMDEsQUNNRSBQQVlST0xMLDIwMDAuMDAsDQoyMDI1LTAyLTAyLFJFTlQgUEFZTUVOVCwsOTAwLjAwDQoyMDI1LTAyLTAzLFRFU0NPIFNUT1JFICMxLCw1MC4wMA0KMjAyNS0wMi0wNSxURVNDTyBTVE9SRSAjMiwsNzMuMDANCjIwMjUtMDItMDYsVEVTQ08gU1RPUkUgIzMsLDMyLjAwDQoyMDI1LTAyLTA3LFRFU0NPIFNUT1JFICM0LCwxMDguMDANCjIwMjUtMDItMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCw5Mi4wMA0KMjAyNS0wMi0xMSxVVElMSVRZIEJJTEwgR0FTLCw1My4wMA0KMjAyNS0wMi0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDMxLjAwDQoyMDI1LTAyLTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMTguMDANCjIwMjUtMDItMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwxOS4wMA0KMjAyNS0wMi0xOCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDIwLjAwDQoyMDI1LTAyLTIwLE5FVEZMSVgsLDkuOTkNCjIwMjUtMDItMjIsU1BPVElGWSwsMTUuOTkNCjIwMjUtMDItMjQsR1lNIE1FTUJFUlNISVAsLDI5Ljk5DQoyMDI1LTAyLTI1LFJFU1RBVVJBTlQgIzEsLDM5LjAwDQoyMDI1LTAyLTI2LFJFU1RBVVJBTlQgIzIsLDM2LjAwDQoyMDI1LTAyLTI3LFJFU1RBVVJBTlQgIzMsLDMxLjAwDQoyMDI1LTAyLTI4LEFNQVpPTiBPUkRFUiAjMSwsMzcuMDANCjIwMjUtMDItMjgsQU1BWk9OIE9SREVSICMyLCwzOS4wMA0KMjAyNS0wMi0yOCxBTUFaT04gT1JERVIgIzMsLDI5LjAwDQoyMDI1LTAyLTI4LENBU0ggV0lUSERSQVdBTCwsOTkuMDMNCjIwMjUtMDMtMDEsQUNNRSBQQVlST0xMLDIwMDAuMDAsDQoyMDI1LTAzLTAyLFJFTlQgUEFZTUVOVCwsOTAwLjAwDQoyMDI1LTAzLTAzLFRFU0NPIFNUT1JFICMxLCwzOS4wMA0KMjAyNS0wMy0wNCxURVNDTyBTVE9SRSAjMiwsNjYuMDANCjIwMjUtMDMtMDYsVEVTQ08gU1RPUkUgIzMsLDQzLjAwDQoyMDI1LTAzLTA3LFRFU0NPIFNUT1JFICM0LCwxMzEuMDANCjIwMjUtMDMtMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCw4Ny4wMA0KMjAyNS0wMy0xMSxVVElMSVRZIEJJTEwgR0FTLCw0NC4wMA0KMjAyNS0wMy0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDE4LjAwDQoyMDI1LTAzLTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMjAuMDANCjIwMjUtMDMtMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwyNC4wMA0KMjAyNS0wMy0xOSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDMzLjAwDQoyMDI1LTAzLTIxLE5FVEZMSVgsLDkuOTkNCjIwMjUtMDMtMjMsU1BPVElGWSwsMTUuOTkNCjIwMjUtMDMtMjUsR1lNIE1FTUJFUlNISVAsLDI5Ljk5DQoyMDI1LTAzLTI2LFJFU1RBVVJBTlQgIzEsLDM5LjAwDQoyMDI1LTAzLTI3LFJFU1RBVVJBTlQgIzIsLDM1LjAwDQoyMDI1LTAzLTI4LFJFU1RBVVJBTlQgIzMsLDI3LjAwDQoyMDI1LTAzLTI4LEFNQVpPTiBPUkRFUiAjMSwsMzkuMDANCjIwMjUtMDMtMjgsQU1BWk9OIE9SREVSICMyLCw0MS4wMA0KMjAyNS0wMy0yOCxBTUFaT04gT1JERVIgIzMsLDI4LjAwDQoyMDI1LTAzLTI4LENBU0ggV0lUSERSQVdBTCwsMTAyLjAyDQoyMDI1LTA0LTAxLEFDTUUgUEFZUk9MTCwyMDAwLjAwLA0KMjAyNS0wNC0wMixSRU5UIFBBWU1FTlQsLDkwMC4wMA0KMjAyNS0wNC0wMyxURVNDTyBTVE9SRSAjMSwsNTEuMDANCjIwMjUtMDQtMDUsVEVTQ08gU1RPUkUgIzIsLDY1LjAwDQoyMDI1LTA0LTA2LFRFU0NPIFNUT1JFICMzLCw0NC4wMA0KMjAyNS0wNC0wOCxURVNDTyBTVE9SRSAjNCwsMTI0LjAwDQoyMDI1LTA0LTEwLFVUSUxJVFkgQklMTCBFTEVDVFJJQ0lUWSwsODMuMDANCjIwMjUtMDQtMTIsVVRJTElUWSBCSUxMIEdBUywsMzkuMDANCjIwMjUtMDQtMTQsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwyMC4wMA0KMjAyNS0wNC0xNixUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDE2LjAwDQoyMDI1LTA0LTE4LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsMjguMDANCjIwMjUtMDQtMTksVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCwyMy4wMA0KMjAyNS0wNC0yMSxORVRGTElYLCw5Ljk5DQoyMDI1LTA0LTIzLFNQT1RJRlksLDE1Ljk5DQoyMDI1LTA0LTI1LEdZTSBNRU1CRVJTSElQLCwyOS45OQ0KMjAyNS0wNC0yNixSRVNUQVVSQU5UICMxLCwzNy4wMA0KMjAyNS0wNC0yNyxSRVNUQVVSQU5UICMyLCwzNC4wMA0KMjAyNS0wNC0yOCxSRVNUQVVSQU5UICMzLCwyNi4wMA0KMjAyNS0wNC0yOCxBTUFaT04gT1JERVIgIzEsLDM5LjAwDQoyMDI1LTA0LTI4LEFNQVpPTiBPUkRFUiAjMiwsMzMuMDANCjIwMjUtMDQtMjgsQU1BWk9OIE9SREVSICMzLCw0MS4wMA0KMjAyNS0wNC0yOCxDQVNIIFdJVEhEUkFXQUwsLDgzLjAyDQoyMDI1LTA1LTAxLEFDTUUgUEFZUk9MTCwyMDAwLjAwLA0KMjAyNS0wNS0wMixSRU5UIFBBWU1FTlQsLDkwMC4wMA0KMjAyNS0wNS0wMyxURVNDTyBTVE9SRSAjMSwsNDUuMDANCjIwMjUtMDUtMDQsVEVTQ08gU1RPUkUgIzIsLDYzLjAwDQoyMDI1LTA1LTA2LFRFU0NPIFNUT1JFICMzLCw0NS4wMA0KMjAyNS0wNS0wNyxURVNDTyBTVE9SRSAjNCwsMTI0LjAwDQoyMDI1LTA1LTA5LFVUSUxJVFkgQklMTCBFTEVDVFJJQ0lUWSwsODIuMDANCjIwMjUtMDUtMTEsVVRJTElUWSBCSUxMIEdBUywsNDkuMDANCjIwMjUtMDUtMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwyOC4wMA0KMjAyNS0wNS0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDIyLjAwDQoyMDI1LTA1LTE3LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsMTkuMDANCjIwMjUtMDUtMTgsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCwyMi4wMA0KMjAyNS0wNS0yMCxORVRGTElYLCw5Ljk5DQoyMDI1LTA1LTIyLFNQT1RJRlksLDE1Ljk5DQoyMDI1LTA1LTI0LEdZTSBNRU1CRVJTSElQLCwyOS45OQ0KMjAyNS0wNS0yNSxSRVNUQVVSQU5UICMxLCw0My4wMA0KMjAyNS0wNS0yNixSRVNUQVVSQU5UICMyLCwzMS4wMA0KMjAyNS0wNS0yNyxSRVNUQVVSQU5UICMzLCwyNy4wMA0KMjAyNS0wNS0yOCxBTUFaT04gT1JERVIgIzEsLDQzLjAwDQoyMDI1LTA1LTI4LEFNQVpPTiBPUkRFUiAjMiwsMjguMDANCjIwMjUtMDUtMjgsQU1BWk9OIE9SREVSICMzLCwzNS4wMA0KMjAyNS0wNS0yOCxDQVNIIFdJVEhEUkFXQUwsLDg5LjAzDQo=",
+              "displayName": "bankstatement.csv",
+              "mimeType": "text/csv"
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-4114883f-eca1-4e95-8923-f7a493423072",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "6a159991-95e4-490a-a207-0ba4bc481e0d",
+      "timestamp": 1764454058.08364
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-a855e1f1-fac4-456e-8f20-d8863aec2f90",
+              "args": {
+                "file_content": "Transaction Date,Description,Credit amount,Debit amount\n2025-01-01,ACME PAYROLL,2000.00,\n2025-01-02,RENT PAYMENT,,900.00\n2025-01-03,TESCO STORE #1,,41.00\n2025-01-04,TESCO STORE #2,,70.00\n2025-01-05,TESCO STORE #3,,51.00\n2025-01-06,TESCO STORE #4,,129.00\n2025-01-08,UTILITY BILL ELECTRICITY,,87.00\n2025-01-10,UTILITY BILL GAS,,41.00\n2025-01-12,TRANSPORT OYSTER TOPUP 1,,28.00\n2025-01-13,TRANSPORT OYSTER TOPUP 2,,22.00\n2025-01-15,TRANSPORT OYSTER TOPUP 3,,27.00\n2025-01-20,TRANSPORT OYSTER TOPUP 4,,19.00\n2025-01-22,NETFLIX,,9.99\n2025-01-24,SPOTIFY,,15.99\n2025-01-25,GYM MEMBERSHIP,,29.99\n2025-01-27,RESTAURANT #1,,33.00\n2025-01-28,RESTAURANT #2,,35.00\n2025-01-28,RESTAURANT #3,,36.00\n2025-01-28,AMAZON ORDER #1,,29.00\n2025-01-28,AMAZON ORDER #2,,26.00\n2025-01-28,AMAZON ORDER #3,,42.00\n2025-01-28,CASH WITHDRAWAL,,147.02\n2025-02-01,ACME PAYROLL,2000.00,\n2025-02-02,RENT PAYMENT,,900.00\n2025-02-03,TESCO STORE #1,,50.00\n2025-02-05,TESCO STORE #2,,73.00\n2025-02-06,TESCO STORE #3,,32.00\n2025-02-07,TESCO STORE #4,,108.00\n2025-02-09,UTILITY BILL ELECTRICITY,,92.00\n2025-02-11,UTILITY BILL GAS,,53.00\n2025-02-13,TRANSPORT OYSTER TOPUP 1,,31.00\n2025-02-15,TRANSPORT OYSTER TOPUP 2,,18.00\n2025-02-17,TRANSPORT OYSTER TOPUP 3,,19.00\n2025-02-18,TRANSPORT OYSTER TOPUP 4,,20.00\n2025-02-20,NETFLIX,,9.99\n2025-02-22,SPOTIFY,,15.99\n2025-02-24,GYM MEMBERSHIP,,29.99\n2025-02-25,RESTAURANT #1,,39.00\n2025-02-26,RESTAURANT #2,,36.00\n2025-02-27,RESTAURANT #3,,31.00\n2025-02-28,AMAZON ORDER #1,,37.00\n2025-02-28,AMAZON ORDER #2,,39.00\n2025-02-28,AMAZON ORDER #3,,29.00\n2025-02-28,CASH WITHDRAWAL,,99.03\n2025-03-01,ACME PAYROLL,2000.00,\n2025-03-02,RENT PAYMENT,,900.00\n2025-03-03,TESCO STORE #1,,39.00\n2025-03-04,TESCO STORE #2,,66.00\n2025-03-06,TESCO STORE #3,,43.00\n2025-03-07,TESCO STORE #4,,131.00\n2025-03-09,UTILITY BILL ELECTRICITY,,87.00\n2025-03-11,UTILITY BILL GAS,,44.00\n2025-03-13,TRANSPORT OYSTER TOPUP 1,,18.00\n2025-03-15,TRANSPORT OYSTER TOPUP 2,,20.00\n2025-03-17,TRANSPORT OYSTER TOPUP 3,,24.00\n2025-03-19,TRANSPORT OYSTER TOPUP 4,,33.00\n2025-03-21,NETFLIX,,9.99\n2025-03-23,SPOTIFY,,15.99\n2025-03-25,GYM MEMBERSHIP,,29.99\n2025-03-26,RESTAURANT #1,,39.00\n2025-03-27,RESTAURANT #2,,35.00\n2025-03-28,RESTAURANT #3,,27.00\n2025-03-28,AMAZON ORDER #1,,39.00\n2025-03-28,AMAZON ORDER #2,,41.00\n2025-03-28,AMAZON ORDER #3,,28.00\n2025-03-28,CASH WITHDRAWAL,,102.02\n2025-04-01,ACME PAYROLL,2000.00,\n2025-04-02,RENT PAYMENT,,900.00\n2025-04-03,TESCO STORE #1,,51.00\n2025-04-05,TESCO STORE #2,,65.00\n2025-04-06,TESCO STORE #3,,44.00\n2025-04-08,TESCO STORE #4,,124.00\n2025-04-10,UTILITY BILL ELECTRICITY,,83.00\n2025-04-12,UTILITY BILL GAS,,39.00\n2025-04-14,TRANSPORT OYSTER TOPUP 1,,20.00\n2025-04-16,TRANSPORT OYSTER TOPUP 2,,16.00\n2025-04-18,TRANSPORT OYSTER TOPUP 3,,28.00\n2025-04-19,TRANSPORT OYSTER TOPUP 4,,23.00\n2025-04-21,NETFLIX,,9.99\n2025-04-23,SPOTIFY,,15.99\n2025-04-25,GYM MEMBERSHIP,,29.99\n2025-04-26,RESTAURANT #1,,37.00\n2025-04-27,RESTAURANT #2,,34.00\n2025-04-28,RESTAURANT #3,,26.00\n2025-04-28,AMAZON ORDER #1,,39.00\n2025-04-28,AMAZON ORDER #2,,33.00\n2025-04-28,AMAZON ORDER #3,,41.00\n2025-04-28,CASH WITHDRAWAL,,83.02\n2025-05-01,ACME PAYROLL,2000.00,\n2025-05-02,RENT PAYMENT,,900.00\n2025-05-03,TESCO STORE #1,,45.00\n2025-05-04,TESCO STORE #2,,63.00\n2025-05-06,TESCO STORE #3,,45.00\n2025-05-07,TESCO STORE #4,,124.00\n2025-05-09,UTILITY BILL ELECTRICITY,,82.00\n2025-05-11,UTILITY BILL GAS,,49.00\n2025-05-13,TRANSPORT OYSTER TOPUP 1,,28.00\n2025-05-15,TRANSPORT OYSTER TOPUP 2,,22.00\n2025-05-17,TRANSPORT OYSTER TOPUP 3,,19.00\n2025-05-18,TRANSPORT OYSTER TOPUP 4,,22.00\n2025-05-20,NETFLIX,,9.99\n2025-05-22,SPOTIFY,,15.99\n2025-05-24,GYM MEMBERSHIP,,29.99\n2025-05-25,RESTAURANT #1,,43.00\n2025-05-26,RESTAURANT #2,,31.00\n2025-05-27,RESTAURANT #3,,27.00\n2025-05-28,AMAZON ORDER #1,,43.00\n2025-05-28,AMAZON ORDER #2,,28.00\n2025-05-28,AMAZON ORDER #3,,35.00\n2025-05-28,CASH WITHDRAWAL,,89.03\n",
+                "house_price": 77500
+              },
+              "name": "bank_data_agent"
+            },
+            "thoughtSignature": "CqEGAePx_17Mo8n3n5LqBWCTRORosM3WNtW7DW8uLKM-cfce_Asr95iJTDr3kryFbSWToRS1wPYmBLRBuThzvx70KFRu_lKfcpw81Gi8Yly5T955Pm4FalMXKVAKOXmK3ri6doyyy3XmLu23DMS_umHYRvMOH8mpo1hODxBrDNUR18MtDy65Al8fBvs6qGFQ53o2znPZT4FJS--TZtqTQLxBUdZXgbJxVPIzfK0a-QZgzy5ZrSYr2za6Tx97aaSNLEYSIXNd8px35GT0Q2KX0RYJDTHVsLRzBkc0VmRTeGFdvNWLuEe5x9b3H0O4KZHR3WDR7KCsEeWGnUYN3Q-uRiYy2hUDYYBdd3j_b0lZcKDo0IszYwTLE7Q_smTMC2YV7CiP9UUCwYf8ReuIE_uQlsSJ3f16BQKGMlFd8tjsvwo6N4lgEAf_TcFM7L87etRP0nCNJ1rvXDqxZuEdIF3XdjMggdKa1K1QqLIZ6xKFtpVlGdkEno-mm7IvCsnXuurYuTM1y_TStbX2aWKj0nXU2rAikyV4qwCTAg4F3oDWNOsPG-yHlUrBdZSDqRLNOzGYAYGkn0fjUPKiP67Vr8dauB3g9PDMT2T-Zz6F48p23TssrA8j3lkmdn2xdI4Eq44BBF4R5p84r_y2jsmG3yloGWi5sOlszstkbOQgi0c1fyrKcKNb5ZqxMfGK79D2fBd-CUEPNRRnYR3ZRO58ueZ3xH_NisFOKopE7p4Jm9PqONX55xYYtpDxKIZ8bN-MsQCvFDEjcpukX1ZRskWw39esVSCzZc5c4f6lArQ8p5hbEBfpRjhkUSQkZJhcW1sm2DaTdnAZxRzOK_as9-kZZg81OxiecPLc5dDEGQCNG1M3GvpRS6922cp1X9Mjlal5-7rcDjEOkmMLI4FcM_uNeWMNo1_WRfozrvJLDK5ytyw9hwP0PhH93clkjWLKMmRGMpZMsPC6zFAhAq4YZDfXPJ5TvFUoaAmbChjk7caUiz8R26xvgISnR5Nzay5dGu_vWfDjnZhjBlffK8GzmoOPubeLQtFAN5h3X0krNH4kjecil2oCU_dX"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3606
+          }
+        ],
+        "cachedContentTokenCount": 3606,
+        "candidatesTokenCount": 2535,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2535
+          }
+        ],
+        "promptTokenCount": 6501,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 6936
+          }
+        ],
+        "thoughtsTokenCount": 228,
+        "totalTokenCount": 9264,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.014693497576892258,
+      "invocationId": "e-4114883f-eca1-4e95-8923-f7a493423072",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "503b943f-409c-4ad3-9102-1406a521b84d",
+      "timestamp": 1764454058.088209
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-a855e1f1-fac4-456e-8f20-d8863aec2f90",
+              "name": "bank_data_agent",
+              "response": {
+                "result": "{\"status\": \"success\", \"message\": \"Available Investment estimated successfully\", \"suggested_investment\": 190.0, \"average_surplus\": 231.0, \"median_surplus\": 238.0, \"average_income\": 2000.0, \"median_income\": 2000.0, \"is_affordable\": true}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-4114883f-eca1-4e95-8923-f7a493423072",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "saving_capacity": "{\"status\": \"success\", \"message\": \"Available Investment estimated successfully\", \"suggested_investment\": 190.0, \"average_surplus\": 231.0, \"median_surplus\": 238.0, \"average_income\": 2000.0, \"median_income\": 2000.0, \"is_affordable\": true}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "9a48609a-32f2-413c-8e3f-3353e54efc43",
+      "timestamp": 1764454112.819298
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Thanks for providing your bank statement!\n\nBased on your income and spending, it looks like you could comfortably save **£190 per month** towards your deposit.\n\nWould you like to proceed with saving £190 per month, or would you prefer to choose a different amount?",
+            "thoughtSignature": "CsoDAePx_16Dq1Lq49cKJSyj9Tz3q0SP7l8vYPmeV1Qq4pK2x3J4bPISqrtCBvlmYmxOTETHIPvVRvCB2IuVE6PaYIdMLmiKv5a6593bhF5GV1aJ-nnTwC50PZ-V2ArfCKxD48uh2IpQ4h27mfYPv6mxOXmHhdEUm2PAAV94ROmrnBq0GnWXSFIUcMXf3qvk9JWi1SUEbtCjAnIxvBdfpHZgjCty32k-aCN4suoZWY1yGlr9H35Xu5bkRkDWK_QN-koGbREtMOE1YTduE6EPy7-3uXToNvFDmrtyP6jEUk9hK-OJl9CeciXX4qjlMfzTh2miwPgGDGvf8KiEY74Vlc4N7KKpv7EhjQ8O55R_ZwhMa7Dj0z89ZGHGcWbA3AlUnzHC6-Storeiubg2b0_acrAwVUX2T7_WP6HkU41Y8m2Ng-Qz4Iy_7PFQVyRnRNNSii1KEprE31vpZV0ElALERhgKeGRzfxl_YsuGakvFknUiQGv4LCfcUpZ3NrPz4z49LEDirfh-cWTG30D8hj8aRYbfWeE1bMav_06tGHSjA8Gt_1YLw1VpHa46TV3sqlPKkwaX4aVZjzwBcmMZcX72zgdbLmXbf8-3L6dGH2k="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 6404
+          }
+        ],
+        "cachedContentTokenCount": 6404,
+        "candidatesTokenCount": 59,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 59
+          }
+        ],
+        "promptTokenCount": 9128,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9789
+          }
+        ],
+        "thoughtsTokenCount": 101,
+        "totalTokenCount": 9288,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.27545705892271916,
+      "invocationId": "e-4114883f-eca1-4e95-8923-f7a493423072",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "54b7ae01-4f02-4c30-9dca-b9fe6aaa2c13",
+      "timestamp": 1764454112.825149
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Please proceed with saving £190 per month"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-9883841a-a1ba-44c2-9fad-23e54d9e1df1",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "9452cdab-4834-417c-bd55-620143729bef",
+      "timestamp": 1764454131.817394
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Great! We'll use £190 per month for your savings plan.\n\nNow, let's figure out your risk profile, which helps us recommend the best way to save. I have a few questions for you:\n\nFirst, on a scale from 1 to 5, how stable is your income? (1 = very unstable, 5 = very stable)",
+            "thoughtSignature": "CrcCAePx_14SOHvaMTH7cEu4fVwtKSTQmvvyGxsjypBbSiG1I3_A3R4uKuKTyDbY6D-m84Cj2NB8rrQ8NZWPZQ7qfJbTMilPlm8fIbL1wSnzB_YVnLaa8OC73MUuTvSAE9gMvzE2riYYT8QX9n7mZSyt4gzBh93sUFU4OpFjnjg1wZgepSqj0FL8pFPUOrh8h7TZ1lhP5BtKBwkL02qXsxgoL1Zk9nmgcK4PmZeJ3rDAPRHen1EJzWVdOb99yz70egwCY4PpZ3ZSaMPl3mHmEzqFe3fPwMSh4lq6P8sNpZRVLnmo2InjR6iygCmuxuOp6fZGOSEDFu4vUoVcOAaXEQaackiw9-LB7P7BW00sSwxOobBoo3pL_WE05jc60kJOmZuVA_KmHMRvTgqe9u1rRDQSRHRm8HbTXlw="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9154
+          }
+        ],
+        "cachedContentTokenCount": 9154,
+        "candidatesTokenCount": 78,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 78
+          }
+        ],
+        "promptTokenCount": 9197,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9957
+          }
+        ],
+        "thoughtsTokenCount": 68,
+        "totalTokenCount": 9343,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.14644765853881836,
+      "invocationId": "e-9883841a-a1ba-44c2-9fad-23e54d9e1df1",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "915b9563-252e-409b-a4ae-0c7e400e0300",
+      "timestamp": 1764454131.821428
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "4"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-7830be28-65e2-4d78-a1b2-5cee83b7c250",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "17109731-da7e-40d0-a33c-993e603fea92",
+      "timestamp": 1764454144.855052
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Thanks.\n\nNext, in how many years do you hope to buy a property?",
+            "thoughtSignature": "CuwBAePx_175YRN6A_liVBBhegS4vGfminUfBBIJusgecAc3-yN4cWgRLNcKv3HqcKlQJQAdGHtNByw2PcnqHU7bwgCXosJvt_gN3ggKBAj4RxpWuuoDCIwkolz9xaq_cmfdVk0FhFQ9AVI7DClRk18lLNrzRvL-YjeEXTNsMEiMNCRQ8Od5W7M13VOeDZ5AUn8_teQ7xmh7FdviERs3xDtLaB7f0RSSDl_SBRYRvotfnQkOxrpC7J-_JmNh50acAemGdUFNq5htcwEFTzUw68SF4r7KdvQdHPUNMeoyrZ7k642wzfhKZVFUcSpNQNw="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3662
+          }
+        ],
+        "cachedContentTokenCount": 3662,
+        "candidatesTokenCount": 17,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 17
+          }
+        ],
+        "promptTokenCount": 9276,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10102
+          }
+        ],
+        "thoughtsTokenCount": 49,
+        "totalTokenCount": 9342,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.3230267973507152,
+      "invocationId": "e-7830be28-65e2-4d78-a1b2-5cee83b7c250",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "02d1105e-5bbf-4fb4-a970-9bd9d147cdcf",
+      "timestamp": 1764454144.860176
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "4"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-fcf0401b-9c68-423b-943d-93cea6e85703",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "d9e631ad-2ad7-484c-8dcb-4f1a75278a5a",
+      "timestamp": 1764454151.898254
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Got it.\n\nFinally, on a scale of 1 to 5, how would you feel if your investments were to drop 20% in value? (1 = very Anxious, 5 = Ok with it)",
+            "thoughtSignature": "Cs8CAePx_14CbCefHFhdQ8tAlAnLdcIbDXroTMiO6JMvR8lpsRA-hgX-ZaJnqkB9JAlbbIYH4dEqbTqh-uo4hmMZvDy4MrVsAy1_INTX7iK2dItX4E_OAdHpwb-QATDwRAdEBgiqEK8Kz4VnjzDkMde1Be2KLJsSAlUz1erNQ8U2QT0kmLAA62HP0d8x3k5W0Ye7KK0NhFZo62DI_bWJ9zU3qpoATq9DZAP3a9dNfbnnG2EN8OdqXY2RRH5bWcDE8fMlo9zTE3Fm29qHHjwjTCr5SL8jpmPZrZmZ7Zy7ZfXlu5_cL9ml5qjXSho0jXO24g5Q6Ux035MgdcFxvSjfbi7C3S_h5IftiiNXdFVS_i-phRcm83tYqp24xahzc4FTphpD3MMWTN5nRS0RrCpFHyPa37winBk9zzex9l2cTMNLobmwPucFJwkAGfeSZ11RZiw="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9151
+          }
+        ],
+        "cachedContentTokenCount": 9151,
+        "candidatesTokenCount": 47,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 47
+          }
+        ],
+        "promptTokenCount": 9294,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10167
+          }
+        ],
+        "thoughtsTokenCount": 86,
+        "totalTokenCount": 9427,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.02802844504092602,
+      "invocationId": "e-fcf0401b-9c68-423b-943d-93cea6e85703",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "d99d41a3-6b0d-4ce6-8587-48b0f22ef4ef",
+      "timestamp": 1764454151.903771
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "4"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-8f55fdfb-ee64-42cd-b120-511959e7e6b8",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "43658520-ce32-449f-b4bc-c24240504b5a",
+      "timestamp": 1764454158.834102
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-eed6dd88-d1fb-4b33-9532-c23f0ac151ba",
+              "args": {
+                "income_stability": 4,
+                "time_horizon_years": 4,
+                "loss_reaction": 4
+              },
+              "name": "risk_profiler_agent"
+            },
+            "thoughtSignature": "CrMCAePx_17toyKM16yNzLxH4xiYf3rwTTA0m4GDDuqOla0FnsvQqQW26YkS9RIkdnCzjEoa8_sHCl0C5esZPgaxtLGVn1rd0ZgBaYyFwtR-X-NZ2M_uLyk-IOtRzk7b4ZnAejEbPQQQSeYKTaNSR24VU4rwH533FEzg5MhHV9AKHqzRdf0JDvqK6u_2uckmgbErBdJgGbuWeOT9vpCyEY5iPABpgF2IQUHj3e_TkmP3YBaocIo7d0BMFn0CYlXImAaHof0SijeVIVL4QR8gGUVHdseFw6zu4fk6IJMWlN7m1v4dzupZj-piUK3rdxJgQNVrvMgGbfRuR-0vYVlCTxmmGsmJ3v5kAOuNo87IrbS3l7T8ISwkGSpNynTKuxwhNF3WCTEpxJkD5Fch3Md597I8VgWN8w=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10068
+          }
+        ],
+        "cachedContentTokenCount": 10068,
+        "candidatesTokenCount": 19,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 19
+          }
+        ],
+        "promptTokenCount": 9342,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10299
+          }
+        ],
+        "thoughtsTokenCount": 76,
+        "totalTokenCount": 9437,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.22210547798558286,
+      "invocationId": "e-8f55fdfb-ee64-42cd-b120-511959e7e6b8",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "8e89fa83-cb4d-4ce8-b511-78c222e48a20",
+      "timestamp": 1764454158.839093
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-eed6dd88-d1fb-4b33-9532-c23f0ac151ba",
+              "name": "risk_profiler_agent",
+              "response": {
+                "result": "{\"status\": \"success\", \"risk_band\": \"4\", \"risk_band_Text\": \"High Risk\", \"max_equity_share\": 0.7, \"score_details\": {\"income_stability\": 4, \"time_horizon_years\": 4, \"loss_reaction\": 4}, \"profile_summary\": \"Your risk profile is classified as High Risk. This is because you have a stable income, a medium-term investment horizon of 4 years, and are comfortable with taking on risk for better rewards. This profile allows for a growth-focused investment strategy, with up to 70% of your savings potentially allocated to equities to target higher returns.\"}"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-8f55fdfb-ee64-42cd-b120-511959e7e6b8",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "risk_profile": "{\"status\": \"success\", \"risk_band\": \"4\", \"risk_band_Text\": \"High Risk\", \"max_equity_share\": 0.7, \"score_details\": {\"income_stability\": 4, \"time_horizon_years\": 4, \"loss_reaction\": 4}, \"profile_summary\": \"Your risk profile is classified as High Risk. This is because you have a stable income, a medium-term investment horizon of 4 years, and are comfortable with taking on risk for better rewards. This profile allows for a growth-focused investment strategy, with up to 70% of your savings potentially allocated to equities to target higher returns.\"}"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "21015a96-1efe-41c8-90b2-8a60e8263202",
+      "timestamp": 1764454217.988073
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-9fd206c3-51e1-4138-8291-f15a8509f911",
+              "args": {
+                "available_investment": 190,
+                "postcode": "TS10",
+                "max_equity_share": 0.7,
+                "property_type": "2-bed house",
+                "income_stability": 4,
+                "loss_reaction": 4,
+                "deposit_target": 9010,
+                "risk_band": 4,
+                "time_horizon_years": 4
+              },
+              "name": "plan_generator_agent"
+            },
+            "thoughtSignature": "CtUGAePx_16oX9IORQjLfvfUyWOVhviZ79aoJ4W5H76skOW65xYBDDp2FcUnbW0E9R1bTuRNlu6qDBz6r54WQrNqm9o2yWCFt6TBwyZfC4-fJXhNkCD9WYFvAWNyIDrcG4CfA9GS_ZG6lInDE44pExUWVQf5F1MuMWObq-31CCCs8mjuWxpC_7W2lwSssPGKewhg0YUZmTDCg1ljsR-H2rbtYasYQ2KxoSbK9shR7ARgqGTC5b0znsM8uOly5eM9EpaalJHXWOonEIT2OEi6V6wPRD341YOJB7kA1UOF91ADck99ajsAT3FvUjO-XbsbwQpFUVWFXZ0QXZvx15PvnXb-hIKZ3R1RGAtt3DE0kuPBPx7ccRUOUWQvzlyblIQ74r55z2YVtbzzF1usywpwq0CnoFL3cJV97Lqn5-j7L2PjGPEDcpcyQOdx61DbMVEvJN4uxWjTDJlQD2vjprTkxyLsHk4Tmbs92MpenfXKE9vuYvsrd1qkN0J-mqI8QC61wJOUu5-AG2G-wypeo80g12rG-_zOq5P0JA3O9NRYyeIsybp6kozRDGHndqn_otAq1CX-O9ZUjjD0EEFpGTiIsN9RW_Ol-ch-iei3Bd1VChDcBdo9mMWanrJEzOtU7jM2ho42jzMXWRv8nmlvxWmP1DBmnaAn2rbK-2lO9JQOX4s3yoOIjpUQxk-eXc1m2OaEEe99DFwKsbamwtvK_BbyUwT8flqv9ronjG8_jJ7gWUIeeXqMjordQZxQQrfpwlI-iXIwVrHCa9pcjQrt4tDPlA2ysSVizDZiVf48kc2nqh9_D7vI47E0qvN7NXZ9wbJC3LX6WlZCpqFXUMM_YGJZRzkXYYXp-dnljC4hpBNJr7S9_I1zLvZ0C-6p0lPZZiV325SGaQeIlfg4ttpl3CNpH7BVLDM4gSA8zrVQXlcbPS7ZzoT7bR2AsnTJIKnPCcXHB_xKUdc7THDWBPoenrUbj0s7JHaCSmUMg1rSPDM42cURAmIHT-WD7hoa3Ilbw3c0uH3CO256_G_MbQ-YYrMAP2OdaCJFB3m-fHU-vS9C2U7KJJg-XaZdc0USqQJoJwCTb6IOoiuvfLbarcINbtNz3Qx2pNyBe2e5hR4-I4XHI8M8BNgdh6kORg=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10054
+          }
+        ],
+        "cachedContentTokenCount": 10054,
+        "candidatesTokenCount": 48,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 48
+          }
+        ],
+        "promptTokenCount": 9512,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10543
+          }
+        ],
+        "thoughtsTokenCount": 273,
+        "totalTokenCount": 9833,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.2522803544998169,
+      "invocationId": "e-8f55fdfb-ee64-42cd-b120-511959e7e6b8",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "db28f255-208e-4e0c-bde1-a55bedd9a480",
+      "timestamp": 1764454217.993281
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-9fd206c3-51e1-4138-8291-f15a8509f911",
+              "name": "plan_generator_agent",
+              "response": {
+                "result": "```json\n{\n\"status\": \"success\",\n\"error_code\": null,\n\"likelihood\": \"feasible\",\n\"min_final_value\": 10246,\n\"max_final_value\": 10645,\n\"years_to_target\": 4,\n\"user_input\": {\n\"available_investment\": 190,\n\"deposit_target\": 9010,\n\"income_stability\": 4,\n\"loss_reaction\": 4,\n\"max_equity_share\": 0.7,\n\"postcode\": \"TS10\",\n\"property_type\": \"2-bed house\",\n\"risk_band\": 4,\n\"time_horizon_years\": 4\n},\n\"user_explanation\": \"Great news! Your goal of reaching a deposit of £9010 for a 2-bed house in TS10 appears feasible within your 4-year timeframe. With your current available investment of £190 and a risk band of 4, your projected final value is estimated to be between £10246 and £10645. This range comfortably exceeds your target deposit.\"\n}\n```"
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-8f55fdfb-ee64-42cd-b120-511959e7e6b8",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {
+          "final_plan": "```json\n{\n\"status\": \"success\",\n\"error_code\": null,\n\"likelihood\": \"feasible\",\n\"min_final_value\": 10246,\n\"max_final_value\": 10645,\n\"years_to_target\": 4,\n\"user_input\": {\n\"available_investment\": 190,\n\"deposit_target\": 9010,\n\"income_stability\": 4,\n\"loss_reaction\": 4,\n\"max_equity_share\": 0.7,\n\"postcode\": \"TS10\",\n\"property_type\": \"2-bed house\",\n\"risk_band\": 4,\n\"time_horizon_years\": 4\n},\n\"user_explanation\": \"Great news! Your goal of reaching a deposit of £9010 for a 2-bed house in TS10 appears feasible within your 4-year timeframe. With your current available investment of £190 and a risk band of 4, your projected final value is estimated to be between £10246 and £10645. This range comfortably exceeds your target deposit.\"\n}\n```"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "22ffcca7-29ca-4361-8cd6-bcc8a1adb6b3",
+      "timestamp": 1764454232.779327
+    },
+    {
+      "modelVersion": "gemini-2.5-flash",
+      "content": {
+        "parts": [
+          {
+            "text": "Excellent news! I've generated a savings plan for you.\n\nHere's a summary of your personalized plan:\n\n*   **Target Deposit:** £9,010 for a 2-bed terraced house in TS10.\n*   **Time Horizon:** You aim to buy in 4 years.\n*   **Recommended Monthly Saving:** £190.\n*   **Feasibility:** Your goal is **feasible**!\n*   **Projected Outcome:** By saving £190 per month, you are projected to have between £10,246 and £10,645 saved in 4 years, which comfortably exceeds your deposit target.\n\nThis plan looks great and you're on track to achieve your housing goal!",
+            "thoughtSignature": "CvUCAePx_16wDadpQsrxyvg-IQaNi8T5Ib2iKi9D2WBA6T50MJfu1plmnEGSvwzCS68DufHp-oO9hNfQTXfXCflAdGCjoRASPoGjDwcYbxa6yJ6shLqi8Tu9FSgnxfcLVx33pio65aW5tIsyorYxJjq1vzIXOKy4rxCDP3-0YsYLF7lFd290JTWIWgdOJoAyvLqKKuzczdKV1xa3PG_0F9NcnLOXL11rDdkchIYCpZzpWOfd6RvFZD7REoolfCgcj--C17eNQZR496uB_P4ghWAspmvUWNgCXqhkzuP4hvf1twSjwGlZhgUUP5zfHpix6XSKe_-w9LKYdEOAko1cjQ8s4JFhk4PZjg_4zb9dWTOhGvM4BCYq8N0Clx78ai5tWDfFOSLe7uT4d990AcpJ89u_asIF9kqxIqC2Y9R28HMLKKwtRaBoM_QT9_g-NywhjTSOBDJiRslb2pftIfXbj6R8h-5IRQm75FMNyJL3085NNF19zB9E5Q=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10051
+          }
+        ],
+        "cachedContentTokenCount": 10051,
+        "candidatesTokenCount": 160,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 160
+          }
+        ],
+        "promptTokenCount": 9832,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 11134
+          }
+        ],
+        "thoughtsTokenCount": 91,
+        "totalTokenCount": 10083,
+        "trafficType": "ON_DEMAND"
+      },
+      "avgLogprobs": -0.15259636640548707,
+      "invocationId": "e-8f55fdfb-ee64-42cd-b120-511959e7e6b8",
+      "author": "mortgage_deposit_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "b393087c-7511-4edc-b58d-e6309f5a55aa",
+      "timestamp": 1764454232.785588
+    }
+  ],
+  "lastUpdateTime": 1764454232.785588
+}
