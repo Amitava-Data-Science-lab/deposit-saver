@@ -1,0 +1,1077 @@
+{
+  "eval_set_id": "Adjust_Property_Type",
+  "name": "Adjust_Property_Type",
+  "eval_cases": [
+    {
+      "eval_id": "casedd20d3",
+      "conversation": [
+        {
+          "invocation_id": "e-a4f55d75-5088-4ce4-a0c2-b8fde0602127",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Can you help with the deposit planning for a 3 -bed house in HP11"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "Cp8DAePx_17fRDxZTcbv0LW667eQGgrrryNvKIxHSXyUGgt7iF5r96HT7xMfexSyBFIOQEu3Z4rf7GfCxxMNky4XlX5uUJB4Ot7mf9eqP2xbzksCf21fg2IpKTiHQ1QX3K_V8pMjJ4cCTnXVVwr5ttQGQEBpR_B1c_lw-Eo_0YcB-ebNSRza1Suh3s5Dep4tWry6LlsVI9k_z4wUtbGSbR8o1daXW0o8wUyuo7Q0Hk9H4AueAy_G7otiOwfsuW9B1KBEuxFe1P1LWWgI3M5xCEi_6qogrHqjeLoFB0FN4F8VtSEW8gfKw-i1TJeyXMHaGriyAB30gmxjkgceOBRhqJNvc_9rWCGcw_GL4QUS0P8lVW3xOtxLBL1frZgLuiZjmOm_XVs5yh8cZ8cUnHvw_ABBWaRdhXhVxla1n1x5HWHZwX-gYZ10j17uQGrNUn3xgd18VrpIEiLk7HopvjY1gohVY_UQVx2plHb1lkqMfhX99_D130o8lbT-pKrInAYIoek3uXmtRGS5EXKhKj4b6clw029QFdXTsKHKoKRLbRwlUg==",
+                "text": "Okay, I see a few options for a 3-bedroom house in HP11:\n\n*   **Detached:** between £475,000 and £595,000\n*   **Semi-Detached:** between £395,000 and £520,000\n*   **Terraced:** between £250,000 and £420,000\n\nWhich of these ranges would you like to use for your deposit planning?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CpcCAePx_15e3FwN7Ee4DowZYwxI8oL0EWmr3YzKPaUPvge5oKockw0ryM2ee2TaKUq7x1ueQ907dIUElsr_HBmqqpfW1x-3q35nuQI2mNMXMUKKOoRJ7YnryHzPQgk_Qmi-nsFz1xxxKv1bTx95LGQayH3MtzoNZVwYH3R5Ojg03R0njPOpj-cEmoCeYU3IHZgMrBETwwTqIDbgpiQNJI3GK59VI7PVj-27xhWbOkr_hhTMRW9PblvyKFc0W0iVNVyHqfMPy-DITpt67iDv0EUw9zYZZBVlVLQnhzdYvISvnwxj3IBF0pMjO-ljydS3lwncFcaQRrd6NuVzC5Cmz5Qo2daMkW9Z9s4yNCJLLIK8l5SuFw31J7ed",
+                      "function_call": {
+                        "id": "adk-30cef01f-a6ab-4ced-a23b-364335bf556c",
+                        "args": {
+                          "postcode": "HP11",
+                          "property_type": "3-bed house"
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-30cef01f-a6ab-4ced-a23b-364335bf556c",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "```json\n{\n  \"postcode\": \"HP11\",\n  \"property_type\": \"3-bed house\",\n  \"min_price\": null,\n  \"max_price\": null,\n  \"house_price\": null,\n  \"deposit_target\": null,\n  \"price_ranges\": [\n    {\n      \"bedrooms\": 3,\n      \"postCode\": \"HP11\",\n      \"priceMax\": 595000,\n      \"priceMin\": 475000,\n      \"sources\": [\n        \"https://www.rightmove.co.uk\",\n        \"https://www.zoopla.co.uk\"\n      ],\n      \"type\": \"Detached\"\n    },\n    {\n      \"bedrooms\": 3,\n      \"postCode\": \"HP11\",\n      \"priceMax\": 520000,\n      \"priceMin\": 395000,\n      \"sources\": [\n        \"https://www.zoopla.co.uk\",\n        \"https://www.rightmove.co.uk\",\n        \"https://www.onthemarket.com\"\n      ],\n      \"type\": \"Semi-Detached\"\n    },\n    {\n      \"bedrooms\": 3,\n      \"postCode\": \"HP11\",\n      \"priceMax\": 420000,\n      \"priceMin\": 250000,\n      \"sources\": [\n        \"https://www.onthemarket.com\",\n        \"https://www.zoopla.co.uk\",\n        \"https://www.rightmove.co.uk\"\n      ],\n      \"type\": \"Terraced\"\n    }\n  ],\n  \"status\": \"AWAITING_CONFIRMATION\"\n}\n```"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592471.165873
+        },
+        {
+          "invocation_id": "e-dc6a49ee-e93a-499f-8e10-418b0f186802",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I want to go for a semi detached house please"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CtcCAePx_14GkEdG-haeNixT8O0QrKyhXpGfO7NhM0mpD5s9gD-7lQx281w1fn9GfJ5ivmHaB89pP9k1X79hIgyT8tjjNZyXbkENp566qOvpj8PcP4bx7LMn5M_qR-Cx81jLflz4EWhVarG2qxLBeE6JyF9-xhu2LQvch8pg30EImfx13lN71RvCd-OLiB6Mj0xdxJb4cRgU0pvfJXxGhw5vGIMVxRQ7F_atapzlpZWfyXL_K9PWXy4Bz_qnij4_Nxka6Yio4ZqsXbeQgQR7xNl2YrqavqGpLRBMrw22EiAmjRGMsFLKRx7mnrTWFisLezH1ISc7kPP0QMS87rTWh3ojHh2j0uoQ1s9zKllqMIZw1tV4N-pyLJ-mnKmFImG_vVajl9sqMFhoT5oTXnCghSp7CKhQMeEuk0wQAx9AhLY4cV8GPn4SC8ImvV0LfndBlomahBLOer0XlA==",
+                "text": "Great! We've set your housing goal for a 3-bed semi-detached house in HP11 with an estimated price of £420,000 and a deposit target of £42,000.\n\nNow, to understand your saving capacity, could you please upload a bank statement CSV file that includes at least 3 months of your recent transactions? This will help us figure out how much you can comfortably save each month."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "Ct8CAePx_14amjy1C_Yd0Csr9fEepErQJQa8j_Z9ul-n_XArUaCfniyvPjpnEhk_Lq1E0RffQ-f3IDFPwCCanz5_VTxDTMRnUYD5uuGsmTdbmPgkhu0x-k789LeVK33GatYSodZqtmp0YtHpUP5iowNQe8YprqvjA9kF3hT0ZxZ0ofBH8wUQJiygiXd6KjXvolvrwn6LK90DljKsA1u0BQsDd12dLGYAYmly1uh2mUygrHGovwTfMSDgvUdkr5QjmzaDjncx_r2ki0uXrG-ckO6zOZN0cbu17ctfbXUjUE6gAi27ryol5mzVPArq1hI_Yvko1YeebR8tPKH7D_gMZSA2P8LMjVQr8ZjZJCOUeO8QiQyiztpAfUKAy4tmvJN62OKUwRUM9gmNxxr4S9fFSc42HpTkV_72jkCtIVtTx395If4soASDndkWuVrCbMt9l0CgmSzaUFNUvnKgOJi5Npz5",
+                      "function_call": {
+                        "id": "adk-2af86e79-5664-4272-925a-7562cde903bf",
+                        "args": {
+                          "postcode": "HP11",
+                          "max_price": 520000,
+                          "min_price": 395000,
+                          "property_type": "3-bed house",
+                          "human_approval": true
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-2af86e79-5664-4272-925a-7562cde903bf",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "{\"postcode\": \"HP11\", \"property_type\": \"3-bed house\", \"min_price\": 395000.0, \"max_price\": 520000.0, \"house_price\": 420000, \"deposit_target\": 42000, \"price_ranges\": null, \"status\": \"success\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592505.890539
+        },
+        {
+          "invocation_id": "e-efc7738f-3828-45eb-bf5e-1a07ad367416",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Here is my bank statement"
+              },
+              {
+                "inline_data": {
+                  "display_name": "bankstatement_60k.csv",
+                  "data": "VHJhbnNhY3Rpb24gRGF0ZSxEZXNjcmlwdGlvbixDcmVkaXQgYW1vdW50LERlYml0IGFtb3VudA0KMjAyNS0wMS0wMSxBQ01FIFBBWVJPTEwsMzc4MC4wLA0KMjAyNS0wMS0wMixSRU5UIFBBWU1FTlQsLDE0MzcuMzgNCjIwMjUtMDEtMDMsVEVTQ08gU1RPUkUgIzEsLDY1LjQ4DQoyMDI1LTAxLTA0LFRFU0NPIFNUT1JFICMyLCwxMTEuOA0KMjAyNS0wMS0wNSxURVNDTyBTVE9SRSAjMywsODEuNDUNCjIwMjUtMDEtMDYsVEVTQ08gU1RPUkUgIzQsLDIwNi4wMg0KMjAyNS0wMS0wOCxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDEzOC45NQ0KMjAyNS0wMS0xMCxVVElMSVRZIEJJTEwgR0FTLCw2NS40OA0KMjAyNS0wMS0xMixUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDQ0LjcyDQoyMDI1LTAxLTEzLFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMzUuMTQNCjIwMjUtMDEtMTUsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCw0My4xMg0KMjAyNS0wMS0yMCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDMwLjM0DQoyMDI1LTAxLTIyLE5FVEZMSVgsLDE1Ljk1DQoyMDI1LTAxLTI0LFNQT1RJRlksLDI1LjU0DQoyMDI1LTAxLTI1LEdZTSBNRU1CRVJTSElQLCw0Ny45DQoyMDI1LTAxLTI3LFJFU1RBVVJBTlQgIzEsLDUyLjcNCjIwMjUtMDEtMjgsQU1BWk9OIE9SREVSICMxLCw0Ni4zMg0KMjAyNS0wMS0yOCxBTUFaT04gT1JERVIgIzIsLDQxLjUyDQoyMDI1LTAxLTI4LEFNQVpPTiBPUkRFUiAjMywsNjcuMDgNCjIwMjUtMDEtMjgsQ0FTSCBXSVRIRFJBV0FMLCwyMzQuOA0KMjAyNS0wMS0yOCxSRVNUQVVSQU5UICMyLCw1NS45DQoyMDI1LTAxLTI4LFJFU1RBVVJBTlQgIzMsLDU3LjUNCjIwMjUtMDItMDEsQUNNRSBQQVlST0xMLDM3ODAuMCwNCjIwMjUtMDItMDIsUkVOVCBQQVlNRU5ULCwxNDI1LjAxDQoyMDI1LTAyLTAzLFRFU0NPIFNUT1JFICMxLCw3OS4xNw0KMjAyNS0wMi0wNSxURVNDTyBTVE9SRSAjMiwsMTE1LjU4DQoyMDI1LTAyLTA2LFRFU0NPIFNUT1JFICMzLCw1MC42Nw0KMjAyNS0wMi0wNyxURVNDTyBTVE9SRSAjNCwsMTcxLjANCjIwMjUtMDItMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCwxNDUuNjcNCjIwMjUtMDItMTEsVVRJTElUWSBCSUxMIEdBUywsODMuOTINCjIwMjUtMDItMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCw0OS4wOA0KMjAyNS0wMi0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDI4LjUNCjIwMjUtMDItMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwzMC4wOA0KMjAyNS0wMi0xOCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDMxLjY3DQoyMDI1LTAyLTIwLE5FVEZMSVgsLDE1LjgyDQoyMDI1LTAyLTIyLFNQT1RJRlksLDI1LjMyDQoyMDI1LTAyLTI0LEdZTSBNRU1CRVJTSElQLCw0Ny40OA0KMjAyNS0wMi0yNSxSRVNUQVVSQU5UICMxLCw2MS43NQ0KMjAyNS0wMi0yNixSRVNUQVVSQU5UICMyLCw1Ny4wDQoyMDI1LTAyLTI3LFJFU1RBVVJBTlQgIzMsLDQ5LjA4DQoyMDI1LTAyLTI4LEFNQVpPTiBPUkRFUiAjMSwsNTguNTgNCjIwMjUtMDItMjgsQU1BWk9OIE9SREVSICMyLCw2MS43NQ0KMjAyNS0wMi0yOCxBTUFaT04gT1JERVIgIzMsLDQ1LjkyDQoyMDI1LTAyLTI4LENBU0ggV0lUSERSQVdBTCwsMTU2LjgNCjIwMjUtMDMtMDEsQUNNRSBQQVlST0xMLDM3ODAuMCwNCjIwMjUtMDMtMDIsUkVOVCBQQVlNRU5ULCwxNDM5LjINCjIwMjUtMDMtMDMsVEVTQ08gU1RPUkUgIzEsLDYyLjM3DQoyMDI1LTAzLTA0LFRFU0NPIFNUT1JFICMyLCwxMDUuNTQNCjIwMjUtMDMtMDYsVEVTQ08gU1RPUkUgIzMsLDY4Ljc2DQoyMDI1LTAzLTA3LFRFU0NPIFNUT1JFICM0LCwyMDkuNDgNCjIwMjUtMDMtMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCwxMzkuMTINCjIwMjUtMDMtMTEsVVRJTElUWSBCSUxMIEdBUywsNzAuMzYNCjIwMjUtMDMtMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwyOC43OA0KMjAyNS0wMy0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDMxLjk4DQoyMDI1LTAzLTE3LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsMzguMzgNCjIwMjUtMDMtMTksVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCw1Mi43Nw0KMjAyNS0wMy0yMSxORVRGTElYLCwxNS45OA0KMjAyNS0wMy0yMyxTUE9USUZZLCwyNS41Nw0KMjAyNS0wMy0yNSxHWU0gTUVNQkVSU0hJUCwsNDcuOTYNCjIwMjUtMDMtMjYsUkVTVEFVUkFOVCAjMSwsNjIuMzcNCjIwMjUtMDMtMjcsUkVTVEFVUkFOVCAjMiwsNTUuOTcNCjIwMjUtMDMtMjgsQU1BWk9OIE9SREVSICMxLCw2Mi4zNw0KMjAyNS0wMy0yOCxBTUFaT04gT1JERVIgIzIsLDY1LjU2DQoyMDI1LTAzLTI4LEFNQVpPTiBPUkRFUiAjMywsNDQuNzcNCjIwMjUtMDMtMjgsQ0FTSCBXSVRIRFJBV0FMLCwxNjMuMTQNCjIwMjUtMDMtMjgsUkVTVEFVUkFOVCAjMywsNDMuMTgNCjIwMjUtMDQtMDEsQUNNRSBQQVlST0xMLDM3ODAuMCwNCjIwMjUtMDQtMDIsUkVOVCBQQVlNRU5ULCwxNDc3Ljc2DQoyMDI1LTA0LTAzLFRFU0NPIFNUT1JFICMxLCw4My43NA0KMjAyNS0wNC0wNSxURVNDTyBTVE9SRSAjMiwsMTA2LjczDQoyMDI1LTA0LTA2LFRFU0NPIFNUT1JFICMzLCw3Mi4yNQ0KMjAyNS0wNC0wOCxURVNDTyBTVE9SRSAjNCwsMjAzLjYNCjIwMjUtMDQtMTAsVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCwxMzYuMjgNCjIwMjUtMDQtMTIsVVRJTElUWSBCSUxMIEdBUywsNjQuMDQNCjIwMjUtMDQtMTQsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwzMi44NA0KMjAyNS0wNC0xNixUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDI2LjI3DQoyMDI1LTA0LTE4LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsNDUuOTcNCjIwMjUtMDQtMTksVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCwzNy43Ng0KMjAyNS0wNC0yMSxORVRGTElYLCwxNi40DQoyMDI1LTA0LTIzLFNQT1RJRlksLDI2LjI1DQoyMDI1LTA0LTI1LEdZTSBNRU1CRVJTSElQLCw0OS4yNA0KMjAyNS0wNC0yNixSRVNUQVVSQU5UICMxLCw2MC43NQ0KMjAyNS0wNC0yNyxSRVNUQVVSQU5UICMyLCw1NS44Mw0KMjAyNS0wNC0yOCxBTUFaT04gT1JERVIgIzEsLDY0LjA0DQoyMDI1LTA0LTI4LEFNQVpPTiBPUkRFUiAjMiwsNTQuMTgNCjIwMjUtMDQtMjgsQU1BWk9OIE9SREVSICMzLCw2Ny4zMg0KMjAyNS0wNC0yOCxDQVNIIFdJVEhEUkFXQUwsLDEzNi4zMg0KMjAyNS0wNC0yOCxSRVNUQVVSQU5UICMzLCw0Mi42OQ0KMjAyNS0wNS0wMSxBQ01FIFBBWVJPTEwsMzc4MC4wLA0KMjAyNS0wNS0wMixSRU5UIFBBWU1FTlQsLDE1MTUuNjYNCjIwMjUtMDUtMDMsVEVTQ08gU1RPUkUgIzEsLDc1Ljc4DQoyMDI1LTA1LTA0LFRFU0NPIFNUT1JFICMyLCwxMDYuMQ0KMjAyNS0wNS0wNixURVNDTyBTVE9SRSAjMywsNzUuNzgNCjIwMjUtMDUtMDcsVEVTQ08gU1RPUkUgIzQsLDIwOC44Mg0KMjAyNS0wNS0wOSxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDEzOC4wOQ0KMjAyNS0wNS0xMSxVVElMSVRZIEJJTEwgR0FTLCw4Mi41Mg0KMjAyNS0wNS0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDQ3LjE1DQoyMDI1LTA1LTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMzcuMDUNCjIwMjUtMDUtMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwzMi4wDQoyMDI1LTA1LTE4LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgNCwsMzcuMDUNCjIwMjUtMDUtMjAsTkVURkxJWCwsMTYuODINCjIwMjUtMDUtMjIsU1BPVElGWSwsMjYuOTMNCjIwMjUtMDUtMjQsR1lNIE1FTUJFUlNISVAsLDUwLjUxDQoyMDI1LTA1LTI1LFJFU1RBVVJBTlQgIzEsLDcyLjQxDQoyMDI1LTA1LTI2LFJFU1RBVVJBTlQgIzIsLDUyLjIxDQoyMDI1LTA1LTI3LFJFU1RBVVJBTlQgIzMsLDQ1LjQ3DQoyMDI1LTA1LTI4LEFNQVpPTiBPUkRFUiAjMSwsNzIuNDENCjIwMjUtMDUtMjgsQU1BWk9OIE9SREVSICMyLCw0Ny4xNQ0KMjAyNS0wNS0yOCxBTUFaT04gT1JERVIgIzMsLDU4Ljk0DQoyMDI1LTA1LTI4LENBU0ggV0lUSERSQVdBTCwsMTQ5Ljkz",
+                  "mime_type": "text/csv"
+                }
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "Co4FAePx_14rkBoenbjUVdyzK0Uf69UFXtjBOI6BLe1x7-LcHFjOC3kTB-umoUC5PTcoE4OPVg2gfLXYyn9M9oTNv-aUz4S-IgzLmKS5_IupBXZ97HR8AnLGZtwu6FkcUuFbDKhOlp-8NKTRmI8kCSWqDu7-L1Yj5quWDJU7C8TIRL1hu7pBzzaaT_QOXi4Uif9ks9Wrt7JVO8mrgwH55bF0D6E0_zyklCtG-nJwBbEU2czT0xlARgvqJwhwowZYLxePF3gdi97RkEYe-WtPPp416xyxcrfz02DbACwe0v5R9AcsL8qwpN-FbLrWx-hOio8A0o4GV3KAXjuD_KVRO8AeeBnPgRLTTZS-8bmufBKasqJgwyr2wS6s7CQHS0l6ILTVNWP4Yu1Ic9qVOBUAUWqLrOdtxqCg-jvqF70ERD1URhxUx8qLuGf7SXLaQ5OMAfATqUYOa4VPRyw8WWcWXN6zMkC4YyMM2fdTjwvPBw_b_AFEJPysxwe0W-jWapgGsZNePDu_rRj_JdHMtSq1BoyCggiv5CGrp8mjF4cHIXbc-glVt1li1kJIo72JsiAKRpUjC4nqzDuOclFoN7WZsfaJhzmZhKRCuKLr-qOZvrAS-e65YRLg3VmPKs6FTnv6jSfewIitvBeVtjmciC5tKkQmYiAeX5EA4nsFiVaOBseZVbPkewu5rr4aNNAapHIVgGg_N3Xz4iVwXTDlCTxxKbWY7kd2xEuo9mxVAQFj3FrxnkKLxDXbGgohiQrznW_uwTJHY34e-0puYMRcuIzG-i-Lofx6tDYAOfTEzH-u5c2zLkxwVA6IMFgOq6HwCowzbImzqCV28PH1jf95mkdlSXpRzfcj63nVrmvT-TKGwOh8",
+                "text": "It looks like your current income doesn't quite support the mortgage amount required for a £420,000 property.\n\nBased on your bank statement, your estimated affordable house price is around £378,000.\n\nWe have a few options here:\n\n1.  Would you like to look for a different property type?\n2.  Would you like to look for a property in a different postcode area?\n3.  Would you like to upload a new or updated bank statement?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "Cu4BAePx_16yv5k93sOUPoVTQZ2vk5Bm8haPn_k2w7WLaiQn8-QTuSEQVNcuHIVgpVpOD4N2__ctKTC1sL9P4l5nuQ9CfZDBBIBtZ5EQuQ6Ebu-26LgkAGpKzTnZqHh3YQ77D2Gbu5hEJb_wUYSXIBkKUKsZur0Glz77vLWch_KCk3QaoJcfSQZuHSjtf5uQX9xO2ZveMmcO7AkWu6Sm1UuIhUK-WTxXpmscWU7KJj-atXCiay9cGWYtgyJsOw88VHm_DZlKxGtviCot8WC3-_0zmymvCLf85wDK-2_0ERz03c1zRlnxQYzZTjCpTfUtWA==",
+                      "function_call": {
+                        "id": "adk-7c0a067f-3136-4278-93e7-d75218beb0c9",
+                        "args": {
+                          "file_content": "Transaction Date,Description,Credit amount,Debit amount\n2025-01-01,ACME PAYROLL,3780.0,\n2025-01-02,RENT PAYMENT,,1437.38\n2025-01-03,TESCO STORE #1,,65.48\n2025-01-04,TESCO STORE #2,,111.8\n2025-01-05,TESCO STORE #3,,81.45\n2025-01-06,TESCO STORE #4,,206.02\n2025-01-08,UTILITY BILL ELECTRICITY,,138.95\n2025-01-10,UTILITY BILL GAS,,65.48\n2025-01-12,TRANSPORT OYSTER TOPUP 1,,44.72\n2025-01-13,TRANSPORT OYSTER TOPUP 2,,35.14\n2025-01-15,TRANSPORT OYSTER TOPUP 3,,43.12\n2025-01-20,TRANSPORT OYSTER TOPUP 4,,30.34\n2025-01-22,NETFLIX,,15.95\n2025-01-24,SPOTIFY,,25.54\n2025-01-25,GYM MEMBERSHIP,,47.9\n2025-01-27,RESTAURANT #1,,52.7\n2025-01-28,AMAZON ORDER #1,,46.32\n2025-01-28,AMAZON ORDER #2,,41.52\n2025-01-28,AMAZON ORDER #3,,67.08\n2025-01-28,CASH WITHDRAWAL,,234.8\n2025-01-28,RESTAURANT #2,,55.9\n2025-01-28,RESTAURANT #3,,57.5\n2025-02-01,ACME PAYROLL,3780.0,\n2025-02-02,RENT PAYMENT,,1425.01\n2025-02-03,TESCO STORE #1,,79.17\n2025-02-05,TESCO STORE #2,,115.58\n2025-02-06,TESCO STORE #3,,50.67\n2025-02-07,TESCO STORE #4,,171.0\n2025-02-09,UTILITY BILL ELECTRICITY,,145.67\n2025-02-11,UTILITY BILL GAS,,83.92\n2025-02-13,TRANSPORT OYSTER TOPUP 1,,49.08\n2025-02-15,TRANSPORT OYSTER TOPUP 2,,28.5\n2025-02-17,TRANSPORT OYSTER TOPUP 3,,30.08\n2025-02-18,TRANSPORT OYSTER TOPUP 4,,31.67\n2025-02-20,NETFLIX,,15.82\n2025-02-22,SPOTIFY,,25.32\n2025-02-24,GYM MEMBERSHIP,,47.48\n2025-02-25,RESTAURANT #1,,61.75\n2025-02-26,RESTAURANT #2,,57.0\n2025-02-27,RESTAURANT #3,,49.08\n2025-02-28,AMAZON ORDER #1,,58.58\n2025-02-28,AMAZON ORDER #2,,61.75\n2025-02-28,AMAZON ORDER #3,,45.92\n2025-02-28,CASH WITHDRAWAL,,156.8\n2025-03-01,ACME PAYROLL,3780.0,\n2025-03-02,RENT PAYMENT,,1439.2\n2025-03-03,TESCO STORE #1,,62.37\n2025-03-04,TESCO STORE #2,,105.54\n2025-03-06,TESCO STORE #3,,68.76\n2025-03-07,TESCO STORE #4,,209.48\n2025-03-09,UTILITY BILL ELECTRICITY,,139.12\n2025-03-11,UTILITY BILL GAS,,70.36\n2025-03-13,TRANSPORT OYSTER TOPUP 1,,28.78\n2025-03-15,TRANSPORT OYSTER TOPUP 2,,31.98\n2025-03-17,TRANSPORT OYSTER TOPUP 3,,38.38\n2025-03-19,TRANSPORT OYSTER TOPUP 4,,52.77\n2025-03-21,NETFLIX,,15.98\n2025-03-23,SPOTIFY,,25.57\n2025-03-25,GYM MEMBERSHIP,,47.96\n2025-03-26,RESTAURANT #1,,62.37\n2025-03-27,RESTAURANT #2,,55.97\n2025-03-28,AMAZON ORDER #1,,62.37\n2025-03-28,AMAZON ORDER #2,,65.56\n2025-03-28,AMAZON ORDER #3,,44.77\n2025-03-28,CASH WITHDRAWAL,,163.14\n2025-03-28,RESTAURANT #3,,43.18\n2025-04-01,ACME PAYROLL,3780.0,\n2025-04-02,RENT PAYMENT,,1477.76\n2025-04-03,TESCO STORE #1,,83.74\n2025-04-05,TESCO STORE #2,,106.73\n2025-04-06,TESCO STORE #3,,72.25\n2025-04-08,TESCO STORE #4,,203.6\n2025-04-10,UTILITY BILL ELECTRICITY,,136.28\n2025-04-12,UTILITY BILL GAS,,64.04\n2025-04-14,TRANSPORT OYSTER TOPUP 1,,32.84\n2025-04-16,TRANSPORT OYSTER TOPUP 2,,26.27\n2025-04-18,TRANSPORT OYSTER TOPUP 3,,45.97\n2025-04-19,TRANSPORT OYSTER TOPUP 4,,37.76\n2025-04-21,NETFLIX,,16.4\n2025-04-23,SPOTIFY,,26.25\n2025-04-25,GYM MEMBERSHIP,,49.24\n2025-04-26,RESTAURANT #1,,60.75\n2025-04-27,RESTAURANT #2,,55.83\n2025-04-28,AMAZON ORDER #1,,64.04\n2025-04-28,AMAZON ORDER #2,,54.18\n2025-04-28,AMAZON ORDER #3,,67.32\n2025-04-28,CASH WITHDRAWAL,,136.32\n2025-04-28,RESTAURANT #3,,42.69\n2025-05-01,ACME PAYROLL,3780.0,\n2025-05-02,RENT PAYMENT,,1515.66\n2025-05-03,TESCO STORE #1,,75.78\n2025-05-04,TESCO STORE #2,,106.1\n2025-05-06,TESCO STORE #3,,75.78\n2025-05-07,TESCO STORE #4,,208.82\n2025-05-09,UTILITY BILL ELECTRICITY,,138.09\n2025-05-11,UTILITY BILL GAS,,82.52\n2025-05-13,TRANSPORT OYSTER TOPUP 1,,47.15\n2025-05-15,TRANSPORT OYSTER TOPUP 2,,37.05\n2025-05-17,TRANSPORT OYSTER TOPUP 3,,32.0\n2025-05-18,TRANSPORT OYSTER TOPUP 4,,37.05\n2025-05-20,NETFLIX,,16.82\n2025-05-22,SPOTIFY,,26.93\n2025-05-24,GYM MEMBERSHIP,,50.51\n2025-05-25,RESTAURANT #1,,72.41\n2025-05-26,RESTAURANT #2,,52.21\n2025-05-27,RESTAURANT #3,,45.47\n2025-05-28,AMAZON ORDER #1,,72.41\n2025-05-28,AMAZON ORDER #2,,47.15\n2025-05-28,AMAZON ORDER #3,,58.94\n2025-05-28,CASH WITHDRAWAL,,149.93",
+                          "house_price": 420000
+                        },
+                        "name": "bank_data_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-7c0a067f-3136-4278-93e7-d75218beb0c9",
+                        "name": "bank_data_agent",
+                        "response": {
+                          "result": "{\"status\": \"success\", \"message\": \"Based on your income estimates from the bank statement the average house \\n            price of 420000 is outside your afforable range of 378000 \", \"suggested_investment\": 736.0, \"average_surplus\": 912.0, \"median_surplus\": 920.0, \"average_income\": 3780.0, \"median_income\": 3780.0, \"is_affordable\": false}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592534.460773
+        },
+        {
+          "invocation_id": "e-8713ce19-dd73-4899-bfff-086a2d2e182e",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I can go for a 3-bed Terraced House in HP11 Instead"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CuYCAePx_16meIqw5D35dNUiLlw04E72_Z4rJQ94xELe9ZkCyI9f3_BO2R2-0aoj5QlVJSS1TLAr94A4SajgS1WFX7Id91gqRbSB4dnkotZ4Ez6YV-lpenZtinRuWKyZ7M3yYOvlJwUpw1TgAkXRQacF3zZSE-wy2Ezijo1SFq-cfLquZzNd9r8FDCKdD6E1peT6XOoB8ysnqScoUx90TvbDnLJLueD22f49mgV9WPaie7usAeMixJYtg2WXyluUEVN91nfw8tRg7CM_Bxa58OwHT8LgNQTrph85gwFlCrouTaPb26cn3C1-vCgxtiZ2vGugZnWk4JN_FyaNnSEi87s9ihiCzjsDctu8lwjBiwM1dv8kp-WUwRNa2NB6eMiLvcMyE7HruIFlbiLIbofipHRw1F_bRvMzpjIKTNm9fvdcKDQ4SAQwCKKLtuaShJGsvTkvHXSLH0XIA8x9GGVZZhcdoAlyWFEPug==",
+                "text": "Okay, for a 3-bed Terraced House in HP11, the price range is between £280,000 and £420,000.\n\nDoes this range work for you, or would you like to consider a specific price within this range?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CpgCAePx_15ncqZUIysryIgf1cXfVYUI2nsRGzu0RkdIAnmAV2XZsYFUqqsrKLewGiyGVcwJfz7_XHEfwmz2wpn90vv0C_cNDoJDtrX4s_4DuRMF78T-qU48P2QZ7EVac0yI2Z-OZT59a_KCSG_uT7DA6Bbg3D6Cl_nIfPeyZQE_IBPa_vPpCj4-hWZvgoCDqkmB-nFsZu7Ff9KOOfZxWL_Ql6Ofs4q0HHHdytAyM_3l21Z9HtCpzNC1C1npEUt3GNfB_VdomZ_7nR_AOEAxFGM49m1COXozf4D8mthv8bMJsHkJ_nxmBew6jAs3nUgBP1cej8f0aIXUC95MJUzTEqfGPmemglT1yrrfg8wn47ANX26vLQpXcv774A==",
+                      "function_call": {
+                        "id": "adk-d0307754-058e-4669-9faa-b0d4d0606664",
+                        "args": {
+                          "postcode": "HP11",
+                          "property_type": "3-bed Terraced House"
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-d0307754-058e-4669-9faa-b0d4d0606664",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "{\"postcode\": \"HP11\", \"property_type\": \"3-bed Terraced House\", \"min_price\": null, \"max_price\": null, \"house_price\": null, \"deposit_target\": null, \"price_ranges\": [{\"bedrooms\": 3, \"postCode\": \"HP11\", \"priceMax\": 420000, \"priceMin\": 280000, \"sources\": [\"https://www.onthemarket.com/for-sale/3-bed-houses/hp11/\", \"https://www.onthemarket.com/details/14603337/\", \"https://www.rightmove.co.uk/property-for-sale/HP11-terraced-houses.html\", \"https://www.zoopla.co.uk/for-sale/3-bedroom-houses/hp11/\", \"https://www.zoopla.co.uk/house-prices/hp11/\", \"https://www.zoopla.co.uk/house-prices/high-wycombe/green-street/\"], \"type\": \"Terraced\"}], \"status\": \"AWAITING_CONFIRMATION\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592618.233612
+        },
+        {
+          "invocation_id": "e-1b0d4402-cfd7-4045-ba62-5ba585c759b2",
+          "user_content": {
+            "parts": [
+              {
+                "text": "This is fine. Please use my earlier bank statement to evaluate"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CpsDAePx_14vs9yFjOlgY5c1xl1r94ghC_5x_uxkSRURQBZXycwJFWkUpDvE5sVw3-egVpI7FxeTzXubf9vyac4XMnAY-LZLhd0ytQBKB9myA8ysqGWPhC8V5TENTGyh8rJpf3rvL15F4-WDlWAuPamn4rHRI0GYv6GiOn-EF9lUEyRY3eemBpHe9XsMmzXZFDat8yzxvfBvqdO04oaBCwgS-B9fMmz2IdIlO9bjal5VibfTw__LzVINoPXAwBQKvulbO03UHNVSbb7Zlroui7gdA_SdIWH1NQfSW4jMtv0fxM0DQgniH2XPpNTmGOKDY9AyciXwlAYBWLYROUB3F4b_42M4I-NmB1HT9XoNIgH-D5l5yQHEYoG7opI7sVIGh0JHQFH9E9MITv8yXG6MHA6pXOgCPz9-OaKvoGF5Ly6ryUm-KiqhxyujgqS2ma61SedvOpxjkanwWeCHBdJy50iQQGPCWi5t__t3d0YNVyFfphPDN9exxwtN6TeEdxWk3R_MrL826Zynggp6nsxivHvEVcUCymIjNFM-Hob7",
+                "text": "Great news! Based on your bank statement and the new house price for a 3-bed terraced house in HP11, it looks like this goal is affordable for you.\n\nWe've calculated a suggested monthly saving of **£736.00**.\n\nWould you like to proceed with saving this amount each month, or would you prefer a different amount?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CqsFAePx_15Vgm5dUSsSTRrK2stfyGu28A5wDhR93n9ut-QS6ryImBf47a2oRTh0cMvV6aCqDR_lIeIsAtSD0c62BFxsi1FfIugG05eL2PoXA2X4fX-PQAo1tFhu4mJxKDikQX4HUxJ1an5fAeE9oqeaE1TdUcX0LsIu3zePHpn8S_OXgYUzJGfFDwBSifDrvyn1kG4-6_D7VD8PPK4vIzlVuHedsjL2f_EsNdBRwo8jp6Mg2QtGrB3Un5BSk6IYLd00CegZJ1TIgxvs99uOMVBXLwdKz34K3mukdqUO6tUIwyOncmmFJnBJTy-BJdLmeHyN24xWl7udlFgahDyT5uGKaecIxQYsG9ZbY7a2a2vGYSN75V7pfIs905lH0GM6B_P0O5cc7XgfeQrivJflwuzpdq3WAffHiMUTVTS5IDeGDLi6LAaaa475OQjW9fbCbGXl0vMoTsUhhP6faTXVyW2_VrzW9HKv_0fRQOx6CbSsJ28ukMsSGcr7o0Ydyc7vBvgn-PKjsZOMh-xZhDDpYVNK2roziqG9iLW9KNORe_IOklWYr84iCARwXDH5ZBQzesXPSo03dkISrjJoXduzl9PHPPiBrnjgLFjxtkTw8fKNCa_cRBHm_Q7Ttsd3sKHrNdQ88mnUKRvS393Fv3TseXJ4alOJeMaQsFlW1i7Wwf2ocORg6Bu2IinVPFecMKtWEun6SmX3prxRmkz-iUkrhkuLhy1PUfynJAn_YsudvBz5HPWVV1Sx3n6zCSW6ReSe_JEN_XC7UEUiX6KJWmlX5Bm7bk11AgwjG_qgxkpK3ZpOT5Xy1od3soWZSYBBqHWnWA2okp9eRx1XHZ5Fnlmm-uqLKZ5rx75nV6PnEXHljqlpcCqL5EGRKXrRGBNTzqErviz1-M4N3sRTvEIR86E=",
+                      "function_call": {
+                        "id": "adk-2c22b5db-b273-47b2-87ec-5e3f7701241f",
+                        "args": {
+                          "max_price": 420000,
+                          "human_approval": true,
+                          "property_type": "3-bed Terraced House",
+                          "min_price": 280000,
+                          "postcode": "HP11"
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-2c22b5db-b273-47b2-87ec-5e3f7701241f",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "{\"postcode\": \"HP11\", \"property_type\": \"3-bed Terraced House\", \"min_price\": 280000.0, \"max_price\": 420000.0, \"house_price\": 308000, \"deposit_target\": 30800, \"price_ranges\": null, \"status\": \"success\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CrYDAePx_17oSlIU0Z7Q909I9R6yoGSdnI1YM8oCszvctdAMgTX2Jqje_bmvHToanlIMsGHtnbDFH4DyCXeXwCfBxnwkTuJmH4DsyflvQoh8tB42FbVz2vzrUVxPcsg39ILjMKJCC7GgJQDH0lPW_KdD_mxVjM7NNHF0GU9KHaMeslm0uSDfhGaCeOcm9v7bBthjou0HEYZgPMVoGF1Yes2BjJsaFgaOABbP0YB3fax_NOO-PCH5P-DoGQMj6DIf5NvXYGpPhTpEDb_07zzUQhIWMuud5w95TmLhAOUMuJQKWN71nBUoiW06tRG2FAp2DcyPtPNKUGRIvGGbRGic4sE_-5Wtagl1XLsHrl0vFSK7ySwqPIIL44Mawt8J8-uFuk_g13xMQmGaKkrFyhl8RdowL-SvaRyhqUhQQJ6TjOnC4UIMvq3rle1QfggkRF2BNCPUBE4ZeeUQDgXRof_Saug1Dw8xZOtkVl2LFdSazKomRzIQ2amrKIjhY7W2yzPxdpkIb9QL6UOO8tEbicFfbrlnTx9kRlje6nat0AKssqFQpGoM4XETfsCKL7hC-rXiG9Zk7L3YdyVC",
+                      "function_call": {
+                        "id": "adk-1227264c-7e3d-4ab0-9948-ff9518b7f03d",
+                        "args": {
+                          "file_content": "Transaction Date,Description,Credit amount,Debit amount\n2025-01-01,ACME PAYROLL,3780.0,\n2025-01-02,RENT PAYMENT,,1437.38\n2025-01-03,TESCO STORE #1,,65.48\n2025-01-04,TESCO STORE #2,,111.8\n2025-01-05,TESCO STORE #3,,81.45\n2025-01-06,TESCO STORE #4,,206.02\n2025-01-08,UTILITY BILL ELECTRICITY,,138.95\n2025-01-10,UTILITY BILL GAS,,65.48\n2025-01-12,TRANSPORT OYSTER TOPUP 1,,44.72\n2025-01-13,TRANSPORT OYSTER TOPUP 2,,35.14\n2025-01-15,TRANSPORT OYSTER TOPUP 3,,43.12\n2025-01-20,TRANSPORT OYSTER TOPUP 4,,30.34\n2025-01-22,NETFLIX,,15.95\n2025-01-24,SPOTIFY,,25.54\n2025-01-25,GYM MEMBERSHIP,,47.9\n2025-01-27,RESTAURANT #1,,52.7\n2025-01-28,AMAZON ORDER #1,,46.32\n2025-01-28,AMAZON ORDER #2,,41.52\n2025-01-28,AMAZON ORDER #3,,67.08\n2025-01-28,CASH WITHDRAWAL,,234.8\n2025-01-28,RESTAURANT #2,,55.9\n2025-01-28,RESTAURANT #3,,57.5\n2025-02-01,ACME PAYROLL,3780.0,\n2025-02-02,RENT PAYMENT,,1425.01\n2025-02-03,TESCO STORE #1,,79.17\n2025-02-05,TESCO STORE #2,,115.58\n2025-02-06,TESCO STORE #3,,50.67\n2025-02-07,TESCO STORE #4,,171.0\n2025-02-09,UTILITY BILL ELECTRICITY,,145.67\n2025-02-11,UTILITY BILL GAS,,83.92\n2025-02-13,TRANSPORT OYSTER TOPUP 1,,49.08\n2025-02-15,TRANSPORT OYSTER TOPUP 2,,28.5\n2025-02-17,TRANSPORT OYSTER TOPUP 3,,30.08\n2025-02-18,TRANSPORT OYSTER TOPUP 4,,31.67\n2025-02-20,NETFLIX,,15.82\n2025-02-22,SPOTIFY,,25.32\n2025-02-24,GYM MEMBERSHIP,,47.48\n2025-02-25,RESTAURANT #1,,61.75\n2025-02-26,RESTAURANT #2,,57.0\n2025-02-27,RESTAURANT #3,,49.08\n2025-02-28,AMAZON ORDER #1,,58.58\n2025-02-28,AMAZON ORDER #2,,61.75\n2025-02-28,AMAZON ORDER #3,,45.92\n2025-02-28,CASH WITHDRAWAL,,156.8\n2025-03-01,ACME PAYROLL,3780.0,\n2025-03-02,RENT PAYMENT,,1439.2\n2025-03-03,TESCO STORE #1,,62.37\n2025-03-04,TESCO STORE #2,,105.54\n2025-03-06,TESCO STORE #3,,68.76\n2025-03-07,TESCO STORE #4,,209.48\n2025-03-09,UTILITY BILL ELECTRICITY,,139.12\n2025-03-11,UTILITY BILL GAS,,70.36\n2025-03-13,TRANSPORT OYSTER TOPUP 1,,28.78\n2025-03-15,TRANSPORT OYSTER TOPUP 2,,31.98\n2025-03-17,TRANSPORT OYSTER TOPUP 3,,38.38\n2025-03-19,TRANSPORT OYSTER TOPUP 4,,52.77\n2025-03-21,NETFLIX,,15.98\n2025-03-23,SPOTIFY,,25.57\n2025-03-25,GYM MEMBERSHIP,,47.96\n2025-03-26,RESTAURANT #1,,62.37\n2025-03-27,RESTAURANT #2,,55.97\n2025-03-28,AMAZON ORDER #1,,62.37\n2025-03-28,AMAZON ORDER #2,,65.56\n2025-03-28,AMAZON ORDER #3,,44.77\n2025-03-28,CASH WITHDRAWAL,,163.14\n2025-03-28,RESTAURANT #3,,43.18\n2025-04-01,ACME PAYROLL,3780.0,\n2025-04-02,RENT PAYMENT,,1477.76\n2025-04-03,TESCO STORE #1,,83.74\n2025-04-05,TESCO STORE #2,,106.73\n2025-04-06,TESCO STORE #3,,72.25\n2025-04-08,TESCO STORE #4,,203.6\n2025-04-10,UTILITY BILL ELECTRICITY,,136.28\n2025-04-12,UTILITY BILL GAS,,64.04\n2025-04-14,TRANSPORT OYSTER TOPUP 1,,32.84\n2025-04-16,TRANSPORT OYSTER TOPUP 2,,26.27\n2025-04-18,TRANSPORT OYSTER TOPUP 3,,45.97\n2025-04-19,TRANSPORT OYSTER TOPUP 4,,37.76\n2025-04-21,NETFLIX,,16.4\n2025-04-23,SPOTIFY,,26.25\n2025-04-25,GYM MEMBERSHIP,,49.24\n2025-04-26,RESTAURANT #1,,60.75\n2025-04-27,RESTAURANT #2,,55.83\n2025-04-28,AMAZON ORDER #1,,64.04\n2025-04-28,AMAZON ORDER #2,,54.18\n2025-04-28,AMAZON ORDER #3,,67.32\n2025-04-28,CASH WITHDRAWAL,,136.32\n2025-04-28,RESTAURANT #3,,42.69\n2025-05-01,ACME PAYROLL,3780.0,\n2025-05-02,RENT PAYMENT,,1515.66\n2025-05-03,TESCO STORE #1,,75.78\n2025-05-04,TESCO STORE #2,,106.1\n2025-05-06,TESCO STORE #3,,75.78\n2025-05-07,TESCO STORE #4,,208.82\n2025-05-09,UTILITY BILL ELECTRICITY,,138.09\n2025-05-11,UTILITY BILL GAS,,82.52\n2025-05-13,TRANSPORT OYSTER TOPUP 1,,47.15\n2025-05-15,TRANSPORT OYSTER TOPUP 2,,37.05\n2025-05-17,TRANSPORT OYSTER TOPUP 3,,32.0\n2025-05-18,TRANSPORT OYSTER TOPUP 4,,37.05\n2025-05-20,NETFLIX,,16.82\n2025-05-22,SPOTIFY,,26.93\n2025-05-24,GYM MEMBERSHIP,,50.51\n2025-05-25,RESTAURANT #1,,72.41\n2025-05-26,RESTAURANT #2,,52.21\n2025-05-27,RESTAURANT #3,,45.47\n2025-05-28,AMAZON ORDER #1,,72.41\n2025-05-28,AMAZON ORDER #2,,47.15\n2025-05-28,AMAZON ORDER #3,,58.94\n2025-05-28,CASH WITHDRAWAL,,149.93",
+                          "house_price": 308000
+                        },
+                        "name": "bank_data_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-1227264c-7e3d-4ab0-9948-ff9518b7f03d",
+                        "name": "bank_data_agent",
+                        "response": {
+                          "result": "{\"status\": \"success\", \"message\": \"Available Investment estimated successfully\", \"suggested_investment\": 736.0, \"average_surplus\": 912.0, \"median_surplus\": 920.0, \"average_income\": 3780.0, \"median_income\": 3780.0, \"is_affordable\": true}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592661.269003
+        },
+        {
+          "invocation_id": "e-593d8b67-5cd5-4db3-98a8-144c50c335d7",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Please proceed with monthly saving of £736.00"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CuoCAePx_17gN5gg7xWblLUtUmH7VFfddVMBW3WCWtk9Eo0Tqj1A-07mWvYtH3SuTS2MrRjJucUkr4k1XXvWiUEY7gQXV5soxwVQVSAM6zGt9beSo6JC7XQ_lYB8SqhKlSILW6oUuLajMRCBGizP2ccklpT1y0twHh8T9cUWEZKjWGP-jvhJkddRvATBkjZCwaNfnJI5tX_CADmd4VkTpNgvXS-NRqJggMZAXuK5YP_cTeFWbXuADawEqaLqCxY4N_7DJtNSqnPyWTZitNCl7cUOszppSmotMQvBr5MK6xSlK7Ik7Au_iF4ogeZPq76XSXuRvmG6cyJdC6hdS4eTPx8NhUJlYXA-51945eFc3aH7fHV8GFN4EkxeOgX1sN17XeXwTDKeKR89A80KRFu5cSTg5ATUiHsYaWEBpGVvqaca7wsh_ZdyUaq1plMFO4a6gI0VGjvri0FtrbOFrXQoRMMkSte_o_Lik2Z1SjY=",
+                "text": "Excellent! We'll use a monthly saving of £736.00 for your plan.\n\nNow, let's figure out your risk profile, which helps us recommend the best way to save.\n\nFirst question: On a scale from 1 to 5, how stable is your income? (1 = very unstable, 5 = very stable)"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1764592773.583875
+        },
+        {
+          "invocation_id": "e-b9c4f023-25fe-4972-abab-4eb41aff817d",
+          "user_content": {
+            "parts": [
+              {
+                "text": "4"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CsgBAePx_17_p4rpIBpyVunaKFR2FPKG-1J1lAHbsHU8knk0-3IRtqHRhKCGS11CtK7aB6BgqBm9UdJkGCXhlhVtAwp2iYr9aIbCSNd4TJVxuvKxHSaSqriqH_t4VFAOZj2p2M8x0BaIwN00pQauFKJa1BGfPI1fsp6bPMV9yLM1hLiBJlguo8f9udEbJBFRMsuMvw268fdLiq9GggZAtKJS0yFQCBjg9U8wwyn_ckw6ikJGDi-a7ULs62Z1jgORCjpU6jFSXSFa9PY=",
+                "text": "Thanks! Next question:\n\nIn how many years do you hope to buy a property?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1764592786.390557
+        },
+        {
+          "invocation_id": "e-7c781aa6-07b7-418d-b4f6-3ffbcb3b7413",
+          "user_content": {
+            "parts": [
+              {
+                "text": "5 years"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CuYBAePx_14BPDEIEtwlkNTSwNK1Y5UVLFJvI5QHEzfSAfNSG7yaHMGHPYl8CtTCQkAP9bdZdUISYYdamTkgYL756ka3343jKKVKbsvMT4ZYr8LUc5FCkpZBJ8H2Cj-s6qKk0EYrD6bDf4ul-AIKg4azUn9OZf7EKzVNko7VHQ8WohulqfoAdp-BMlZe0H0o1m2-uZBlMBQ9-ehn_lqpjI6G2__mxg82UcTY0gbbjtIkhIb6yeOkXWAWdJM2P2sUTIHFG2BqSOrcy2Ihut8R1d8aDJXjn5Vckumly1ZuXVfq7VetFpyNcW4=",
+                "text": "Got it. And the last question:\n\nOn a scale of 1 to 5, how would you feel if your investments were to drop 20% in value? (1 = very anxious, 5 = okay with it)"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1764592793.691294
+        },
+        {
+          "invocation_id": "e-9248c94d-a62a-4767-a1ee-ff52d13e41b4",
+          "user_content": {
+            "parts": [
+              {
+                "text": "4"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CpsLAePx_14hmxYbIXIEMbfh-YEjT9Vc-CjCTHA3OGX7Q_2-wrTHUXMzH6zLgHOz_nBLCkOJogDmV6yJCCruFP1wiynfNBGpIALRAUihsESwafDcBpuzLnHa0lPqcTQFrpV-5Rud0yVYWanjE1cqq4tVnMPsbdsOwxueAxoLCuCQV_VUky5C2v5pQ3sqT_OdROpNaCxw_916VSjamQvN_y7D00cwTV9WoAB5IxUoTNuXJcuCKt1QPEhbvyEvEqjDNmY3qXS372CbKo3d7cwN2j5dg-z6RXGkDD0lDWjvDw9BlwhziIFiiuSKU8I1zGWefJO7ycRbwFQ6tJSBA6Tr4_8xdqQxek6qMhxy5oMbqnpsRGlTrJ38jnCuLOl0--7mepn8U-Mw5WjjfBW1a5qFXKml-vEbv6tbqAweSg_5CN3U6su5sVAmIoea3BsPAhjZ-8Um1PuKf2C-s_7lJVcN0tFhOkU3f3OrFaqg6nR8ZwALh2t-u1mClmLTse_Gkk0Q9JFNOwYGv_USOxbYRzT8Y62CYtAbW8XIFdRCT14VlSkBzenBkgrkW8Y06jIoa9z01h4erUUZOxCwyd49_zGf56MBLdxh1yH6piP7jojuArPZqhnARXOiXMTxcpS0yZJIFJ_ELQHWriWBZSibmybBnkYdLwwBa3NmUcuCeVEAwPZcXH5v1W1ADzalK0YbjpBcapl25cE5LwmGhBTyWETxqNA-4EQGhqJRpGSm22IzsmhBiQULYEjqG4Svz6FbpFcTJptq9o1Cdj_zAa8AB6Xc02f9tMVOIqltJlP9lBtVC8jorKz3uRsIWRzW_uydvyJBTK1N2UJIYIRb4MnXZwSoKZCRF37LoWf6GaBzEIg8foc6GInv4roEEC2zGqGNSACUv7s1exwQML-dbfpgTC52g0m3mUbsIDPXZmxZ47Gzsj4GL8i-qW7kH3HdRwSssqllp_IbcQZaKzGUwkQlG_9KtLwG-j13j-DB2Jh5jGiqAqt9ralQ0ep-iclJo4-q-ORH2cBYIXxzh1X0dve8N6bBposK3iHOytMW-T11uY6NkSThcIcpHthPynIjmN6PhUlf3AqFhoQlnGpzpziD_EZGW05jd4IxNJ081obtlAgML-4HDkHspCL17q7J2RRqRXnGG2Oy4va_u20wRK6VNFBNr3NNH5qhc7nAkEDcb4JFYvgNOqVQy-Eze7O-z3Lg84cSyzmi26uBEpa4iP9OCYtPBh33ebmwXiKSsmzJh9FznbRsknZfyv3Wy0HiCwDCz985dYreEs4BoV3ftREMXUreR2OdblruVkooEWuW9YxpppLnHQOdpRlo0xUvFrZimP-WTsFrhXWcT6AKfN9Mq-6zC8pZmxoO6ik4Ewd7RU9jGKIIbjiQtoUsI_CIQRDU8nTH8hmJV8WJlE17-iTOEAfq2HO2ZDX4byRQH_ouL4sNfOepFXbNc2BaHgYWfnHHZB-8kL_urx1sMzjEipNSOD3s24HBqGveC6zrqIsubSB_I5B1CWffUbxKol2nuQGaSJO4nHjYRpaGpD12cF9ifMQqV6ujGf7POITCazmD0xN-Xyu8sB3rFOTy08LqsHMcoWRRZlN1qa6rArfAIWJgF2gdsXorgaCyiEEOJ4LIjdK0MA-fDqd8xhW3Rlwd0VuG8pl7egBiD0xCy3W5YJK-1dxS7YdOl5jpk4DRWvAUfep_FwOelGZiqzuR59JNS1cAW4KNxTsEMWSVVfA2nxMcGdOHLK1EJKiDv7JZXPwUEluLef__nuXg_RRtUaWQ-2hQ373bveNJ1T3aFOTNxS_sks8tsMwY1F_gs5HHrMX9kPmT_Xl_m0E-YRfmc4AoKOTCjfQOXTtVat1xX7DGakO1fUOOqGLMXCqt3rXyq05pk0eq1QhC9NixFAYqKfM7kngLVA==",
+                "text": "Here is your personalized house deposit saving plan:\n\n*   **Target Deposit:** £30,800 for a 3-bed Terraced House in HP11.\n*   **Recommended Monthly Saving:** £736.00 (as you confirmed).\n*   **Estimated Time to Target:** Approximately 4 years, which is even sooner than your 5-year goal!\n*   **Projected Savings:** With this plan, your savings could grow to between £51,142 and £53,687. This comfortably exceeds your deposit target.\n*   **Investment Approach:** Based on your risk profile (High Risk), your plan suggests a growth-focused strategy, with up to 70% of your savings potentially allocated to investments like equities, and the remaining 30% in cash.\n\nThis plan looks very feasible for you! You're in a great position to reach your deposit goal.\n\nWould you like to explore any alternatives, such as aiming for a different property or adjusting your time horizon?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CscCAePx_17G83GJn2PKRrAmpO_ia-zA6kOJcTa8P-ENEq4y50d8B-jjk5RBMu2gl6YI4BAb2xdkEabUCxgp3EuWWwfPKwOmA3iGQYEmX-SIPYushePQ0v4e9lWiBIcWINzzwl2E-tVDYlILCJxe6h3KQkkxjOPivjApEldaeLGK2FFEQmRDOdXhtDz-UET0QgbxjlHgGdTCSy1cQhVQuzOOfmvfqTcB4mkH2bRu9Krsit-3urxHBYiN4uzdl7BrGqbxUT2q0w4MparlHVADCxsEdVETBbLIyIaQB0sETb6zwGR9JZ_CqYDkcI9wyyC1KozwBEcgBfyMvUHFRjd_HI59-Hrj87aLnmWg7MMCWN8aPeDUGvq_ycFU6FcP7ieAXccQ37_mY9gw2w0Okv3oWYn_e85aY89-SR8ZkFDc9V6XeSw3cS9YPIJ6",
+                      "function_call": {
+                        "id": "adk-b5842dbf-5c79-40a6-ad29-809e4770d29f",
+                        "args": {
+                          "loss_reaction": 4,
+                          "time_horizon_years": 5,
+                          "income_stability": 4
+                        },
+                        "name": "risk_profiler_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-b5842dbf-5c79-40a6-ad29-809e4770d29f",
+                        "name": "risk_profiler_agent",
+                        "response": {
+                          "result": "{\"status\": \"success\", \"risk_band\": \"4\", \"risk_band_Text\": \"High Risk\", \"max_equity_share\": 0.7, \"score_details\": {\"income_stability\": 4, \"time_horizon_years\": 5, \"loss_reaction\": 4}, \"profile_summary\": \"You are classified as High Risk (risk band 4). This is because you have stable income, a medium time horizon, and a high tolerance for investment losses. This profile suggests you are comfortable with a growth-focused investment strategy, allowing for up to 70% of your portfolio to be allocated to equities to pursue higher potential returns.\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CsIHAePx_17JnzaZthpMBCMVSv6LyC7Sb5Lfg9uIiIOiM6ACxYkoB87EOmU_pYkiX1cNP7YNQgShnzjEF0rD4uDo3LWPX_0rVmX_zxRdN6yAe2TVnkyi682fDmIotqDlQ6PUTEbPbeDMY3vjxunBQjJAXmYVj1VoIbF_Nj0XF-Afp1rcR0LYSZn335HQizq1ZrM0UFFlaUrnN2xvSjVBgEFvzyCtiISiUbEZ-FOQKhxcRF_PBdJrO6d9WoOZkSprMehZkDzYb0Y_rbtMswiYJj0OH81YUiz40v5_zOb5BWFkxwvs0qNJjZGC64q0fsYo1wQUnpatACPuPSMkEKwJkDieeWSjLCu0MPRAKa5tYvzvzrhhT1pCAns08YcdUATF8K7EZrMyeWwME24CGDKQo_mVmBe0niaW7eFVrLI3D7LyRdAVVACgpJ1VzENJzez72D9nkwTWuhUol3NAr2RbwHwB4c0uL1CLY8r3wTJFTyyvOGFSntZySTqOLIRgt0jPVAJPnuXQ8tXwdoYf-anW_ELkZESC9tAmtDoViTGgO-9JlcwicVLns_9BZsHawczvPFeTghHTh9SFhN_l0cuAOHgvlAQ9nEG1kP08zjrCWAVBpeOQC9ZDpga7y2rnsgIasYo_4zk8fhZPazrow8Ind9dN7c_-ihv-vL4tro-bA_MbnIlS7lZQfhV835mt0pMpjv8A7adFIfNDP1VqArKt4RbXTWIKu4f25UOFEQ2kh2U7WMapqRnfTKjcwGuenzWvlkqpSMKeYnEk4A10UStQA4DMOX_pTinh2AG6J6D8UXFl9BrSTPEdCIR4M0ZUEFE_t4S1EkvY8ZnX0bqYTcTe85Jx0jMGwmJiCTa3wglbEiFY5qLNZcgQ-V77LxyEYnV5WvGn_jUuZYbfB7PJ7uElPyn-RPnEgkkk7Ap2iJze13Z0EF-7cXbfcJrjCnP1tqOAWVX2tCO32eGE52BLatFmuWY0DXpn9aCSKqIGOIb1K3BRcGOiFBCw90umdviPSozeFrl-GH4J1rU7hnVrxzzfNEcUhefBz54atxr04fpDG47B0SxydH_qXYWcst08DFl6sDqWpDoaVYqcYgT0A8j1EMDCWrG43xUY9hFbee5UWqsIbzh5fme_vK2VExW-jDbU59QoLx14QDpt_miZJA63twMufpivmNBK4AFZvMitmFG1krsCgFRamNB5w532nWpEocpBWqxD2t-rMtMEqrF-mX_dKbSrHoMvYARv9YZUlFygSYjYj0_0WmY8R9NyGm3769Cib4c=",
+                      "function_call": {
+                        "id": "adk-e6e1e65c-b7b3-4e15-9805-54a59ad21db2",
+                        "args": {
+                          "property_type": "3-bed Terraced House",
+                          "deposit_target": 30800,
+                          "income_stability": 4,
+                          "max_equity_share": 0.7,
+                          "loss_reaction": 4,
+                          "time_horizon_years": 5,
+                          "postcode": "HP11",
+                          "available_investment": 736,
+                          "risk_band": 4
+                        },
+                        "name": "plan_generator_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-e6e1e65c-b7b3-4e15-9805-54a59ad21db2",
+                        "name": "plan_generator_agent",
+                        "response": {
+                          "result": "```json\n{\n\"status\": \"success\",\n\"error_code\": null,\n\"likelihood\": \"feasible\",\n\"min_final_value\": 51142,\n\"max_final_value\": 53687,\n\"years_to_target\": 4,\n\"user_input\": {\n\"available_investment\": 736,\n\"deposit_target\": 30800,\n\"income_stability\": 4,\n\"loss_reaction\": 4,\n\"max_equity_share\": 0.7,\n\"postcode\": \"HP11\",\n\"property_type\": \"3-bed Terraced House\",\n\"risk_band\": 4,\n\"time_horizon_years\": 5\n},\n\"user_explanation\": \"Great news! Your goal of reaching a deposit of £30800 appears to be feasible. Based on your current plan, your projected final savings could range between £51142 and £53687. This comfortably exceeds your target deposit. You could even reach your target in approximately 4 years, which is earlier than your stated 5-year time horizon.\"\n}\n```"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592802.663353
+        }
+      ],
+      "session_input": {
+        "app_name": "mortgage_deposit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764592846.5042992
+    },
+    {
+      "eval_id": "Property_Adjustment_case",
+      "conversation": [
+        {
+          "invocation_id": "e-a4f55d75-5088-4ce4-a0c2-b8fde0602127",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Can you help with the deposit planning for a 3 -bed house in HP11"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "Cp8DAePx_17fRDxZTcbv0LW667eQGgrrryNvKIxHSXyUGgt7iF5r96HT7xMfexSyBFIOQEu3Z4rf7GfCxxMNky4XlX5uUJB4Ot7mf9eqP2xbzksCf21fg2IpKTiHQ1QX3K_V8pMjJ4cCTnXVVwr5ttQGQEBpR_B1c_lw-Eo_0YcB-ebNSRza1Suh3s5Dep4tWry6LlsVI9k_z4wUtbGSbR8o1daXW0o8wUyuo7Q0Hk9H4AueAy_G7otiOwfsuW9B1KBEuxFe1P1LWWgI3M5xCEi_6qogrHqjeLoFB0FN4F8VtSEW8gfKw-i1TJeyXMHaGriyAB30gmxjkgceOBRhqJNvc_9rWCGcw_GL4QUS0P8lVW3xOtxLBL1frZgLuiZjmOm_XVs5yh8cZ8cUnHvw_ABBWaRdhXhVxla1n1x5HWHZwX-gYZ10j17uQGrNUn3xgd18VrpIEiLk7HopvjY1gohVY_UQVx2plHb1lkqMfhX99_D130o8lbT-pKrInAYIoek3uXmtRGS5EXKhKj4b6clw029QFdXTsKHKoKRLbRwlUg==",
+                "text": "Okay, I see a few options for a 3-bedroom house in HP11:\n\n*   **Detached:** between £475,000 and £595,000\n*   **Semi-Detached:** between £395,000 and £520,000\n*   **Terraced:** between £250,000 and £420,000\n\nWhich of these ranges would you like to use for your deposit planning?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CpcCAePx_15e3FwN7Ee4DowZYwxI8oL0EWmr3YzKPaUPvge5oKockw0ryM2ee2TaKUq7x1ueQ907dIUElsr_HBmqqpfW1x-3q35nuQI2mNMXMUKKOoRJ7YnryHzPQgk_Qmi-nsFz1xxxKv1bTx95LGQayH3MtzoNZVwYH3R5Ojg03R0njPOpj-cEmoCeYU3IHZgMrBETwwTqIDbgpiQNJI3GK59VI7PVj-27xhWbOkr_hhTMRW9PblvyKFc0W0iVNVyHqfMPy-DITpt67iDv0EUw9zYZZBVlVLQnhzdYvISvnwxj3IBF0pMjO-ljydS3lwncFcaQRrd6NuVzC5Cmz5Qo2daMkW9Z9s4yNCJLLIK8l5SuFw31J7ed",
+                      "function_call": {
+                        "id": "adk-30cef01f-a6ab-4ced-a23b-364335bf556c",
+                        "args": {
+                          "postcode": "HP11",
+                          "property_type": "3-bed house"
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-30cef01f-a6ab-4ced-a23b-364335bf556c",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "```json\n{\n  \"postcode\": \"HP11\",\n  \"property_type\": \"3-bed house\",\n  \"min_price\": null,\n  \"max_price\": null,\n  \"house_price\": null,\n  \"deposit_target\": null,\n  \"price_ranges\": [\n    {\n      \"bedrooms\": 3,\n      \"postCode\": \"HP11\",\n      \"priceMax\": 595000,\n      \"priceMin\": 475000,\n      \"sources\": [\n        \"https://www.rightmove.co.uk\",\n        \"https://www.zoopla.co.uk\"\n      ],\n      \"type\": \"Detached\"\n    },\n    {\n      \"bedrooms\": 3,\n      \"postCode\": \"HP11\",\n      \"priceMax\": 520000,\n      \"priceMin\": 395000,\n      \"sources\": [\n        \"https://www.zoopla.co.uk\",\n        \"https://www.rightmove.co.uk\",\n        \"https://www.onthemarket.com\"\n      ],\n      \"type\": \"Semi-Detached\"\n    },\n    {\n      \"bedrooms\": 3,\n      \"postCode\": \"HP11\",\n      \"priceMax\": 420000,\n      \"priceMin\": 250000,\n      \"sources\": [\n        \"https://www.onthemarket.com\",\n        \"https://www.zoopla.co.uk\",\n        \"https://www.rightmove.co.uk\"\n      ],\n      \"type\": \"Terraced\"\n    }\n  ],\n  \"status\": \"AWAITING_CONFIRMATION\"\n}\n```"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592471.165873
+        },
+        {
+          "invocation_id": "e-dc6a49ee-e93a-499f-8e10-418b0f186802",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I want to go for a semi detached house please"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CtcCAePx_14GkEdG-haeNixT8O0QrKyhXpGfO7NhM0mpD5s9gD-7lQx281w1fn9GfJ5ivmHaB89pP9k1X79hIgyT8tjjNZyXbkENp566qOvpj8PcP4bx7LMn5M_qR-Cx81jLflz4EWhVarG2qxLBeE6JyF9-xhu2LQvch8pg30EImfx13lN71RvCd-OLiB6Mj0xdxJb4cRgU0pvfJXxGhw5vGIMVxRQ7F_atapzlpZWfyXL_K9PWXy4Bz_qnij4_Nxka6Yio4ZqsXbeQgQR7xNl2YrqavqGpLRBMrw22EiAmjRGMsFLKRx7mnrTWFisLezH1ISc7kPP0QMS87rTWh3ojHh2j0uoQ1s9zKllqMIZw1tV4N-pyLJ-mnKmFImG_vVajl9sqMFhoT5oTXnCghSp7CKhQMeEuk0wQAx9AhLY4cV8GPn4SC8ImvV0LfndBlomahBLOer0XlA==",
+                "text": "Great! We've set your housing goal for a 3-bed semi-detached house in HP11 with an estimated price of £420,000 and a deposit target of £42,000.\n\nNow, to understand your saving capacity, could you please upload a bank statement CSV file that includes at least 3 months of your recent transactions? This will help us figure out how much you can comfortably save each month."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "Ct8CAePx_14amjy1C_Yd0Csr9fEepErQJQa8j_Z9ul-n_XArUaCfniyvPjpnEhk_Lq1E0RffQ-f3IDFPwCCanz5_VTxDTMRnUYD5uuGsmTdbmPgkhu0x-k789LeVK33GatYSodZqtmp0YtHpUP5iowNQe8YprqvjA9kF3hT0ZxZ0ofBH8wUQJiygiXd6KjXvolvrwn6LK90DljKsA1u0BQsDd12dLGYAYmly1uh2mUygrHGovwTfMSDgvUdkr5QjmzaDjncx_r2ki0uXrG-ckO6zOZN0cbu17ctfbXUjUE6gAi27ryol5mzVPArq1hI_Yvko1YeebR8tPKH7D_gMZSA2P8LMjVQr8ZjZJCOUeO8QiQyiztpAfUKAy4tmvJN62OKUwRUM9gmNxxr4S9fFSc42HpTkV_72jkCtIVtTx395If4soASDndkWuVrCbMt9l0CgmSzaUFNUvnKgOJi5Npz5",
+                      "function_call": {
+                        "id": "adk-2af86e79-5664-4272-925a-7562cde903bf",
+                        "args": {
+                          "postcode": "HP11",
+                          "max_price": 520000,
+                          "min_price": 395000,
+                          "property_type": "3-bed house",
+                          "human_approval": true
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-2af86e79-5664-4272-925a-7562cde903bf",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "{\"postcode\": \"HP11\", \"property_type\": \"3-bed house\", \"min_price\": 395000.0, \"max_price\": 520000.0, \"house_price\": 420000, \"deposit_target\": 42000, \"price_ranges\": null, \"status\": \"success\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592505.890539
+        },
+        {
+          "invocation_id": "e-efc7738f-3828-45eb-bf5e-1a07ad367416",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Here is my bank statement"
+              },
+              {
+                "inline_data": {
+                  "display_name": "bankstatement_60k.csv",
+                  "data": "VHJhbnNhY3Rpb24gRGF0ZSxEZXNjcmlwdGlvbixDcmVkaXQgYW1vdW50LERlYml0IGFtb3VudA0KMjAyNS0wMS0wMSxBQ01FIFBBWVJPTEwsMzc4MC4wLA0KMjAyNS0wMS0wMixSRU5UIFBBWU1FTlQsLDE0MzcuMzgNCjIwMjUtMDEtMDMsVEVTQ08gU1RPUkUgIzEsLDY1LjQ4DQoyMDI1LTAxLTA0LFRFU0NPIFNUT1JFICMyLCwxMTEuOA0KMjAyNS0wMS0wNSxURVNDTyBTVE9SRSAjMywsODEuNDUNCjIwMjUtMDEtMDYsVEVTQ08gU1RPUkUgIzQsLDIwNi4wMg0KMjAyNS0wMS0wOCxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDEzOC45NQ0KMjAyNS0wMS0xMCxVVElMSVRZIEJJTEwgR0FTLCw2NS40OA0KMjAyNS0wMS0xMixUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDQ0LjcyDQoyMDI1LTAxLTEzLFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMzUuMTQNCjIwMjUtMDEtMTUsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCw0My4xMg0KMjAyNS0wMS0yMCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDMwLjM0DQoyMDI1LTAxLTIyLE5FVEZMSVgsLDE1Ljk1DQoyMDI1LTAxLTI0LFNQT1RJRlksLDI1LjU0DQoyMDI1LTAxLTI1LEdZTSBNRU1CRVJTSElQLCw0Ny45DQoyMDI1LTAxLTI3LFJFU1RBVVJBTlQgIzEsLDUyLjcNCjIwMjUtMDEtMjgsQU1BWk9OIE9SREVSICMxLCw0Ni4zMg0KMjAyNS0wMS0yOCxBTUFaT04gT1JERVIgIzIsLDQxLjUyDQoyMDI1LTAxLTI4LEFNQVpPTiBPUkRFUiAjMywsNjcuMDgNCjIwMjUtMDEtMjgsQ0FTSCBXSVRIRFJBV0FMLCwyMzQuOA0KMjAyNS0wMS0yOCxSRVNUQVVSQU5UICMyLCw1NS45DQoyMDI1LTAxLTI4LFJFU1RBVVJBTlQgIzMsLDU3LjUNCjIwMjUtMDItMDEsQUNNRSBQQVlST0xMLDM3ODAuMCwNCjIwMjUtMDItMDIsUkVOVCBQQVlNRU5ULCwxNDI1LjAxDQoyMDI1LTAyLTAzLFRFU0NPIFNUT1JFICMxLCw3OS4xNw0KMjAyNS0wMi0wNSxURVNDTyBTVE9SRSAjMiwsMTE1LjU4DQoyMDI1LTAyLTA2LFRFU0NPIFNUT1JFICMzLCw1MC42Nw0KMjAyNS0wMi0wNyxURVNDTyBTVE9SRSAjNCwsMTcxLjANCjIwMjUtMDItMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCwxNDUuNjcNCjIwMjUtMDItMTEsVVRJTElUWSBCSUxMIEdBUywsODMuOTINCjIwMjUtMDItMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCw0OS4wOA0KMjAyNS0wMi0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDI4LjUNCjIwMjUtMDItMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwzMC4wOA0KMjAyNS0wMi0xOCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDMxLjY3DQoyMDI1LTAyLTIwLE5FVEZMSVgsLDE1LjgyDQoyMDI1LTAyLTIyLFNQT1RJRlksLDI1LjMyDQoyMDI1LTAyLTI0LEdZTSBNRU1CRVJTSElQLCw0Ny40OA0KMjAyNS0wMi0yNSxSRVNUQVVSQU5UICMxLCw2MS43NQ0KMjAyNS0wMi0yNixSRVNUQVVSQU5UICMyLCw1Ny4wDQoyMDI1LTAyLTI3LFJFU1RBVVJBTlQgIzMsLDQ5LjA4DQoyMDI1LTAyLTI4LEFNQVpPTiBPUkRFUiAjMSwsNTguNTgNCjIwMjUtMDItMjgsQU1BWk9OIE9SREVSICMyLCw2MS43NQ0KMjAyNS0wMi0yOCxBTUFaT04gT1JERVIgIzMsLDQ1LjkyDQoyMDI1LTAyLTI4LENBU0ggV0lUSERSQVdBTCwsMTU2LjgNCjIwMjUtMDMtMDEsQUNNRSBQQVlST0xMLDM3ODAuMCwNCjIwMjUtMDMtMDIsUkVOVCBQQVlNRU5ULCwxNDM5LjINCjIwMjUtMDMtMDMsVEVTQ08gU1RPUkUgIzEsLDYyLjM3DQoyMDI1LTAzLTA0LFRFU0NPIFNUT1JFICMyLCwxMDUuNTQNCjIwMjUtMDMtMDYsVEVTQ08gU1RPUkUgIzMsLDY4Ljc2DQoyMDI1LTAzLTA3LFRFU0NPIFNUT1JFICM0LCwyMDkuNDgNCjIwMjUtMDMtMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCwxMzkuMTINCjIwMjUtMDMtMTEsVVRJTElUWSBCSUxMIEdBUywsNzAuMzYNCjIwMjUtMDMtMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwyOC43OA0KMjAyNS0wMy0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDMxLjk4DQoyMDI1LTAzLTE3LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsMzguMzgNCjIwMjUtMDMtMTksVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCw1Mi43Nw0KMjAyNS0wMy0yMSxORVRGTElYLCwxNS45OA0KMjAyNS0wMy0yMyxTUE9USUZZLCwyNS41Nw0KMjAyNS0wMy0yNSxHWU0gTUVNQkVSU0hJUCwsNDcuOTYNCjIwMjUtMDMtMjYsUkVTVEFVUkFOVCAjMSwsNjIuMzcNCjIwMjUtMDMtMjcsUkVTVEFVUkFOVCAjMiwsNTUuOTcNCjIwMjUtMDMtMjgsQU1BWk9OIE9SREVSICMxLCw2Mi4zNw0KMjAyNS0wMy0yOCxBTUFaT04gT1JERVIgIzIsLDY1LjU2DQoyMDI1LTAzLTI4LEFNQVpPTiBPUkRFUiAjMywsNDQuNzcNCjIwMjUtMDMtMjgsQ0FTSCBXSVRIRFJBV0FMLCwxNjMuMTQNCjIwMjUtMDMtMjgsUkVTVEFVUkFOVCAjMywsNDMuMTgNCjIwMjUtMDQtMDEsQUNNRSBQQVlST0xMLDM3ODAuMCwNCjIwMjUtMDQtMDIsUkVOVCBQQVlNRU5ULCwxNDc3Ljc2DQoyMDI1LTA0LTAzLFRFU0NPIFNUT1JFICMxLCw4My43NA0KMjAyNS0wNC0wNSxURVNDTyBTVE9SRSAjMiwsMTA2LjczDQoyMDI1LTA0LTA2LFRFU0NPIFNUT1JFICMzLCw3Mi4yNQ0KMjAyNS0wNC0wOCxURVNDTyBTVE9SRSAjNCwsMjAzLjYNCjIwMjUtMDQtMTAsVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCwxMzYuMjgNCjIwMjUtMDQtMTIsVVRJTElUWSBCSUxMIEdBUywsNjQuMDQNCjIwMjUtMDQtMTQsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwzMi44NA0KMjAyNS0wNC0xNixUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDI2LjI3DQoyMDI1LTA0LTE4LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsNDUuOTcNCjIwMjUtMDQtMTksVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCwzNy43Ng0KMjAyNS0wNC0yMSxORVRGTElYLCwxNi40DQoyMDI1LTA0LTIzLFNQT1RJRlksLDI2LjI1DQoyMDI1LTA0LTI1LEdZTSBNRU1CRVJTSElQLCw0OS4yNA0KMjAyNS0wNC0yNixSRVNUQVVSQU5UICMxLCw2MC43NQ0KMjAyNS0wNC0yNyxSRVNUQVVSQU5UICMyLCw1NS44Mw0KMjAyNS0wNC0yOCxBTUFaT04gT1JERVIgIzEsLDY0LjA0DQoyMDI1LTA0LTI4LEFNQVpPTiBPUkRFUiAjMiwsNTQuMTgNCjIwMjUtMDQtMjgsQU1BWk9OIE9SREVSICMzLCw2Ny4zMg0KMjAyNS0wNC0yOCxDQVNIIFdJVEhEUkFXQUwsLDEzNi4zMg0KMjAyNS0wNC0yOCxSRVNUQVVSQU5UICMzLCw0Mi42OQ0KMjAyNS0wNS0wMSxBQ01FIFBBWVJPTEwsMzc4MC4wLA0KMjAyNS0wNS0wMixSRU5UIFBBWU1FTlQsLDE1MTUuNjYNCjIwMjUtMDUtMDMsVEVTQ08gU1RPUkUgIzEsLDc1Ljc4DQoyMDI1LTA1LTA0LFRFU0NPIFNUT1JFICMyLCwxMDYuMQ0KMjAyNS0wNS0wNixURVNDTyBTVE9SRSAjMywsNzUuNzgNCjIwMjUtMDUtMDcsVEVTQ08gU1RPUkUgIzQsLDIwOC44Mg0KMjAyNS0wNS0wOSxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDEzOC4wOQ0KMjAyNS0wNS0xMSxVVElMSVRZIEJJTEwgR0FTLCw4Mi41Mg0KMjAyNS0wNS0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDQ3LjE1DQoyMDI1LTA1LTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMzcuMDUNCjIwMjUtMDUtMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwzMi4wDQoyMDI1LTA1LTE4LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgNCwsMzcuMDUNCjIwMjUtMDUtMjAsTkVURkxJWCwsMTYuODINCjIwMjUtMDUtMjIsU1BPVElGWSwsMjYuOTMNCjIwMjUtMDUtMjQsR1lNIE1FTUJFUlNISVAsLDUwLjUxDQoyMDI1LTA1LTI1LFJFU1RBVVJBTlQgIzEsLDcyLjQxDQoyMDI1LTA1LTI2LFJFU1RBVVJBTlQgIzIsLDUyLjIxDQoyMDI1LTA1LTI3LFJFU1RBVVJBTlQgIzMsLDQ1LjQ3DQoyMDI1LTA1LTI4LEFNQVpPTiBPUkRFUiAjMSwsNzIuNDENCjIwMjUtMDUtMjgsQU1BWk9OIE9SREVSICMyLCw0Ny4xNQ0KMjAyNS0wNS0yOCxBTUFaT04gT1JERVIgIzMsLDU4Ljk0DQoyMDI1LTA1LTI4LENBU0ggV0lUSERSQVdBTCwsMTQ5Ljkz",
+                  "mime_type": "text/csv"
+                }
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "Co4FAePx_14rkBoenbjUVdyzK0Uf69UFXtjBOI6BLe1x7-LcHFjOC3kTB-umoUC5PTcoE4OPVg2gfLXYyn9M9oTNv-aUz4S-IgzLmKS5_IupBXZ97HR8AnLGZtwu6FkcUuFbDKhOlp-8NKTRmI8kCSWqDu7-L1Yj5quWDJU7C8TIRL1hu7pBzzaaT_QOXi4Uif9ks9Wrt7JVO8mrgwH55bF0D6E0_zyklCtG-nJwBbEU2czT0xlARgvqJwhwowZYLxePF3gdi97RkEYe-WtPPp416xyxcrfz02DbACwe0v5R9AcsL8qwpN-FbLrWx-hOio8A0o4GV3KAXjuD_KVRO8AeeBnPgRLTTZS-8bmufBKasqJgwyr2wS6s7CQHS0l6ILTVNWP4Yu1Ic9qVOBUAUWqLrOdtxqCg-jvqF70ERD1URhxUx8qLuGf7SXLaQ5OMAfATqUYOa4VPRyw8WWcWXN6zMkC4YyMM2fdTjwvPBw_b_AFEJPysxwe0W-jWapgGsZNePDu_rRj_JdHMtSq1BoyCggiv5CGrp8mjF4cHIXbc-glVt1li1kJIo72JsiAKRpUjC4nqzDuOclFoN7WZsfaJhzmZhKRCuKLr-qOZvrAS-e65YRLg3VmPKs6FTnv6jSfewIitvBeVtjmciC5tKkQmYiAeX5EA4nsFiVaOBseZVbPkewu5rr4aNNAapHIVgGg_N3Xz4iVwXTDlCTxxKbWY7kd2xEuo9mxVAQFj3FrxnkKLxDXbGgohiQrznW_uwTJHY34e-0puYMRcuIzG-i-Lofx6tDYAOfTEzH-u5c2zLkxwVA6IMFgOq6HwCowzbImzqCV28PH1jf95mkdlSXpRzfcj63nVrmvT-TKGwOh8",
+                "text": "It looks like your current income doesn't quite support the mortgage amount required for a £420,000 property.\n\nBased on your bank statement, your estimated affordable house price is around £378,000.\n\nWe have a few options here:\n\n1.  Would you like to look for a different property type?\n2.  Would you like to look for a property in a different postcode area?\n3.  Would you like to upload a new or updated bank statement?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "Cu4BAePx_16yv5k93sOUPoVTQZ2vk5Bm8haPn_k2w7WLaiQn8-QTuSEQVNcuHIVgpVpOD4N2__ctKTC1sL9P4l5nuQ9CfZDBBIBtZ5EQuQ6Ebu-26LgkAGpKzTnZqHh3YQ77D2Gbu5hEJb_wUYSXIBkKUKsZur0Glz77vLWch_KCk3QaoJcfSQZuHSjtf5uQX9xO2ZveMmcO7AkWu6Sm1UuIhUK-WTxXpmscWU7KJj-atXCiay9cGWYtgyJsOw88VHm_DZlKxGtviCot8WC3-_0zmymvCLf85wDK-2_0ERz03c1zRlnxQYzZTjCpTfUtWA==",
+                      "function_call": {
+                        "id": "adk-7c0a067f-3136-4278-93e7-d75218beb0c9",
+                        "args": {
+                          "file_content": "Transaction Date,Description,Credit amount,Debit amount\n2025-01-01,ACME PAYROLL,3780.0,\n2025-01-02,RENT PAYMENT,,1437.38\n2025-01-03,TESCO STORE #1,,65.48\n2025-01-04,TESCO STORE #2,,111.8\n2025-01-05,TESCO STORE #3,,81.45\n2025-01-06,TESCO STORE #4,,206.02\n2025-01-08,UTILITY BILL ELECTRICITY,,138.95\n2025-01-10,UTILITY BILL GAS,,65.48\n2025-01-12,TRANSPORT OYSTER TOPUP 1,,44.72\n2025-01-13,TRANSPORT OYSTER TOPUP 2,,35.14\n2025-01-15,TRANSPORT OYSTER TOPUP 3,,43.12\n2025-01-20,TRANSPORT OYSTER TOPUP 4,,30.34\n2025-01-22,NETFLIX,,15.95\n2025-01-24,SPOTIFY,,25.54\n2025-01-25,GYM MEMBERSHIP,,47.9\n2025-01-27,RESTAURANT #1,,52.7\n2025-01-28,AMAZON ORDER #1,,46.32\n2025-01-28,AMAZON ORDER #2,,41.52\n2025-01-28,AMAZON ORDER #3,,67.08\n2025-01-28,CASH WITHDRAWAL,,234.8\n2025-01-28,RESTAURANT #2,,55.9\n2025-01-28,RESTAURANT #3,,57.5\n2025-02-01,ACME PAYROLL,3780.0,\n2025-02-02,RENT PAYMENT,,1425.01\n2025-02-03,TESCO STORE #1,,79.17\n2025-02-05,TESCO STORE #2,,115.58\n2025-02-06,TESCO STORE #3,,50.67\n2025-02-07,TESCO STORE #4,,171.0\n2025-02-09,UTILITY BILL ELECTRICITY,,145.67\n2025-02-11,UTILITY BILL GAS,,83.92\n2025-02-13,TRANSPORT OYSTER TOPUP 1,,49.08\n2025-02-15,TRANSPORT OYSTER TOPUP 2,,28.5\n2025-02-17,TRANSPORT OYSTER TOPUP 3,,30.08\n2025-02-18,TRANSPORT OYSTER TOPUP 4,,31.67\n2025-02-20,NETFLIX,,15.82\n2025-02-22,SPOTIFY,,25.32\n2025-02-24,GYM MEMBERSHIP,,47.48\n2025-02-25,RESTAURANT #1,,61.75\n2025-02-26,RESTAURANT #2,,57.0\n2025-02-27,RESTAURANT #3,,49.08\n2025-02-28,AMAZON ORDER #1,,58.58\n2025-02-28,AMAZON ORDER #2,,61.75\n2025-02-28,AMAZON ORDER #3,,45.92\n2025-02-28,CASH WITHDRAWAL,,156.8\n2025-03-01,ACME PAYROLL,3780.0,\n2025-03-02,RENT PAYMENT,,1439.2\n2025-03-03,TESCO STORE #1,,62.37\n2025-03-04,TESCO STORE #2,,105.54\n2025-03-06,TESCO STORE #3,,68.76\n2025-03-07,TESCO STORE #4,,209.48\n2025-03-09,UTILITY BILL ELECTRICITY,,139.12\n2025-03-11,UTILITY BILL GAS,,70.36\n2025-03-13,TRANSPORT OYSTER TOPUP 1,,28.78\n2025-03-15,TRANSPORT OYSTER TOPUP 2,,31.98\n2025-03-17,TRANSPORT OYSTER TOPUP 3,,38.38\n2025-03-19,TRANSPORT OYSTER TOPUP 4,,52.77\n2025-03-21,NETFLIX,,15.98\n2025-03-23,SPOTIFY,,25.57\n2025-03-25,GYM MEMBERSHIP,,47.96\n2025-03-26,RESTAURANT #1,,62.37\n2025-03-27,RESTAURANT #2,,55.97\n2025-03-28,AMAZON ORDER #1,,62.37\n2025-03-28,AMAZON ORDER #2,,65.56\n2025-03-28,AMAZON ORDER #3,,44.77\n2025-03-28,CASH WITHDRAWAL,,163.14\n2025-03-28,RESTAURANT #3,,43.18\n2025-04-01,ACME PAYROLL,3780.0,\n2025-04-02,RENT PAYMENT,,1477.76\n2025-04-03,TESCO STORE #1,,83.74\n2025-04-05,TESCO STORE #2,,106.73\n2025-04-06,TESCO STORE #3,,72.25\n2025-04-08,TESCO STORE #4,,203.6\n2025-04-10,UTILITY BILL ELECTRICITY,,136.28\n2025-04-12,UTILITY BILL GAS,,64.04\n2025-04-14,TRANSPORT OYSTER TOPUP 1,,32.84\n2025-04-16,TRANSPORT OYSTER TOPUP 2,,26.27\n2025-04-18,TRANSPORT OYSTER TOPUP 3,,45.97\n2025-04-19,TRANSPORT OYSTER TOPUP 4,,37.76\n2025-04-21,NETFLIX,,16.4\n2025-04-23,SPOTIFY,,26.25\n2025-04-25,GYM MEMBERSHIP,,49.24\n2025-04-26,RESTAURANT #1,,60.75\n2025-04-27,RESTAURANT #2,,55.83\n2025-04-28,AMAZON ORDER #1,,64.04\n2025-04-28,AMAZON ORDER #2,,54.18\n2025-04-28,AMAZON ORDER #3,,67.32\n2025-04-28,CASH WITHDRAWAL,,136.32\n2025-04-28,RESTAURANT #3,,42.69\n2025-05-01,ACME PAYROLL,3780.0,\n2025-05-02,RENT PAYMENT,,1515.66\n2025-05-03,TESCO STORE #1,,75.78\n2025-05-04,TESCO STORE #2,,106.1\n2025-05-06,TESCO STORE #3,,75.78\n2025-05-07,TESCO STORE #4,,208.82\n2025-05-09,UTILITY BILL ELECTRICITY,,138.09\n2025-05-11,UTILITY BILL GAS,,82.52\n2025-05-13,TRANSPORT OYSTER TOPUP 1,,47.15\n2025-05-15,TRANSPORT OYSTER TOPUP 2,,37.05\n2025-05-17,TRANSPORT OYSTER TOPUP 3,,32.0\n2025-05-18,TRANSPORT OYSTER TOPUP 4,,37.05\n2025-05-20,NETFLIX,,16.82\n2025-05-22,SPOTIFY,,26.93\n2025-05-24,GYM MEMBERSHIP,,50.51\n2025-05-25,RESTAURANT #1,,72.41\n2025-05-26,RESTAURANT #2,,52.21\n2025-05-27,RESTAURANT #3,,45.47\n2025-05-28,AMAZON ORDER #1,,72.41\n2025-05-28,AMAZON ORDER #2,,47.15\n2025-05-28,AMAZON ORDER #3,,58.94\n2025-05-28,CASH WITHDRAWAL,,149.93",
+                          "house_price": 420000
+                        },
+                        "name": "bank_data_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-7c0a067f-3136-4278-93e7-d75218beb0c9",
+                        "name": "bank_data_agent",
+                        "response": {
+                          "result": "{\"status\": \"success\", \"message\": \"Based on your income estimates from the bank statement the average house \\n            price of 420000 is outside your afforable range of 378000 \", \"suggested_investment\": 736.0, \"average_surplus\": 912.0, \"median_surplus\": 920.0, \"average_income\": 3780.0, \"median_income\": 3780.0, \"is_affordable\": false}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592534.460773
+        },
+        {
+          "invocation_id": "e-8713ce19-dd73-4899-bfff-086a2d2e182e",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I can go for a 3-bed Terraced House in HP11 Instead"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CuYCAePx_16meIqw5D35dNUiLlw04E72_Z4rJQ94xELe9ZkCyI9f3_BO2R2-0aoj5QlVJSS1TLAr94A4SajgS1WFX7Id91gqRbSB4dnkotZ4Ez6YV-lpenZtinRuWKyZ7M3yYOvlJwUpw1TgAkXRQacF3zZSE-wy2Ezijo1SFq-cfLquZzNd9r8FDCKdD6E1peT6XOoB8ysnqScoUx90TvbDnLJLueD22f49mgV9WPaie7usAeMixJYtg2WXyluUEVN91nfw8tRg7CM_Bxa58OwHT8LgNQTrph85gwFlCrouTaPb26cn3C1-vCgxtiZ2vGugZnWk4JN_FyaNnSEi87s9ihiCzjsDctu8lwjBiwM1dv8kp-WUwRNa2NB6eMiLvcMyE7HruIFlbiLIbofipHRw1F_bRvMzpjIKTNm9fvdcKDQ4SAQwCKKLtuaShJGsvTkvHXSLH0XIA8x9GGVZZhcdoAlyWFEPug==",
+                "text": "Okay, for a 3-bed Terraced House in HP11, the price range is between £280,000 and £420,000.\n\nDoes this range work for you, or would you like to consider a specific price within this range?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CpgCAePx_15ncqZUIysryIgf1cXfVYUI2nsRGzu0RkdIAnmAV2XZsYFUqqsrKLewGiyGVcwJfz7_XHEfwmz2wpn90vv0C_cNDoJDtrX4s_4DuRMF78T-qU48P2QZ7EVac0yI2Z-OZT59a_KCSG_uT7DA6Bbg3D6Cl_nIfPeyZQE_IBPa_vPpCj4-hWZvgoCDqkmB-nFsZu7Ff9KOOfZxWL_Ql6Ofs4q0HHHdytAyM_3l21Z9HtCpzNC1C1npEUt3GNfB_VdomZ_7nR_AOEAxFGM49m1COXozf4D8mthv8bMJsHkJ_nxmBew6jAs3nUgBP1cej8f0aIXUC95MJUzTEqfGPmemglT1yrrfg8wn47ANX26vLQpXcv774A==",
+                      "function_call": {
+                        "id": "adk-d0307754-058e-4669-9faa-b0d4d0606664",
+                        "args": {
+                          "postcode": "HP11",
+                          "property_type": "3-bed Terraced House"
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-d0307754-058e-4669-9faa-b0d4d0606664",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "{\"postcode\": \"HP11\", \"property_type\": \"3-bed Terraced House\", \"min_price\": null, \"max_price\": null, \"house_price\": null, \"deposit_target\": null, \"price_ranges\": [{\"bedrooms\": 3, \"postCode\": \"HP11\", \"priceMax\": 420000, \"priceMin\": 280000, \"sources\": [\"https://www.onthemarket.com/for-sale/3-bed-houses/hp11/\", \"https://www.onthemarket.com/details/14603337/\", \"https://www.rightmove.co.uk/property-for-sale/HP11-terraced-houses.html\", \"https://www.zoopla.co.uk/for-sale/3-bedroom-houses/hp11/\", \"https://www.zoopla.co.uk/house-prices/hp11/\", \"https://www.zoopla.co.uk/house-prices/high-wycombe/green-street/\"], \"type\": \"Terraced\"}], \"status\": \"AWAITING_CONFIRMATION\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592618.233612
+        },
+        {
+          "invocation_id": "e-1b0d4402-cfd7-4045-ba62-5ba585c759b2",
+          "user_content": {
+            "parts": [
+              {
+                "text": "This is fine. Please use my earlier bank statement to evaluate"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CpsDAePx_14vs9yFjOlgY5c1xl1r94ghC_5x_uxkSRURQBZXycwJFWkUpDvE5sVw3-egVpI7FxeTzXubf9vyac4XMnAY-LZLhd0ytQBKB9myA8ysqGWPhC8V5TENTGyh8rJpf3rvL15F4-WDlWAuPamn4rHRI0GYv6GiOn-EF9lUEyRY3eemBpHe9XsMmzXZFDat8yzxvfBvqdO04oaBCwgS-B9fMmz2IdIlO9bjal5VibfTw__LzVINoPXAwBQKvulbO03UHNVSbb7Zlroui7gdA_SdIWH1NQfSW4jMtv0fxM0DQgniH2XPpNTmGOKDY9AyciXwlAYBWLYROUB3F4b_42M4I-NmB1HT9XoNIgH-D5l5yQHEYoG7opI7sVIGh0JHQFH9E9MITv8yXG6MHA6pXOgCPz9-OaKvoGF5Ly6ryUm-KiqhxyujgqS2ma61SedvOpxjkanwWeCHBdJy50iQQGPCWi5t__t3d0YNVyFfphPDN9exxwtN6TeEdxWk3R_MrL826Zynggp6nsxivHvEVcUCymIjNFM-Hob7",
+                "text": "Great news! Based on your bank statement and the new house price for a 3-bed terraced house in HP11, it looks like this goal is affordable for you.\n\nWe've calculated a suggested monthly saving of **£736.00**.\n\nWould you like to proceed with saving this amount each month, or would you prefer a different amount?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CqsFAePx_15Vgm5dUSsSTRrK2stfyGu28A5wDhR93n9ut-QS6ryImBf47a2oRTh0cMvV6aCqDR_lIeIsAtSD0c62BFxsi1FfIugG05eL2PoXA2X4fX-PQAo1tFhu4mJxKDikQX4HUxJ1an5fAeE9oqeaE1TdUcX0LsIu3zePHpn8S_OXgYUzJGfFDwBSifDrvyn1kG4-6_D7VD8PPK4vIzlVuHedsjL2f_EsNdBRwo8jp6Mg2QtGrB3Un5BSk6IYLd00CegZJ1TIgxvs99uOMVBXLwdKz34K3mukdqUO6tUIwyOncmmFJnBJTy-BJdLmeHyN24xWl7udlFgahDyT5uGKaecIxQYsG9ZbY7a2a2vGYSN75V7pfIs905lH0GM6B_P0O5cc7XgfeQrivJflwuzpdq3WAffHiMUTVTS5IDeGDLi6LAaaa475OQjW9fbCbGXl0vMoTsUhhP6faTXVyW2_VrzW9HKv_0fRQOx6CbSsJ28ukMsSGcr7o0Ydyc7vBvgn-PKjsZOMh-xZhDDpYVNK2roziqG9iLW9KNORe_IOklWYr84iCARwXDH5ZBQzesXPSo03dkISrjJoXduzl9PHPPiBrnjgLFjxtkTw8fKNCa_cRBHm_Q7Ttsd3sKHrNdQ88mnUKRvS393Fv3TseXJ4alOJeMaQsFlW1i7Wwf2ocORg6Bu2IinVPFecMKtWEun6SmX3prxRmkz-iUkrhkuLhy1PUfynJAn_YsudvBz5HPWVV1Sx3n6zCSW6ReSe_JEN_XC7UEUiX6KJWmlX5Bm7bk11AgwjG_qgxkpK3ZpOT5Xy1od3soWZSYBBqHWnWA2okp9eRx1XHZ5Fnlmm-uqLKZ5rx75nV6PnEXHljqlpcCqL5EGRKXrRGBNTzqErviz1-M4N3sRTvEIR86E=",
+                      "function_call": {
+                        "id": "adk-2c22b5db-b273-47b2-87ec-5e3f7701241f",
+                        "args": {
+                          "max_price": 420000,
+                          "human_approval": true,
+                          "property_type": "3-bed Terraced House",
+                          "min_price": 280000,
+                          "postcode": "HP11"
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-2c22b5db-b273-47b2-87ec-5e3f7701241f",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "{\"postcode\": \"HP11\", \"property_type\": \"3-bed Terraced House\", \"min_price\": 280000.0, \"max_price\": 420000.0, \"house_price\": 308000, \"deposit_target\": 30800, \"price_ranges\": null, \"status\": \"success\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CrYDAePx_17oSlIU0Z7Q909I9R6yoGSdnI1YM8oCszvctdAMgTX2Jqje_bmvHToanlIMsGHtnbDFH4DyCXeXwCfBxnwkTuJmH4DsyflvQoh8tB42FbVz2vzrUVxPcsg39ILjMKJCC7GgJQDH0lPW_KdD_mxVjM7NNHF0GU9KHaMeslm0uSDfhGaCeOcm9v7bBthjou0HEYZgPMVoGF1Yes2BjJsaFgaOABbP0YB3fax_NOO-PCH5P-DoGQMj6DIf5NvXYGpPhTpEDb_07zzUQhIWMuud5w95TmLhAOUMuJQKWN71nBUoiW06tRG2FAp2DcyPtPNKUGRIvGGbRGic4sE_-5Wtagl1XLsHrl0vFSK7ySwqPIIL44Mawt8J8-uFuk_g13xMQmGaKkrFyhl8RdowL-SvaRyhqUhQQJ6TjOnC4UIMvq3rle1QfggkRF2BNCPUBE4ZeeUQDgXRof_Saug1Dw8xZOtkVl2LFdSazKomRzIQ2amrKIjhY7W2yzPxdpkIb9QL6UOO8tEbicFfbrlnTx9kRlje6nat0AKssqFQpGoM4XETfsCKL7hC-rXiG9Zk7L3YdyVC",
+                      "function_call": {
+                        "id": "adk-1227264c-7e3d-4ab0-9948-ff9518b7f03d",
+                        "args": {
+                          "file_content": "Transaction Date,Description,Credit amount,Debit amount\n2025-01-01,ACME PAYROLL,3780.0,\n2025-01-02,RENT PAYMENT,,1437.38\n2025-01-03,TESCO STORE #1,,65.48\n2025-01-04,TESCO STORE #2,,111.8\n2025-01-05,TESCO STORE #3,,81.45\n2025-01-06,TESCO STORE #4,,206.02\n2025-01-08,UTILITY BILL ELECTRICITY,,138.95\n2025-01-10,UTILITY BILL GAS,,65.48\n2025-01-12,TRANSPORT OYSTER TOPUP 1,,44.72\n2025-01-13,TRANSPORT OYSTER TOPUP 2,,35.14\n2025-01-15,TRANSPORT OYSTER TOPUP 3,,43.12\n2025-01-20,TRANSPORT OYSTER TOPUP 4,,30.34\n2025-01-22,NETFLIX,,15.95\n2025-01-24,SPOTIFY,,25.54\n2025-01-25,GYM MEMBERSHIP,,47.9\n2025-01-27,RESTAURANT #1,,52.7\n2025-01-28,AMAZON ORDER #1,,46.32\n2025-01-28,AMAZON ORDER #2,,41.52\n2025-01-28,AMAZON ORDER #3,,67.08\n2025-01-28,CASH WITHDRAWAL,,234.8\n2025-01-28,RESTAURANT #2,,55.9\n2025-01-28,RESTAURANT #3,,57.5\n2025-02-01,ACME PAYROLL,3780.0,\n2025-02-02,RENT PAYMENT,,1425.01\n2025-02-03,TESCO STORE #1,,79.17\n2025-02-05,TESCO STORE #2,,115.58\n2025-02-06,TESCO STORE #3,,50.67\n2025-02-07,TESCO STORE #4,,171.0\n2025-02-09,UTILITY BILL ELECTRICITY,,145.67\n2025-02-11,UTILITY BILL GAS,,83.92\n2025-02-13,TRANSPORT OYSTER TOPUP 1,,49.08\n2025-02-15,TRANSPORT OYSTER TOPUP 2,,28.5\n2025-02-17,TRANSPORT OYSTER TOPUP 3,,30.08\n2025-02-18,TRANSPORT OYSTER TOPUP 4,,31.67\n2025-02-20,NETFLIX,,15.82\n2025-02-22,SPOTIFY,,25.32\n2025-02-24,GYM MEMBERSHIP,,47.48\n2025-02-25,RESTAURANT #1,,61.75\n2025-02-26,RESTAURANT #2,,57.0\n2025-02-27,RESTAURANT #3,,49.08\n2025-02-28,AMAZON ORDER #1,,58.58\n2025-02-28,AMAZON ORDER #2,,61.75\n2025-02-28,AMAZON ORDER #3,,45.92\n2025-02-28,CASH WITHDRAWAL,,156.8\n2025-03-01,ACME PAYROLL,3780.0,\n2025-03-02,RENT PAYMENT,,1439.2\n2025-03-03,TESCO STORE #1,,62.37\n2025-03-04,TESCO STORE #2,,105.54\n2025-03-06,TESCO STORE #3,,68.76\n2025-03-07,TESCO STORE #4,,209.48\n2025-03-09,UTILITY BILL ELECTRICITY,,139.12\n2025-03-11,UTILITY BILL GAS,,70.36\n2025-03-13,TRANSPORT OYSTER TOPUP 1,,28.78\n2025-03-15,TRANSPORT OYSTER TOPUP 2,,31.98\n2025-03-17,TRANSPORT OYSTER TOPUP 3,,38.38\n2025-03-19,TRANSPORT OYSTER TOPUP 4,,52.77\n2025-03-21,NETFLIX,,15.98\n2025-03-23,SPOTIFY,,25.57\n2025-03-25,GYM MEMBERSHIP,,47.96\n2025-03-26,RESTAURANT #1,,62.37\n2025-03-27,RESTAURANT #2,,55.97\n2025-03-28,AMAZON ORDER #1,,62.37\n2025-03-28,AMAZON ORDER #2,,65.56\n2025-03-28,AMAZON ORDER #3,,44.77\n2025-03-28,CASH WITHDRAWAL,,163.14\n2025-03-28,RESTAURANT #3,,43.18\n2025-04-01,ACME PAYROLL,3780.0,\n2025-04-02,RENT PAYMENT,,1477.76\n2025-04-03,TESCO STORE #1,,83.74\n2025-04-05,TESCO STORE #2,,106.73\n2025-04-06,TESCO STORE #3,,72.25\n2025-04-08,TESCO STORE #4,,203.6\n2025-04-10,UTILITY BILL ELECTRICITY,,136.28\n2025-04-12,UTILITY BILL GAS,,64.04\n2025-04-14,TRANSPORT OYSTER TOPUP 1,,32.84\n2025-04-16,TRANSPORT OYSTER TOPUP 2,,26.27\n2025-04-18,TRANSPORT OYSTER TOPUP 3,,45.97\n2025-04-19,TRANSPORT OYSTER TOPUP 4,,37.76\n2025-04-21,NETFLIX,,16.4\n2025-04-23,SPOTIFY,,26.25\n2025-04-25,GYM MEMBERSHIP,,49.24\n2025-04-26,RESTAURANT #1,,60.75\n2025-04-27,RESTAURANT #2,,55.83\n2025-04-28,AMAZON ORDER #1,,64.04\n2025-04-28,AMAZON ORDER #2,,54.18\n2025-04-28,AMAZON ORDER #3,,67.32\n2025-04-28,CASH WITHDRAWAL,,136.32\n2025-04-28,RESTAURANT #3,,42.69\n2025-05-01,ACME PAYROLL,3780.0,\n2025-05-02,RENT PAYMENT,,1515.66\n2025-05-03,TESCO STORE #1,,75.78\n2025-05-04,TESCO STORE #2,,106.1\n2025-05-06,TESCO STORE #3,,75.78\n2025-05-07,TESCO STORE #4,,208.82\n2025-05-09,UTILITY BILL ELECTRICITY,,138.09\n2025-05-11,UTILITY BILL GAS,,82.52\n2025-05-13,TRANSPORT OYSTER TOPUP 1,,47.15\n2025-05-15,TRANSPORT OYSTER TOPUP 2,,37.05\n2025-05-17,TRANSPORT OYSTER TOPUP 3,,32.0\n2025-05-18,TRANSPORT OYSTER TOPUP 4,,37.05\n2025-05-20,NETFLIX,,16.82\n2025-05-22,SPOTIFY,,26.93\n2025-05-24,GYM MEMBERSHIP,,50.51\n2025-05-25,RESTAURANT #1,,72.41\n2025-05-26,RESTAURANT #2,,52.21\n2025-05-27,RESTAURANT #3,,45.47\n2025-05-28,AMAZON ORDER #1,,72.41\n2025-05-28,AMAZON ORDER #2,,47.15\n2025-05-28,AMAZON ORDER #3,,58.94\n2025-05-28,CASH WITHDRAWAL,,149.93",
+                          "house_price": 308000
+                        },
+                        "name": "bank_data_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-1227264c-7e3d-4ab0-9948-ff9518b7f03d",
+                        "name": "bank_data_agent",
+                        "response": {
+                          "result": "{\"status\": \"success\", \"message\": \"Available Investment estimated successfully\", \"suggested_investment\": 736.0, \"average_surplus\": 912.0, \"median_surplus\": 920.0, \"average_income\": 3780.0, \"median_income\": 3780.0, \"is_affordable\": true}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592661.269003
+        },
+        {
+          "invocation_id": "e-593d8b67-5cd5-4db3-98a8-144c50c335d7",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Please proceed with monthly saving of £736.00"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CuoCAePx_17gN5gg7xWblLUtUmH7VFfddVMBW3WCWtk9Eo0Tqj1A-07mWvYtH3SuTS2MrRjJucUkr4k1XXvWiUEY7gQXV5soxwVQVSAM6zGt9beSo6JC7XQ_lYB8SqhKlSILW6oUuLajMRCBGizP2ccklpT1y0twHh8T9cUWEZKjWGP-jvhJkddRvATBkjZCwaNfnJI5tX_CADmd4VkTpNgvXS-NRqJggMZAXuK5YP_cTeFWbXuADawEqaLqCxY4N_7DJtNSqnPyWTZitNCl7cUOszppSmotMQvBr5MK6xSlK7Ik7Au_iF4ogeZPq76XSXuRvmG6cyJdC6hdS4eTPx8NhUJlYXA-51945eFc3aH7fHV8GFN4EkxeOgX1sN17XeXwTDKeKR89A80KRFu5cSTg5ATUiHsYaWEBpGVvqaca7wsh_ZdyUaq1plMFO4a6gI0VGjvri0FtrbOFrXQoRMMkSte_o_Lik2Z1SjY=",
+                "text": "Excellent! We'll use a monthly saving of £736.00 for your plan.\n\nNow, let's figure out your risk profile, which helps us recommend the best way to save.\n\nFirst question: On a scale from 1 to 5, how stable is your income? (1 = very unstable, 5 = very stable)"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1764592773.583875
+        },
+        {
+          "invocation_id": "e-b9c4f023-25fe-4972-abab-4eb41aff817d",
+          "user_content": {
+            "parts": [
+              {
+                "text": "4"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CsgBAePx_17_p4rpIBpyVunaKFR2FPKG-1J1lAHbsHU8knk0-3IRtqHRhKCGS11CtK7aB6BgqBm9UdJkGCXhlhVtAwp2iYr9aIbCSNd4TJVxuvKxHSaSqriqH_t4VFAOZj2p2M8x0BaIwN00pQauFKJa1BGfPI1fsp6bPMV9yLM1hLiBJlguo8f9udEbJBFRMsuMvw268fdLiq9GggZAtKJS0yFQCBjg9U8wwyn_ckw6ikJGDi-a7ULs62Z1jgORCjpU6jFSXSFa9PY=",
+                "text": "Thanks! Next question:\n\nIn how many years do you hope to buy a property?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1764592786.390557
+        },
+        {
+          "invocation_id": "e-7c781aa6-07b7-418d-b4f6-3ffbcb3b7413",
+          "user_content": {
+            "parts": [
+              {
+                "text": "5 years"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CuYBAePx_14BPDEIEtwlkNTSwNK1Y5UVLFJvI5QHEzfSAfNSG7yaHMGHPYl8CtTCQkAP9bdZdUISYYdamTkgYL756ka3343jKKVKbsvMT4ZYr8LUc5FCkpZBJ8H2Cj-s6qKk0EYrD6bDf4ul-AIKg4azUn9OZf7EKzVNko7VHQ8WohulqfoAdp-BMlZe0H0o1m2-uZBlMBQ9-ehn_lqpjI6G2__mxg82UcTY0gbbjtIkhIb6yeOkXWAWdJM2P2sUTIHFG2BqSOrcy2Ihut8R1d8aDJXjn5Vckumly1ZuXVfq7VetFpyNcW4=",
+                "text": "Got it. And the last question:\n\nOn a scale of 1 to 5, how would you feel if your investments were to drop 20% in value? (1 = very anxious, 5 = okay with it)"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1764592793.691294
+        },
+        {
+          "invocation_id": "e-9248c94d-a62a-4767-a1ee-ff52d13e41b4",
+          "user_content": {
+            "parts": [
+              {
+                "text": "4"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CpsLAePx_14hmxYbIXIEMbfh-YEjT9Vc-CjCTHA3OGX7Q_2-wrTHUXMzH6zLgHOz_nBLCkOJogDmV6yJCCruFP1wiynfNBGpIALRAUihsESwafDcBpuzLnHa0lPqcTQFrpV-5Rud0yVYWanjE1cqq4tVnMPsbdsOwxueAxoLCuCQV_VUky5C2v5pQ3sqT_OdROpNaCxw_916VSjamQvN_y7D00cwTV9WoAB5IxUoTNuXJcuCKt1QPEhbvyEvEqjDNmY3qXS372CbKo3d7cwN2j5dg-z6RXGkDD0lDWjvDw9BlwhziIFiiuSKU8I1zGWefJO7ycRbwFQ6tJSBA6Tr4_8xdqQxek6qMhxy5oMbqnpsRGlTrJ38jnCuLOl0--7mepn8U-Mw5WjjfBW1a5qFXKml-vEbv6tbqAweSg_5CN3U6su5sVAmIoea3BsPAhjZ-8Um1PuKf2C-s_7lJVcN0tFhOkU3f3OrFaqg6nR8ZwALh2t-u1mClmLTse_Gkk0Q9JFNOwYGv_USOxbYRzT8Y62CYtAbW8XIFdRCT14VlSkBzenBkgrkW8Y06jIoa9z01h4erUUZOxCwyd49_zGf56MBLdxh1yH6piP7jojuArPZqhnARXOiXMTxcpS0yZJIFJ_ELQHWriWBZSibmybBnkYdLwwBa3NmUcuCeVEAwPZcXH5v1W1ADzalK0YbjpBcapl25cE5LwmGhBTyWETxqNA-4EQGhqJRpGSm22IzsmhBiQULYEjqG4Svz6FbpFcTJptq9o1Cdj_zAa8AB6Xc02f9tMVOIqltJlP9lBtVC8jorKz3uRsIWRzW_uydvyJBTK1N2UJIYIRb4MnXZwSoKZCRF37LoWf6GaBzEIg8foc6GInv4roEEC2zGqGNSACUv7s1exwQML-dbfpgTC52g0m3mUbsIDPXZmxZ47Gzsj4GL8i-qW7kH3HdRwSssqllp_IbcQZaKzGUwkQlG_9KtLwG-j13j-DB2Jh5jGiqAqt9ralQ0ep-iclJo4-q-ORH2cBYIXxzh1X0dve8N6bBposK3iHOytMW-T11uY6NkSThcIcpHthPynIjmN6PhUlf3AqFhoQlnGpzpziD_EZGW05jd4IxNJ081obtlAgML-4HDkHspCL17q7J2RRqRXnGG2Oy4va_u20wRK6VNFBNr3NNH5qhc7nAkEDcb4JFYvgNOqVQy-Eze7O-z3Lg84cSyzmi26uBEpa4iP9OCYtPBh33ebmwXiKSsmzJh9FznbRsknZfyv3Wy0HiCwDCz985dYreEs4BoV3ftREMXUreR2OdblruVkooEWuW9YxpppLnHQOdpRlo0xUvFrZimP-WTsFrhXWcT6AKfN9Mq-6zC8pZmxoO6ik4Ewd7RU9jGKIIbjiQtoUsI_CIQRDU8nTH8hmJV8WJlE17-iTOEAfq2HO2ZDX4byRQH_ouL4sNfOepFXbNc2BaHgYWfnHHZB-8kL_urx1sMzjEipNSOD3s24HBqGveC6zrqIsubSB_I5B1CWffUbxKol2nuQGaSJO4nHjYRpaGpD12cF9ifMQqV6ujGf7POITCazmD0xN-Xyu8sB3rFOTy08LqsHMcoWRRZlN1qa6rArfAIWJgF2gdsXorgaCyiEEOJ4LIjdK0MA-fDqd8xhW3Rlwd0VuG8pl7egBiD0xCy3W5YJK-1dxS7YdOl5jpk4DRWvAUfep_FwOelGZiqzuR59JNS1cAW4KNxTsEMWSVVfA2nxMcGdOHLK1EJKiDv7JZXPwUEluLef__nuXg_RRtUaWQ-2hQ373bveNJ1T3aFOTNxS_sks8tsMwY1F_gs5HHrMX9kPmT_Xl_m0E-YRfmc4AoKOTCjfQOXTtVat1xX7DGakO1fUOOqGLMXCqt3rXyq05pk0eq1QhC9NixFAYqKfM7kngLVA==",
+                "text": "Here is your personalized house deposit saving plan:\n\n*   **Target Deposit:** £30,800 for a 3-bed Terraced House in HP11.\n*   **Recommended Monthly Saving:** £736.00 (as you confirmed).\n*   **Estimated Time to Target:** Approximately 4 years, which is even sooner than your 5-year goal!\n*   **Projected Savings:** With this plan, your savings could grow to between £51,142 and £53,687. This comfortably exceeds your deposit target.\n*   **Investment Approach:** Based on your risk profile (High Risk), your plan suggests a growth-focused strategy, with up to 70% of your savings potentially allocated to investments like equities, and the remaining 30% in cash.\n\nThis plan looks very feasible for you! You're in a great position to reach your deposit goal.\n\nWould you like to explore any alternatives, such as aiming for a different property or adjusting your time horizon?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CscCAePx_17G83GJn2PKRrAmpO_ia-zA6kOJcTa8P-ENEq4y50d8B-jjk5RBMu2gl6YI4BAb2xdkEabUCxgp3EuWWwfPKwOmA3iGQYEmX-SIPYushePQ0v4e9lWiBIcWINzzwl2E-tVDYlILCJxe6h3KQkkxjOPivjApEldaeLGK2FFEQmRDOdXhtDz-UET0QgbxjlHgGdTCSy1cQhVQuzOOfmvfqTcB4mkH2bRu9Krsit-3urxHBYiN4uzdl7BrGqbxUT2q0w4MparlHVADCxsEdVETBbLIyIaQB0sETb6zwGR9JZ_CqYDkcI9wyyC1KozwBEcgBfyMvUHFRjd_HI59-Hrj87aLnmWg7MMCWN8aPeDUGvq_ycFU6FcP7ieAXccQ37_mY9gw2w0Okv3oWYn_e85aY89-SR8ZkFDc9V6XeSw3cS9YPIJ6",
+                      "function_call": {
+                        "id": "adk-b5842dbf-5c79-40a6-ad29-809e4770d29f",
+                        "args": {
+                          "loss_reaction": 4,
+                          "time_horizon_years": 5,
+                          "income_stability": 4
+                        },
+                        "name": "risk_profiler_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-b5842dbf-5c79-40a6-ad29-809e4770d29f",
+                        "name": "risk_profiler_agent",
+                        "response": {
+                          "result": "{\"status\": \"success\", \"risk_band\": \"4\", \"risk_band_Text\": \"High Risk\", \"max_equity_share\": 0.7, \"score_details\": {\"income_stability\": 4, \"time_horizon_years\": 5, \"loss_reaction\": 4}, \"profile_summary\": \"You are classified as High Risk (risk band 4). This is because you have stable income, a medium time horizon, and a high tolerance for investment losses. This profile suggests you are comfortable with a growth-focused investment strategy, allowing for up to 70% of your portfolio to be allocated to equities to pursue higher potential returns.\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CsIHAePx_17JnzaZthpMBCMVSv6LyC7Sb5Lfg9uIiIOiM6ACxYkoB87EOmU_pYkiX1cNP7YNQgShnzjEF0rD4uDo3LWPX_0rVmX_zxRdN6yAe2TVnkyi682fDmIotqDlQ6PUTEbPbeDMY3vjxunBQjJAXmYVj1VoIbF_Nj0XF-Afp1rcR0LYSZn335HQizq1ZrM0UFFlaUrnN2xvSjVBgEFvzyCtiISiUbEZ-FOQKhxcRF_PBdJrO6d9WoOZkSprMehZkDzYb0Y_rbtMswiYJj0OH81YUiz40v5_zOb5BWFkxwvs0qNJjZGC64q0fsYo1wQUnpatACPuPSMkEKwJkDieeWSjLCu0MPRAKa5tYvzvzrhhT1pCAns08YcdUATF8K7EZrMyeWwME24CGDKQo_mVmBe0niaW7eFVrLI3D7LyRdAVVACgpJ1VzENJzez72D9nkwTWuhUol3NAr2RbwHwB4c0uL1CLY8r3wTJFTyyvOGFSntZySTqOLIRgt0jPVAJPnuXQ8tXwdoYf-anW_ELkZESC9tAmtDoViTGgO-9JlcwicVLns_9BZsHawczvPFeTghHTh9SFhN_l0cuAOHgvlAQ9nEG1kP08zjrCWAVBpeOQC9ZDpga7y2rnsgIasYo_4zk8fhZPazrow8Ind9dN7c_-ihv-vL4tro-bA_MbnIlS7lZQfhV835mt0pMpjv8A7adFIfNDP1VqArKt4RbXTWIKu4f25UOFEQ2kh2U7WMapqRnfTKjcwGuenzWvlkqpSMKeYnEk4A10UStQA4DMOX_pTinh2AG6J6D8UXFl9BrSTPEdCIR4M0ZUEFE_t4S1EkvY8ZnX0bqYTcTe85Jx0jMGwmJiCTa3wglbEiFY5qLNZcgQ-V77LxyEYnV5WvGn_jUuZYbfB7PJ7uElPyn-RPnEgkkk7Ap2iJze13Z0EF-7cXbfcJrjCnP1tqOAWVX2tCO32eGE52BLatFmuWY0DXpn9aCSKqIGOIb1K3BRcGOiFBCw90umdviPSozeFrl-GH4J1rU7hnVrxzzfNEcUhefBz54atxr04fpDG47B0SxydH_qXYWcst08DFl6sDqWpDoaVYqcYgT0A8j1EMDCWrG43xUY9hFbee5UWqsIbzh5fme_vK2VExW-jDbU59QoLx14QDpt_miZJA63twMufpivmNBK4AFZvMitmFG1krsCgFRamNB5w532nWpEocpBWqxD2t-rMtMEqrF-mX_dKbSrHoMvYARv9YZUlFygSYjYj0_0WmY8R9NyGm3769Cib4c=",
+                      "function_call": {
+                        "id": "adk-e6e1e65c-b7b3-4e15-9805-54a59ad21db2",
+                        "args": {
+                          "property_type": "3-bed Terraced House",
+                          "deposit_target": 30800,
+                          "income_stability": 4,
+                          "max_equity_share": 0.7,
+                          "loss_reaction": 4,
+                          "time_horizon_years": 5,
+                          "postcode": "HP11",
+                          "available_investment": 736,
+                          "risk_band": 4
+                        },
+                        "name": "plan_generator_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-e6e1e65c-b7b3-4e15-9805-54a59ad21db2",
+                        "name": "plan_generator_agent",
+                        "response": {
+                          "result": "```json\n{\n\"status\": \"success\",\n\"error_code\": null,\n\"likelihood\": \"feasible\",\n\"min_final_value\": 51142,\n\"max_final_value\": 53687,\n\"years_to_target\": 4,\n\"user_input\": {\n\"available_investment\": 736,\n\"deposit_target\": 30800,\n\"income_stability\": 4,\n\"loss_reaction\": 4,\n\"max_equity_share\": 0.7,\n\"postcode\": \"HP11\",\n\"property_type\": \"3-bed Terraced House\",\n\"risk_band\": 4,\n\"time_horizon_years\": 5\n},\n\"user_explanation\": \"Great news! Your goal of reaching a deposit of £30800 appears to be feasible. Based on your current plan, your projected final savings could range between £51142 and £53687. This comfortably exceeds your target deposit. You could even reach your target in approximately 4 years, which is earlier than your stated 5-year time horizon.\"\n}\n```"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764592802.663353
+        }
+      ],
+      "session_input": {
+        "app_name": "mortgage_deposit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764592896.6720984
+    }
+  ],
+  "creation_timestamp": 1764592118.4877212
+}

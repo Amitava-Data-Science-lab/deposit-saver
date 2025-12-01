@@ -53,8 +53,8 @@ agent_app = agent_engines.AdkApp(agent=root_agent
 
 # Prepare environment variables for the deployed agent
 env_vars = {
-    "GOOGLE_CLOUD_PROJECT": os.environ["GOOGLE_CLOUD_PROJECT"],
-    "GOOGLE_CLOUD_LOCATION": os.environ["GOOGLE_CLOUD_LOCATION"],
+    # "GOOGLE_CLOUD_PROJECT": os.environ["GOOGLE_CLOUD_PROJECT"],
+    # "GOOGLE_CLOUD_LOCATION": os.environ["GOOGLE_CLOUD_LOCATION"],
     "GOOGLE_GENAI_USE_VERTEXAI": os.environ["GOOGLE_GENAI_USE_VERTEXAI"],
     "GOOGLE_CLOUD_STAGING_BUCKET": os.environ["GOOGLE_CLOUD_STAGING_BUCKET"],
     # Firebase configuration

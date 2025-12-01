@@ -1,4 +1,12 @@
 import logging
+import sys
+from pathlib import Path
+
+# Add project root to Python path to resolve 'src' imports
+project_root = Path(__file__).parent.parent
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 from google.adk.agents import LlmAgent
 from src.Prompts.OrchestratorPrompt import system_prompt
 from google.adk.tools import agent_tool

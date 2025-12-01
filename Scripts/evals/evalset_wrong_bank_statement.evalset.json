@@ -1,0 +1,278 @@
+{
+  "eval_set_id": "wrong_bank_statement",
+  "name": "wrong_bank_statement",
+  "eval_cases": [
+    {
+      "eval_id": "wrong_bank_statement",
+      "conversation": [
+        {
+          "invocation_id": "e-e62a073c-3bcb-41f2-bc22-e45d21047ce2",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Can you please help be with a 4-bedroom house in TS10"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CuYDAePx_15J8NKLLA2KN0Zj6USU95fexqiKjw7YEbdbi_vyDbQbMgdsSQaA8hReSWDnAnM6e-kRxNCKa36An6DH3FpwOtO20PmB8By8OVTzLxDZxEdiZxFxyL5o2hJoC7SUJYo1R6ICDW0mMwjSMwhTX0eTNPbz0yx49bUUcYTCw2A7aRQba4hH8zll2E-iCRPqJR9P7wS1w6E3tJblGGUJMGmUX__33efavNhzxXIcloavyWYAwLeXmQrTpXXaPma5EPvkq9FRnf3NC4_ZRE7reuQPxPxC991vVEJwYh4xNhEboSiJcVHjLEXevFhEpTa7qLNzqiHRWZy9aCxPO29R7U30CuPghTWhY_lxYcU5ESEhmH1ALgKyPmcsrODtga_EhKV2OceDEwQjbRrdpvyqZVZeZrebJRIAVLEpQkgyIuGajD3OSMRRzhp9Yk9jMFic5XcahhuftUKPT3UMX-WLlrPy_HPGeCdEZtMHy4a6kVN6Jj63GDzyCEevCqwaY8aqgqJWHwdKmoGOZc1xqGGE_JrL5cZ75IECkHhxnaikQRYacdpuHMbrYH0042c_r1wLJcgbGqzFGt_WuBrFg_46xf-ee9rjxRxc-DP_ZG0c__VYdZEWrYfZxY0ABIwT2yAHZw0fEzN6",
+                "text": "I found some options for a 4-bedroom house in TS10:\n\n*   **Detached:** between £275,000 and £425,000\n*   **Terraced:** between £175,000 and £295,000\n*   **Semi-Detached:** between £295,000 and £349,999\n\nWhich of these options would you like to consider?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "Ct4CAePx_15vC3vnkS7KqGIJ7N2f6daz_Yq8y7zzFLWlCoWU_n81k6MEaa4k2h93zxvaN_ZD2MHSlsVbBP02qGegDa3pq7FYHHgK4o7uhu7Utd0jEi0kd6L3epQJFwYpypocARs2x8Rn4yl0SJ-9c_5MFLIbXvFbAklFusRdFNAC1-e8Y1KAcgWYAEv8OBgGBft3A1NmjBDLeMhEWmaR4t84UgbafWKFJOI-tjh43yYqdQAXqT5-0-PqZfhy0VT_XpQvPdwmzh-B2MMLYYtXsXOH8UFABqx6W8a2TSWDVF9SB9K_G59OUdpQhC5Q1rYTUMEO_38isPHeHMoIkQOkMZc9XiqCZTom-9Yr1aCWFYTZlwf56xSjHQPEni43WdIFT92IN99ViTG9e7yFnfHKGGzJLzF5qNLtp7ndfNU7B7DIBdwpd6UZSKL-cTH46yqHZlhz3wzKCPJepEAb-JuCRGg=",
+                      "function_call": {
+                        "id": "adk-1a054fb3-b922-4837-841d-61a13a33e4d2",
+                        "args": {
+                          "postcode": "TS10",
+                          "property_type": "4-bedroom house"
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-1a054fb3-b922-4837-841d-61a13a33e4d2",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "```json\n{\n\"postcode\": \"TS10\",\n\"property_type\": \"4-bedroom house\",\n\"min_price\": null,\n\"max_price\": null,\n\"house_price\": null,\n\"deposit_target\": null,\n\"price_ranges\": [\n{\n\"postCode\": \"TS10\",\n\"type\": \"Detached\",\n\"bedrooms\": 4,\n\"priceMin\": 275000,\n\"priceMax\": 425000,\n\"sources\": [\n\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF2wW_Py6Qj-B69Twsg02nrWqmnDjYNp3ChiffT6Bs8wZuIZIzGLbhmZvRk-MISMHn3qalYtMHQXESS8E1w7AhrnB_7IOPD6bhPtPhcAX0IXiGE16PGoj7-LbLYsiZQcEQtEGZm95iShp7LVtc5Q0ulBA6YOnUQ9EibuNkXT68891u7cTiRweHDF2XyBJqS70O37h5vetCQoyZ4jIuklVDm\",\n\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRq-2KLFqXkXUE0L5FGpzHkkV0MyJWWMASUgCdxzENrsjGgBZBx3_RFCH--hUTrkOm9KGqFnl1eGavPT6QclqmqJ6U7F7TZzCel5u-_w7GpxbPW_Ncy2Fj8jV67THGEtE1tfReS5jo9FRWwag-_t3PboI=\"\n]\n},\n{\n\"postCode\": \"TS10\",\n\"type\": \"Terraced\",\n\"bedrooms\": 4,\n\"priceMin\": 175000,\n\"priceMax\": 295000,\n\"sources\": [\n\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRq-2KLFqXkXUE0L5FGpzHkkV0MyJWWMASUgCdxzENrsjGgBZBx3_RFCH--hUTrkOm9KGqFnl1eGavPT6QclqmqJ6U7F7TZzCel5u-_w7GpxbPW_Ncy2Fj8jV67THGEtE1tfReS5jo9FRWwag-_t3PboI=\",\n\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHA1iCd6E0enTImSm1toKu9o8LfuwB3gjZBsnw_L1wgsxr4dciUAbQR8V3JYaa-zI_qhmz1qBa6lOIeyhARMoJ7VBTfOZoRZfCU7duHGNN4CIksJtTamJkn0zw5yCNS-Q0lF5GRtECbp_ncopJX7HfcmfTgB5o4R3xdnRR3jtNf1pMuKHDe4Yi-uoS4e3-nMtng0OKC1IFl\"\n]\n},\n{\n\"postCode\": \"TS10\",\n\"type\": \"Semi-Detached\",\n\"bedrooms\": 4,\n\"priceMin\": 295000,\n\"priceMax\": 349999,\n\"sources\": [\n\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHA1iCd6E0enTImSm1toKu9o8LfuwB3gjZBsnw_L1wgsxr4dciUAbQR8V3JYaa-zI_L1wgsxr4dciUAbQR8V3JYaa-zI_qhmz1qBa6lOIeyhARMoJ7VBTfOZoRZfCU7duHGNN4CIksJtTamJkn0zw5yCNS-Q0lF5GRtECbp_ncopJX7HfcmfTgB5o4R3xdnRR3jtNf1pMuKHDe4Yi-uoS4e3-nMtng0OKC1IFl\",\n\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRq-2KLFqXkXUE0L5FGpzHkkV0MyJWWMASUgCdxzENrsjGgBZBx3_RFCH--hUTrkOm9KGqFnl1eGavPT6QclqmqJ6U7F7TZzCel5u-_w7GpxbPW_Ncy2Fj8jV67THGEtE1tfReS5jo9FRWwag-_t3PboI=\",\n\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFprKOiSBqZ2j5ruXs9tnVA5MWN-t98-OgUYAfWsy6lENQLvTUkC9pFNp9CnEOpfCsoDtmUAph48P70zHiVW_pcX3D1AQG73Tl6dtb-Do0j8OMOZA4rllN3rKrFXqdFK7ylxbscJUIFDBXH4d_5EqTENawXng==\"\n]\n}\n],\n\"status\": \"AWAITING_CONFIRMATION\"\n}\n```"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764604034.175673
+        },
+        {
+          "invocation_id": "e-f8f01f7c-a143-4478-91ce-a98e77fe9be9",
+          "user_content": {
+            "parts": [
+              {
+                "text": "let's go with Detached option"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CsADAePx_14rfQPI6_sgdZvyv-mcScuPEKXKXnNHac-XQGRE15kb9G7eYaYT29f6i8Y2u1ZbUObt4XryxdB4Scz2FGVP1D7SksnpyQ2ljyYvepE9DkQzPmn_NrIr3yWqQ94yH2JATCUT6t49kkQQJyWNxj43Hs1pZ0CQY1phgiGVoeyPUrZ8Hs1KE-7xpMf-hPmYGRzm6Z6rIpMW7pXoACOc0mhpyFdgXPfngD3DJXHJ5K9xHFELx_UTuqLRKwngTglKQDFW8nC7OgFt2OLTu6pyYqa-cHV769R4ZZxV6US8q8Rat5R53CwFMt_nqhjJbf_q07LV3EMlHD1tCfF6Kbylv1XQahAjhkd_AvFrEOXgbRPA7TjvxAnFXkI32NTR3EKVZqfNEWn0dfOynC5LKv5-58l6R7O_htVl2abY__PseklHM5-F5_XujINzFc36TVziZbN3ovvDXbSv1OfbvZe4hvlbVJoHWJCaBiFnWzm0sF9POIuGDgQzZPBRF6wEv8jGXEWXpMJ1uaVZAZ4VZ6OxI9GwgqAEGgDva9C43EOz1skZuWcxdz8H9B2tx3Ahd8mGSMvpVvJ28c237kNHdFAQbw==",
+                "text": "Great! We've set your housing goal to a 4-bedroom detached house in TS10 with a target deposit of £30,500.\n\nNext, I need to understand your saving capacity. Please upload a bank statement CSV file that includes at least 3 months of your recent transactions."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CoYDAePx_16IyJS4MgfWqiyKm6aP5oVGJ4tMqqBHSy4B8JL5CXl0GF7tvwKWMG7bHM2iEScfFi4pOGwvqhjLovkxoqH5IBkYCivA5naDDHcxwQghJqo4x7lXy7eaAQ01tLfcEwdsuY6wEnvLpeE5rQ7Hz6NLAwHf4q2AJtzvDa0qrU7okGBr8XUfaihwzIR9FwQHjXI8sj7UK4UlD6SwbgLCPW4vbf4EqiEgJ9ejaQKMs6CzcOqFZ_H5cOYGpqQeEWUfjTlwuM9rWuQDWrrgdq36AWchrzJcZkuTrwDe6SajRKAqybSYCddoec81ChHYdyGynaN8OnBMvZFbyV2J7RZFOqhqsXEHku-Lqup3khQEZhlO2A0hBxGVQ-3WrbCvW5p5ygHQ8YBV5z40YHM3Y0Kqice1v4z1JdrA5jbTPXAx8-0qCaHdC4hZ2I9KU3-8toK393c3JDtgLL58UUxrMpmX-8NPMNCaE9eAY9NoBhArAW9HB9NdsVDyyBaBcBIMkdlZKPpQiPis",
+                      "function_call": {
+                        "id": "adk-654759e3-b2e5-4d3b-9b78-9ed15d76d237",
+                        "args": {
+                          "property_type": "4-bedroom house",
+                          "human_approval": true,
+                          "min_price": 275000,
+                          "max_price": 425000,
+                          "postcode": "TS10"
+                        },
+                        "name": "housing_goal_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-654759e3-b2e5-4d3b-9b78-9ed15d76d237",
+                        "name": "housing_goal_agent",
+                        "response": {
+                          "result": "{\"postcode\": \"TS10\", \"property_type\": \"4-bedroom house\", \"min_price\": 275000.0, \"max_price\": 425000.0, \"house_price\": 305000, \"deposit_target\": 30500, \"price_ranges\": null, \"status\": \"success\"}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764604160.746607
+        },
+        {
+          "invocation_id": "e-ff1b65d4-259e-44dc-aece-205e302520ad",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Here is my bank statement."
+              },
+              {
+                "inline_data": {
+                  "display_name": "bankstatement.csv",
+                  "data": "VHJhbnNhY3Rpb24gRGF0ZSxEZXNjcmlwdGlvbixDcmVkaXQgYW1vdW50LERlYml0IGFtb3VudA0KMjAyNS0wMS0wMSxBQ01FIFBBWVJPTEwsMjAwMC4wMCwNCjIwMjUtMDEtMDIsUkVOVCBQQVlNRU5ULCw5MDAuMDANCjIwMjUtMDEtMDMsVEVTQ08gU1RPUkUgIzEsLDQxLjAwDQoyMDI1LTAxLTA0LFRFU0NPIFNUT1JFICMyLCw3MC4wMA0KMjAyNS0wMS0wNSxURVNDTyBTVE9SRSAjMywsNTEuMDANCjIwMjUtMDEtMDYsVEVTQ08gU1RPUkUgIzQsLDEyOS4wMA0KMjAyNS0wMS0wOCxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDg3LjAwDQoyMDI1LTAxLTEwLFVUSUxJVFkgQklMTCBHQVMsLDQxLjAwDQoyMDI1LTAxLTEyLFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMSwsMjguMDANCjIwMjUtMDEtMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAyLCwyMi4wMA0KMjAyNS0wMS0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDMsLDI3LjAwDQoyMDI1LTAxLTIwLFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgNCwsMTkuMDANCjIwMjUtMDEtMjIsTkVURkxJWCwsOS45OQ0KMjAyNS0wMS0yNCxTUE9USUZZLCwxNS45OQ0KMjAyNS0wMS0yNSxHWU0gTUVNQkVSU0hJUCwsMjkuOTkNCjIwMjUtMDEtMjcsUkVTVEFVUkFOVCAjMSwsMzMuMDANCjIwMjUtMDEtMjgsUkVTVEFVUkFOVCAjMiwsMzUuMDANCjIwMjUtMDEtMjgsUkVTVEFVUkFOVCAjMywsMzYuMDANCjIwMjUtMDEtMjgsQU1BWk9OIE9SREVSICMxLCwyOS4wMA0KMjAyNS0wMS0yOCxBTUFaT04gT1JERVIgIzIsLDI2LjAwDQoyMDI1LTAxLTI4LEFNQVpPTiBPUkRFUiAjMywsNDIuMDANCjIwMjUtMDEtMjgsQ0FTSCBXSVRIRFJBV0FMLCwxNDcuMDINCjIwMjUtMDItMDEsQUNNRSBQQVlST0xMLDIwMDAuMDAsDQoyMDI1LTAyLTAyLFJFTlQgUEFZTUVOVCwsOTAwLjAwDQoyMDI1LTAyLTAzLFRFU0NPIFNUT1JFICMxLCw1MC4wMA0KMjAyNS0wMi0wNSxURVNDTyBTVE9SRSAjMiwsNzMuMDANCjIwMjUtMDItMDYsVEVTQ08gU1RPUkUgIzMsLDMyLjAwDQoyMDI1LTAyLTA3LFRFU0NPIFNUT1JFICM0LCwxMDguMDANCjIwMjUtMDItMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCw5Mi4wMA0KMjAyNS0wMi0xMSxVVElMSVRZIEJJTEwgR0FTLCw1My4wMA0KMjAyNS0wMi0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDMxLjAwDQoyMDI1LTAyLTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMTguMDANCjIwMjUtMDItMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwxOS4wMA0KMjAyNS0wMi0xOCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDIwLjAwDQoyMDI1LTAyLTIwLE5FVEZMSVgsLDkuOTkNCjIwMjUtMDItMjIsU1BPVElGWSwsMTUuOTkNCjIwMjUtMDItMjQsR1lNIE1FTUJFUlNISVAsLDI5Ljk5DQoyMDI1LTAyLTI1LFJFU1RBVVJBTlQgIzEsLDM5LjAwDQoyMDI1LTAyLTI2LFJFU1RBVVJBTlQgIzIsLDM2LjAwDQoyMDI1LTAyLTI3LFJFU1RBVVJBTlQgIzMsLDMxLjAwDQoyMDI1LTAyLTI4LEFNQVpPTiBPUkRFUiAjMSwsMzcuMDANCjIwMjUtMDItMjgsQU1BWk9OIE9SREVSICMyLCwzOS4wMA0KMjAyNS0wMi0yOCxBTUFaT04gT1JERVIgIzMsLDI5LjAwDQoyMDI1LTAyLTI4LENBU0ggV0lUSERSQVdBTCwsOTkuMDMNCjIwMjUtMDMtMDEsQUNNRSBQQVlST0xMLDIwMDAuMDAsDQoyMDI1LTAzLTAyLFJFTlQgUEFZTUVOVCwsOTAwLjAwDQoyMDI1LTAzLTAzLFRFU0NPIFNUT1JFICMxLCwzOS4wMA0KMjAyNS0wMy0wNCxURVNDTyBTVE9SRSAjMiwsNjYuMDANCjIwMjUtMDMtMDYsVEVTQ08gU1RPUkUgIzMsLDQzLjAwDQoyMDI1LTAzLTA3LFRFU0NPIFNUT1JFICM0LCwxMzEuMDANCjIwMjUtMDMtMDksVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCw4Ny4wMA0KMjAyNS0wMy0xMSxVVElMSVRZIEJJTEwgR0FTLCw0NC4wMA0KMjAyNS0wMy0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDE4LjAwDQoyMDI1LTAzLTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMjAuMDANCjIwMjUtMDMtMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwyNC4wMA0KMjAyNS0wMy0xOSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDMzLjAwDQoyMDI1LTAzLTIxLE5FVEZMSVgsLDkuOTkNCjIwMjUtMDMtMjMsU1BPVElGWSwsMTUuOTkNCjIwMjUtMDMtMjUsR1lNIE1FTUJFUlNISVAsLDI5Ljk5DQoyMDI1LTAzLTI2LFJFU1RBVVJBTlQgIzEsLDM5LjAwDQoyMDI1LTAzLTI3LFJFU1RBVVJBTlQgIzIsLDM1LjAwDQoyMDI1LTAzLTI4LFJFU1RBVVJBTlQgIzMsLDI3LjAwDQoyMDI1LTAzLTI4LEFNQVpPTiBPUkRFUiAjMSwsMzkuMDANCjIwMjUtMDMtMjgsQU1BWk9OIE9SREVSICMyLCw0MS4wMA0KMjAyNS0wMy0yOCxBTUFaT04gT1JERVIgIzMsLDI4LjAwDQoyMDI1LTAzLTI4LENBU0ggV0lUSERSQVdBTCwsMTAyLjAyDQoyMDI1LTA0LTAxLEFDTUUgUEFZUk9MTCwyMDAwLjAwLA0KMjAyNS0wNC0wMixSRU5UIFBBWU1FTlQsLDkwMC4wMA0KMjAyNS0wNC0wMyxURVNDTyBTVE9SRSAjMSwsNTEuMDANCjIwMjUtMDQtMDUsVEVTQ08gU1RPUkUgIzIsLDY1LjAwDQoyMDI1LTA0LTA2LFRFU0NPIFNUT1JFICMzLCw0NC4wMA0KMjAyNS0wNC0wOCxURVNDTyBTVE9SRSAjNCwsMTI0LjAwDQoyMDI1LTA0LTEwLFVUSUxJVFkgQklMTCBFTEVDVFJJQ0lUWSwsODMuMDANCjIwMjUtMDQtMTIsVVRJTElUWSBCSUxMIEdBUywsMzkuMDANCjIwMjUtMDQtMTQsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwyMC4wMA0KMjAyNS0wNC0xNixUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDE2LjAwDQoyMDI1LTA0LTE4LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsMjguMDANCjIwMjUtMDQtMTksVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCwyMy4wMA0KMjAyNS0wNC0yMSxORVRGTElYLCw5Ljk5DQoyMDI1LTA0LTIzLFNQT1RJRlksLDE1Ljk5DQoyMDI1LTA0LTI1LEdZTSBNRU1CRVJTSElQLCwyOS45OQ0KMjAyNS0wNC0yNixSRVNUQVVSQU5UICMxLCwzNy4wMA0KMjAyNS0wNC0yNyxSRVNUQVVSQU5UICMyLCwzNC4wMA0KMjAyNS0wNC0yOCxSRVNUQVVSQU5UICMzLCwyNi4wMA0KMjAyNS0wNC0yOCxBTUFaT04gT1JERVIgIzEsLDM5LjAwDQoyMDI1LTA0LTI4LEFNQVpPTiBPUkRFUiAjMiwsMzMuMDANCjIwMjUtMDQtMjgsQU1BWk9OIE9SREVSICMzLCw0MS4wMA0KMjAyNS0wNC0yOCxDQVNIIFdJVEhEUkFXQUwsLDgzLjAyDQoyMDI1LTA1LTAxLEFDTUUgUEFZUk9MTCwyMDAwLjAwLA0KMjAyNS0wNS0wMixSRU5UIFBBWU1FTlQsLDkwMC4wMA0KMjAyNS0wNS0wMyxURVNDTyBTVE9SRSAjMSwsNDUuMDANCjIwMjUtMDUtMDQsVEVTQ08gU1RPUkUgIzIsLDYzLjAwDQoyMDI1LTA1LTA2LFRFU0NPIFNUT1JFICMzLCw0NS4wMA0KMjAyNS0wNS0wNyxURVNDTyBTVE9SRSAjNCwsMTI0LjAwDQoyMDI1LTA1LTA5LFVUSUxJVFkgQklMTCBFTEVDVFJJQ0lUWSwsODIuMDANCjIwMjUtMDUtMTEsVVRJTElUWSBCSUxMIEdBUywsNDkuMDANCjIwMjUtMDUtMTMsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCwyOC4wMA0KMjAyNS0wNS0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDIyLjAwDQoyMDI1LTA1LTE3LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsMTkuMDANCjIwMjUtMDUtMTgsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCwyMi4wMA0KMjAyNS0wNS0yMCxORVRGTElYLCw5Ljk5DQoyMDI1LTA1LTIyLFNQT1RJRlksLDE1Ljk5DQoyMDI1LTA1LTI0LEdZTSBNRU1CRVJTSElQLCwyOS45OQ0KMjAyNS0wNS0yNSxSRVNUQVVSQU5UICMxLCw0My4wMA0KMjAyNS0wNS0yNixSRVNUQVVSQU5UICMyLCwzMS4wMA0KMjAyNS0wNS0yNyxSRVNUQVVSQU5UICMzLCwyNy4wMA0KMjAyNS0wNS0yOCxBTUFaT04gT1JERVIgIzEsLDQzLjAwDQoyMDI1LTA1LTI4LEFNQVpPTiBPUkRFUiAjMiwsMjguMDANCjIwMjUtMDUtMjgsQU1BWk9OIE9SREVSICMzLCwzNS4wMA0KMjAyNS0wNS0yOCxDQVNIIFdJVEhEUkFXQUwsLDg5LjAz",
+                  "mime_type": "text/csv"
+                }
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "CowFAePx_14Y_k9x9j_PBsJz6piUCMs4weJZF8gC7cWxW7PTp50qJjW1KJ-FYKjoM5Q_pm7yFdYOZc--LTUe2c72fVct0SG1vtua3iRNlct1PqSmkdVxY7WzNMXEYxUHekoDTBwjXiqycZBELbVvB7qZrCesBXZoi4w7SZbT63PlMOHT4m6gF2dc2XPiF8bPhao7kab3cgY6QYLNiKOUTcF7rieNR16ctR0TI9wfCOssIEfFqvw7vQwIMNdvc00SG70JGp7XGHNAoVdUxTZWZIUQThUi3uxxyQvsmfq6IvAvgNT3F3whrQYLF7xZVvezki2haHPVxF4s2mmHPWHitP3dOxG_JnivQTrw-Us0ZOmUnmk1ZmxvhE3MKPqk6BQSGcmkSG_IvgzK17faMD7WXwm3PGpW-okcz55aDMZQMeCNoHHpflEBQpMj2B2gP6faLca_ik9wR6KNPQ4APPTD2JjVm0vO1HLD0VJSaGvKit7UufpvwIY9RlNkFbHrW0a45pU454jEVZ-hB381A-263GALmZ0dIkzyaMVEUiAJbdsGRtsdNcDBdWQbXlY9Hm0ARogTedH1pObF-r3Jyk-5KFcnTLCP-xeRgOUyOAvXt3fpBE-vcrYyT1KMyBBNANaG-ai0kVqhQe4209YwSVzuRhJyxzI561WwtsSzn1cC7rS1C_8V7ZQTjfBynzFKXnHDQv8qJC54alWxtBjmSeYq38A0tYQxp6DeqVPuScqt0ZjHr_kGLqZheSo67cys1urAHVyKVGk5-uwlxnAU5AoqYaGozJwTGD4YhWS3qq0-huunnoLR77Wc366bsHYAbHal245HxFDglsd40DGn9acm4UtyViV3_KxMQXh5i5zx6w==",
+                "text": "It looks like the average house price of £305,000 is currently outside your affordable range based on your bank statement. Your estimated affordable range is around £200,000.\n\nTo help you further, would you like to:\n1. Look for a different property type?\n2. Look for a property in a different postcode?\n3. Upload a new bank statement?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "Co0CAePx_14aFDjXWlxaDJCS81jo_ZWehWEglYQH9nTyu7Xu7C_wTVkX0EXRFzwW_SAc1MChQ_gpAj-_9Q32qU_pclzQbCytLxsYXwfhq7QVo1nFyrHIzc8hLm0cdHOLpguZlZFm8XYNyTjpmMMtKy_AOmd1qdM8Ht2VsRvlD5nxZlVnj2s2_6NtXWPrqa0s7bZlf0WWS98CChC4MrcjVNZVCW-qOmRB_HLxsRrTRWiPMlNw_vsKHszKRP-CL3U70oRXACzT84ngb1IEndhzXYYbfkehmdu2U-G-OSn8N-omNGT7PEb_FD8cZx2EDs-a537pHJI3x-6U6samq2IcHv8aZS748SmpZfMh-DDL74I=",
+                      "function_call": {
+                        "id": "adk-c142c010-081b-40c1-8e05-b79c76bf5b9a",
+                        "args": {
+                          "house_price": 305000,
+                          "file_content": "Transaction Date,Description,Credit amount,Debit amount\n2025-01-01,ACME PAYROLL,2000.00,\n2025-01-02,RENT PAYMENT,,900.00\n2025-01-03,TESCO STORE #1,,41.00\n2025-01-04,TESCO STORE #2,,70.00\n2025-01-05,TESCO STORE #3,,51.00\n2025-01-06,TESCO STORE #4,,129.00\n2025-01-08,UTILITY BILL ELECTRICITY,,87.00\n2025-01-10,UTILITY BILL GAS,,41.00\n2025-01-12,TRANSPORT OYSTER TOPUP 1,,28.00\n2025-01-13,TRANSPORT OYSTER TOPUP 2,,22.00\n2025-01-15,TRANSPORT OYSTER TOPUP 3,,27.00\n2025-01-20,TRANSPORT OYSTER TOPUP 4,,19.00\n2025-01-22,NETFLIX,,9.99\n2025-01-24,SPOTIFY,,15.99\n2025-01-25,GYM MEMBERSHIP,,29.99\n2025-01-27,RESTAURANT #1,,33.00\n2025-01-28,RESTAURANT #2,,35.00\n2025-01-28,RESTAURANT #3,,36.00\n2025-01-28,AMAZON ORDER #1,,29.00\n2025-01-28,AMAZON ORDER #2,,26.00\n2025-01-28,AMAZON ORDER #3,,42.00\n2025-01-28,CASH WITHDRAWAL,,147.02\n2025-02-01,ACME PAYROLL,2000.00,\n2025-02-02,RENT PAYMENT,,900.00\n2025-02-03,TESCO STORE #1,,50.00\n2025-02-05,TESCO STORE #2,,73.00\n2025-02-06,TESCO STORE #3,,32.00\n2025-02-07,TESCO STORE #4,,108.00\n2025-02-09,UTILITY BILL ELECTRICITY,,92.00\n2025-02-11,UTILITY BILL GAS,,53.00\n2025-02-13,TRANSPORT OYSTER TOPUP 1,,31.00\n2025-02-15,TRANSPORT OYSTER TOPUP 2,,18.00\n2025-02-17,TRANSPORT OYSTER TOPUP 3,,19.00\n2025-02-18,TRANSPORT OYSTER TOPUP 4,,20.00\n2025-02-20,NETFLIX,,9.99\n2025-02-22,SPOTIFY,,15.99\n2025-02-24,GYM MEMBERSHIP,,29.99\n2025-02-25,RESTAURANT #1,,39.00\n2025-02-26,RESTAURANT #2,,36.00\n2025-02-27,RESTAURANT #3,,31.00\n2025-02-28,AMAZON ORDER #1,,37.00\n2025-02-28,AMAZON ORDER #2,,39.00\n2025-02-28,AMAZON ORDER #3,,29.00\n2025-02-28,CASH WITHDRAWAL,,99.03\n2025-03-01,ACME PAYROLL,2000.00,\n2025-03-02,RENT PAYMENT,,900.00\n2025-03-03,TESCO STORE #1,,39.00\n2025-03-04,TESCO STORE #2,,66.00\n2025-03-06,TESCO STORE #3,,43.00\n2025-03-07,TESCO STORE #4,,131.00\n2025-03-09,UTILITY BILL ELECTRICITY,,87.00\n2025-03-11,UTILITY BILL GAS,,44.00\n2025-03-13,TRANSPORT OYSTER TOPUP 1,,18.00\n2025-03-15,TRANSPORT OYSTER TOPUP 2,,20.00\n2025-03-17,TRANSPORT OYSTER TOPUP 3,,24.00\n2025-03-19,TRANSPORT OYSTER TOPUP 4,,33.00\n2025-03-21,NETFLIX,,9.99\n2025-03-23,SPOTIFY,,15.99\n2025-03-25,GYM MEMBERSHIP,,29.99\n2025-03-26,RESTAURANT #1,,39.00\n2025-03-27,RESTAURANT #2,,35.00\n2025-03-28,RESTAURANT #3,,27.00\n2025-03-28,AMAZON ORDER #1,,39.00\n2025-03-28,AMAZON ORDER #2,,41.00\n2025-03-28,AMAZON ORDER #3,,28.00\n2025-03-28,CASH WITHDRAWAL,,102.02\n2025-04-01,ACME PAYROLL,2000.00,\n2025-04-02,RENT PAYMENT,,900.00\n2025-04-03,TESCO STORE #1,,51.00\n2025-04-05,TESCO STORE #2,,65.00\n2025-04-06,TESCO STORE #3,,44.00\n2025-04-08,TESCO STORE #4,,124.00\n2025-04-10,UTILITY BILL ELECTRICITY,,83.00\n2025-04-12,UTILITY BILL GAS,,39.00\n2025-04-14,TRANSPORT OYSTER TOPUP 1,,20.00\n2025-04-16,TRANSPORT OYSTER TOPUP 2,,16.00\n2025-04-18,TRANSPORT OYSTER TOPUP 3,,28.00\n2025-04-19,TRANSPORT OYSTER TOPUP 4,,23.00\n2025-04-21,NETFLIX,,9.99\n2025-04-23,SPOTIFY,,15.99\n2025-04-25,GYM MEMBERSHIP,,29.99\n2025-04-26,RESTAURANT #1,,37.00\n2025-04-27,RESTAURANT #2,,34.00\n2025-04-28,RESTAURANT #3,,26.00\n2025-04-28,AMAZON ORDER #1,,39.00\n2025-04-28,AMAZON ORDER #2,,33.00\n2025-04-28,AMAZON ORDER #3,,41.00\n2025-04-28,CASH WITHDRAWAL,,83.02\n2025-05-01,ACME PAYROLL,2000.00,\n2025-05-02,RENT PAYMENT,,900.00\n2025-05-03,TESCO STORE #1,,45.00\n2025-05-04,TESCO STORE #2,,63.00\n2025-05-06,TESCO STORE #3,,45.00\n2025-05-07,TESCO STORE #4,,124.00\n2025-05-09,UTILITY BILL ELECTRICITY,,82.00\n2025-05-11,UTILITY BILL GAS,,49.00\n2025-05-13,TRANSPORT OYSTER TOPUP 1,,28.00\n2025-05-15,TRANSPORT OYSTER TOPUP 2,,22.00\n2025-05-17,TRANSPORT OYSTER TOPUP 3,,19.00\n2025-05-18,TRANSPORT OYSTER TOPUP 4,,22.00\n2025-05-20,NETFLIX,,9.99\n2025-05-22,SPOTIFY,,15.99\n2025-05-24,GYM MEMBERSHIP,,29.99\n2025-05-25,RESTAURANT #1,,43.00\n2025-05-26,RESTAURANT #2,,31.00\n2025-05-27,RESTAURANT #3,,27.00\n2025-05-28,AMAZON ORDER #1,,43.00\n2025-05-28,AMAZON ORDER #2,,28.00\n2025-05-28,AMAZON ORDER #3,,35.00\n2025-05-28,CASH WITHDRAWAL,,89.03"
+                        },
+                        "name": "bank_data_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-c142c010-081b-40c1-8e05-b79c76bf5b9a",
+                        "name": "bank_data_agent",
+                        "response": {
+                          "result": "{\"status\": \"success\", \"message\": \"Based on your income estimates from the bank statement the average house \\n            price of 305000 is outside your afforable range of 200000 \", \"suggested_investment\": 190.0, \"average_surplus\": 231.0, \"median_surplus\": 238.0, \"average_income\": 2000.0, \"median_income\": 2000.0, \"is_affordable\": false}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764604202.782405
+        },
+        {
+          "invocation_id": "e-e1cf2bb2-8b9d-4ed6-978b-ea08e89d968e",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Sorry. I gave you the wrong back statement. Here is my bank statement"
+              },
+              {
+                "inline_data": {
+                  "display_name": "bankstatement_75k.csv",
+                  "data": "VHJhbnNhY3Rpb24gRGF0ZSxEZXNjcmlwdGlvbixDcmVkaXQgYW1vdW50LERlYml0IGFtb3VudA0KMjAyNS0wMS0wMSxBQ01FIFBBWVJPTEwsNDUwNS4wLA0KMjAyNS0wMS0wMixSRU5UIFBBWU1FTlQsLDE1MzAuMTgNCjIwMjUtMDEtMDMsVEVTQ08gU1RPUkUgIzEsLDY5LjcxDQoyMDI1LTAxLTA0LFRFU0NPIFNUT1JFICMyLCwxMTkuMDENCjIwMjUtMDEtMDUsVEVTQ08gU1RPUkUgIzMsLDg2LjcxDQoyMDI1LTAxLTA2LFRFU0NPIFNUT1JFICM0LCwyMTkuMzMNCjIwMjUtMDEtMDgsVVRJTElUWSBCSUxMIEVMRUNUUklDSVRZLCwxNDcuOTINCjIwMjUtMDEtMTAsVVRJTElUWSBCSUxMIEdBUywsNjkuNzENCjIwMjUtMDEtMTIsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAxLCw0Ny42MQ0KMjAyNS0wMS0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDM3LjQNCjIwMjUtMDEtMTUsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCw0NS45MQ0KMjAyNS0wMS0yMCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDMyLjMNCjIwMjUtMDEtMjIsTkVURkxJWCwsMTYuOTgNCjIwMjUtMDEtMjQsU1BPVElGWSwsMjcuMTkNCjIwMjUtMDEtMjUsR1lNIE1FTUJFUlNISVAsLDUwLjk5DQoyMDI1LTAxLTI3LFJFU1RBVVJBTlQgIzEsLDU2LjExDQoyMDI1LTAxLTI4LEFNQVpPTiBPUkRFUiAjMSwsNDkuMzENCjIwMjUtMDEtMjgsQU1BWk9OIE9SREVSICMyLCw0NC4yMQ0KMjAyNS0wMS0yOCxBTUFaT04gT1JERVIgIzMsLDcxLjQxDQoyMDI1LTAxLTI4LENBU0ggV0lUSERSQVdBTCwsMjQ5Ljk2DQoyMDI1LTAxLTI4LFJFU1RBVVJBTlQgIzIsLDU5LjUxDQoyMDI1LTAxLTI4LFJFU1RBVVJBTlQgIzMsLDYxLjIxDQoyMDI1LTAyLTAxLEFDTUUgUEFZUk9MTCw0NTA1LjAsDQoyMDI1LTAyLTAyLFJFTlQgUEFZTUVOVCwsMTQ5MS4zOA0KMjAyNS0wMi0wMyxURVNDTyBTVE9SRSAjMSwsODIuODUNCjIwMjUtMDItMDUsVEVTQ08gU1RPUkUgIzIsLDEyMC45Nw0KMjAyNS0wMi0wNixURVNDTyBTVE9SRSAjMywsNTMuMDMNCjIwMjUtMDItMDcsVEVTQ08gU1RPUkUgIzQsLDE3OC45Nw0KMjAyNS0wMi0wOSxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDE1Mi40NQ0KMjAyNS0wMi0xMSxVVElMSVRZIEJJTEwgR0FTLCw4Ny44Mw0KMjAyNS0wMi0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDUxLjM3DQoyMDI1LTAyLTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMjkuODMNCjIwMjUtMDItMTcsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAzLCwzMS40OA0KMjAyNS0wMi0xOCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDQsLDMzLjE0DQoyMDI1LTAyLTIwLE5FVEZMSVgsLDE2LjU1DQoyMDI1LTAyLTIyLFNQT1RJRlksLDI2LjUNCjIwMjUtMDItMjQsR1lNIE1FTUJFUlNISVAsLDQ5LjcNCjIwMjUtMDItMjUsUkVTVEFVUkFOVCAjMSwsNjQuNjMNCjIwMjUtMDItMjYsUkVTVEFVUkFOVCAjMiwsNTkuNjYNCjIwMjUtMDItMjcsUkVTVEFVUkFOVCAjMywsNTEuMzcNCjIwMjUtMDItMjgsQU1BWk9OIE9SREVSICMxLCw2MS4zMQ0KMjAyNS0wMi0yOCxBTUFaT04gT1JERVIgIzIsLDY0LjYzDQoyMDI1LTAyLTI4LEFNQVpPTiBPUkRFUiAjMywsNDguMDYNCjIwMjUtMDItMjgsQ0FTSCBXSVRIRFJBV0FMLCwxNjQuMQ0KMjAyNS0wMy0wMSxBQ01FIFBBWVJPTEwsNDUwNS4wLA0KMjAyNS0wMy0wMixSRU5UIFBBWU1FTlQsLDE1MTYuMw0KMjAyNS0wMy0wMyxURVNDTyBTVE9SRSAjMSwsNjUuNzENCjIwMjUtMDMtMDQsVEVTQ08gU1RPUkUgIzIsLDExMS4xOQ0KMjAyNS0wMy0wNixURVNDTyBTVE9SRSAjMywsNzIuNDUNCjIwMjUtMDMtMDcsVEVTQ08gU1RPUkUgIzQsLDIyMC43MQ0KMjAyNS0wMy0wOSxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDE0Ni41OA0KMjAyNS0wMy0xMSxVVElMSVRZIEJJTEwgR0FTLCw3NC4xMw0KMjAyNS0wMy0xMyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDEsLDMwLjMzDQoyMDI1LTAzLTE1LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMiwsMzMuNw0KMjAyNS0wMy0xNyxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDMsLDQwLjQzDQoyMDI1LTAzLTE5LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgNCwsNTUuNg0KMjAyNS0wMy0yMSxORVRGTElYLCwxNi44Mw0KMjAyNS0wMy0yMyxTUE9USUZZLCwyNi45NA0KMjAyNS0wMy0yNSxHWU0gTUVNQkVSU0hJUCwsNTAuNTMNCjIwMjUtMDMtMjYsUkVTVEFVUkFOVCAjMSwsNjUuNzENCjIwMjUtMDMtMjcsUkVTVEFVUkFOVCAjMiwsNTguOTcNCjIwMjUtMDMtMjgsQU1BWk9OIE9SREVSICMxLCw2NS43MQ0KMjAyNS0wMy0yOCxBTUFaT04gT1JERVIgIzIsLDY5LjA4DQoyMDI1LTAzLTI4LEFNQVpPTiBPUkRFUiAjMywsNDcuMTcNCjIwMjUtMDMtMjgsQ0FTSCBXSVRIRFJBV0FMLCwxNzEuODgNCjIwMjUtMDMtMjgsUkVTVEFVUkFOVCAjMywsNDUuNDkNCjIwMjUtMDQtMDEsQUNNRSBQQVlST0xMLDQ1MDUuMCwNCjIwMjUtMDQtMDIsUkVOVCBQQVlNRU5ULCwxNTYzLjA3DQoyMDI1LTA0LTAzLFRFU0NPIFNUT1JFICMxLCw4OC41Nw0KMjAyNS0wNC0wNSxURVNDTyBTVE9SRSAjMiwsMTEyLjg5DQoyMDI1LTA0LTA2LFRFU0NPIFNUT1JFICMzLCw3Ni40Mg0KMjAyNS0wNC0wOCxURVNDTyBTVE9SRSAjNCwsMjE1LjM2DQoyMDI1LTA0LTEwLFVUSUxJVFkgQklMTCBFTEVDVFJJQ0lUWSwsMTQ0LjE1DQoyMDI1LTA0LTEyLFVUSUxJVFkgQklMTCBHQVMsLDY3LjczDQoyMDI1LTA0LTE0LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMSwsMzQuNzMNCjIwMjUtMDQtMTYsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCAyLCwyNy43OQ0KMjAyNS0wNC0xOCxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDMsLDQ4LjYzDQoyMDI1LTA0LTE5LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgNCwsMzkuOTUNCjIwMjUtMDQtMjEsTkVURkxJWCwsMTcuMzUNCjIwMjUtMDQtMjMsU1BPVElGWSwsMjcuNzcNCjIwMjUtMDQtMjUsR1lNIE1FTUJFUlNISVAsLDUyLjA5DQoyMDI1LTA0LTI2LFJFU1RBVVJBTlQgIzEsLDY0LjI2DQoyMDI1LTA0LTI3LFJFU1RBVVJBTlQgIzIsLDU5LjA1DQoyMDI1LTA0LTI4LEFNQVpPTiBPUkRFUiAjMSwsNjcuNzMNCjIwMjUtMDQtMjgsQU1BWk9OIE9SREVSICMyLCw1Ny4zMQ0KMjAyNS0wNC0yOCxBTUFaT04gT1JERVIgIzMsLDcxLjIxDQoyMDI1LTA0LTI4LENBU0ggV0lUSERSQVdBTCwsMTQ0LjE4DQoyMDI1LTA0LTI4LFJFU1RBVVJBTlQgIzMsLDQ1LjE2DQoyMDI1LTA1LTAxLEFDTUUgUEFZUk9MTCw0NTA1LjAsDQoyMDI1LTA1LTAyLFJFTlQgUEFZTUVOVCwsMTYyMy4yOA0KMjAyNS0wNS0wMyxURVNDTyBTVE9SRSAjMSwsODEuMTYNCjIwMjUtMDUtMDQsVEVTQ08gU1RPUkUgIzIsLDExMy42Mw0KMjAyNS0wNS0wNixURVNDTyBTVE9SRSAjMywsODEuMTYNCjIwMjUtMDUtMDcsVEVTQ08gU1RPUkUgIzQsLDIyMy42NQ0KMjAyNS0wNS0wOSxVVElMSVRZIEJJTEwgRUxFQ1RSSUNJVFksLDE0Ny45DQoyMDI1LTA1LTExLFVUSUxJVFkgQklMTCBHQVMsLDg4LjM4DQoyMDI1LTA1LTEzLFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMSwsNTAuNQ0KMjAyNS0wNS0xNSxUUkFOU1BPUlQgT1lTVEVSIFRPUFVQIDIsLDM5LjY4DQoyMDI1LTA1LTE3LFRSQU5TUE9SVCBPWVNURVIgVE9QVVAgMywsMzQuMjcNCjIwMjUtMDUtMTgsVFJBTlNQT1JUIE9ZU1RFUiBUT1BVUCA0LCwzOS42OA0KMjAyNS0wNS0yMCxORVRGTElYLCwxOC4wMg0KMjAyNS0wNS0yMixTUE9USUZZLCwyOC44NA0KMjAyNS0wNS0yNCxHWU0gTUVNQkVSU0hJUCwsNTQuMDkNCjIwMjUtMDUtMjUsUkVTVEFVUkFOVCAjMSwsNzcuNTYNCjIwMjUtMDUtMjYsUkVTVEFVUkFOVCAjMiwsNTUuOTENCjIwMjUtMDUtMjcsUkVTVEFVUkFOVCAjMywsNDguNw0KMjAyNS0wNS0yOCxBTUFaT04gT1JERVIgIzEsLDc3LjU2DQoyMDI1LTA1LTI4LEFNQVpPTiBPUkRFUiAjMiwsNTAuNQ0KMjAyNS0wNS0yOCxBTUFaT04gT1JERVIgIzMsLDYzLjEzDQoyMDI1LTA1LTI4LENBU0ggV0lUSERSQVdBTCwsMTYwLjU4",
+                  "mime_type": "text/csv"
+                }
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "thought_signature": "Cs4EAePx_156G7rkArUcu_I6MT7e6cKxf6G8L9oQb3tKQOOhJ24VUaxKegcNmlq6h4-UKsOB6C6GBPYmhep2WyfjrOoiAQXCJnCRH5fLSxoMFk7m-XOpnljWxG70IFU6W9T1tzXeSaRA_OkB6aod5gGSVA9YUjZhhidDFNVsALDrmD67cezwdFxFs4qAWCGwQwl6-_7iAMktWg_sQobXRuu6-LJDiRQsQokeNwI8MuLR0FD0EgYq_fy5s2EWPUX4QSgEjzb8meKayQFXuWQPOheoVmzouV5f4BBfb50iMlEdHKl_5rgf56WyH5BPr7ZgYrPtjq7Nmj89gY0wn0V5j_8R1MxQhnKxowcKqnFxhCVlJAj4rqjUy9U_mRFQyiR1M2UiQy3-NZwwuXjMrhNZXpanQSHn9K1rOwY4MbXN_Ne0U51Sa6xf_I1QqeGzjcHoK876iuFHhQ_DIHEhC_iHokk14-VIF2LZ982udjxjJO0_l-XNBRpz5pG0OLMD90CHNVKzqNXQLpcYoDis78AMo5bhPH4IPrwsPsvGolScxxv5nh-dPz2WZbR1BEMRXBPkdGLVwuItCBji_k08_13TtxP8B-MVBbDhN1tOg_zkqZeCM2g5GEYQybrmMdnKJhVjjIYwHlVGOzxTQR8G_sclNTW4CD2fZ4FwcQzmHz04-TkYr-23nIvI9g8Y04seYElbMET2CVFUEa6l0zKg3efFwWrROUp4h0xJICf3zBzneQ8rThK_aEdmVsYTG0HbcjpG_U_J-7_iur0PhxeBWDW5Jxs=",
+                "text": "Great news! Based on your updated bank statement, it looks like a 4-bedroom detached house in TS10 is within your affordable range.\n\nYour estimated monthly saving capacity is £1184. Would you like to proceed with a monthly saving of £1184 or choose a different amount?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "thought_signature": "CowCAePx_172zE4wlJbbqnjNDe-hxAT_hZLSp5k1GX8zEvbzwQEcms_aUKskfy2CJ26XcH1b3eZRulO01kdrfyJDmUpm95EQPaTrOEc9PYhoJCnpHJK21qkhWKok2kECp9rU9a8946O3aAheiD58xyPYin37jjXTqz06P8v0s-sQqlc8oDDJrcUzqstqb7ahqG8E5ZJKE6XoVvL8XAe5636df8wqMD4imalytYsPOeL8n6bIC9vN-Wux8oPQC-jjn95dG0ndARf2rSsvhX8h3AgwQxxCd5D-FD9Ah5Y5WD4099RaU2OT8ze3n_J9zFFxJGSI8sUszqakbcT1NsiqQyMSuSI5krFqyb-dp99_7g==",
+                      "function_call": {
+                        "id": "adk-cfe8df41-2db3-404c-99e4-00cd0072dbc5",
+                        "args": {
+                          "file_content": "Transaction Date,Description,Credit amount,Debit amount\n2025-01-01,ACME PAYROLL,4505.0,\n2025-01-02,RENT PAYMENT,,1530.18\n2025-01-03,TESCO STORE #1,,69.71\n2025-01-04,TESCO STORE #2,,119.01\n2025-01-05,TESCO STORE #3,,86.71\n2025-01-06,TESCO STORE #4,,219.33\n2025-01-08,UTILITY BILL ELECTRICITY,,147.92\n2025-01-10,UTILITY BILL GAS,,69.71\n2025-01-12,TRANSPORT OYSTER TOPUP 1,,47.61\n2025-01-13,TRANSPORT OYSTER TOPUP 2,,37.4\n2025-01-15,TRANSPORT OYSTER TOPUP 3,,45.91\n2025-01-20,TRANSPORT OYSTER TOPUP 4,,32.3\n2025-01-22,NETFLIX,,16.98\n2025-01-24,SPOTIFY,,27.19\n2025-01-25,GYM MEMBERSHIP,,50.99\n2025-01-27,RESTAURANT #1,,56.11\n2025-01-28,AMAZON ORDER #1,,49.31\n2025-01-28,AMAZON ORDER #2,,44.21\n2025-01-28,AMAZON ORDER #3,,71.41\n2025-01-28,CASH WITHDRAWAL,,249.96\n2025-01-28,RESTAURANT #2,,59.51\n2025-01-28,RESTAURANT #3,,61.21\n2025-02-01,ACME PAYROLL,4505.0,\n2025-02-02,RENT PAYMENT,,1491.38\n2025-02-03,TESCO STORE #1,,82.85\n2025-02-05,TESCO STORE #2,,120.97\n2025-02-06,TESCO STORE #3,,53.03\n2025-02-07,TESCO STORE #4,,178.97\n2025-02-09,UTILITY BILL ELECTRICITY,,152.45\n2025-02-11,UTILITY BILL GAS,,87.83\n2025-02-13,TRANSPORT OYSTER TOPUP 1,,51.37\n2025-02-15,TRANSPORT OYSTER TOPUP 2,,29.83\n2025-02-17,TRANSPORT OYSTER TOPUP 3,,31.48\n2025-02-18,TRANSPORT OYSTER TOPUP 4,,33.14\n2025-02-20,NETFLIX,,16.55\n2025-02-22,SPOTIFY,,26.5\n2025-02-24,GYM MEMBERSHIP,,49.7\n2025-02-25,RESTAURANT #1,,64.63\n2025-02-26,RESTAURANT #2,,59.66\n2025-02-27,RESTAURANT #3,,51.37\n2025-02-28,AMAZON ORDER #1,,61.31\n2025-02-28,AMAZON ORDER #2,,64.63\n2025-02-28,AMAZON ORDER #3,,48.06\n2025-02-28,CASH WITHDRAWAL,,164.1\n2025-03-01,ACME PAYROLL,4505.0,\n2025-03-02,RENT PAYMENT,,1516.3\n2025-03-03,TESCO STORE #1,,65.71\n2025-03-04,TESCO STORE #2,,111.19\n2025-03-06,TESCO STORE #3,,72.45\n2025-03-07,TESCO STORE #4,,220.71\n2025-03-09,UTILITY BILL ELECTRICITY,,146.58\n2025-03-11,UTILITY BILL GAS,,74.13\n2025-03-13,TRANSPORT OYSTER TOPUP 1,,30.33\n2025-03-15,TRANSPORT OYSTER TOPUP 2,,33.7\n2025-03-17,TRANSPORT OYSTER TOPUP 3,,40.43\n2025-03-19,TRANSPORT OYSTER TOPUP 4,,55.6\n2025-03-21,NETFLIX,,16.83\n2025-03-23,SPOTIFY,,26.94\n2025-03-25,GYM MEMBERSHIP,,50.53\n2025-03-26,RESTAURANT #1,,65.71\n2025-03-27,RESTAURANT #2,,58.97\n2025-03-28,AMAZON ORDER #1,,65.71\n2025-03-28,AMAZON ORDER #2,,69.08\n2025-03-28,AMAZON ORDER #3,,47.17\n2025-03-28,CASH WITHDRAWAL,,171.88\n2025-03-28,RESTAURANT #3,,45.49\n2025-04-01,ACME PAYROLL,4505.0,\n2025-04-02,RENT PAYMENT,,1563.07\n2025-04-03,TESCO STORE #1,,88.57\n2025-04-05,TESCO STORE #2,,112.89\n2025-04-06,TESCO STORE #3,,76.42\n2025-04-08,TESCO STORE #4,,215.36\n2025-04-10,UTILITY BILL ELECTRICITY,,144.15\n2025-04-12,UTILITY BILL GAS,,67.73\n2025-04-14,TRANSPORT OYSTER TOPUP 1,,34.73\n2025-04-16,TRANSPORT OYSTER TOPUP 2,,27.79\n2025-04-18,TRANSPORT OYSTER TOPUP 3,,48.63\n2025-04-19,TRANSPORT OYSTER TOPUP 4,,39.95\n2025-04-21,NETFLIX,,17.35\n2025-04-23,SPOTIFY,,27.77\n2025-04-25,GYM MEMBERSHIP,,52.09\n2025-04-26,RESTAURANT #1,,64.26\n2025-04-27,RESTAURANT #2,,59.05\n2025-04-28,AMAZON ORDER #1,,67.73\n2025-04-28,AMAZON ORDER #2,,57.31\n2025-04-28,AMAZON ORDER #3,,71.21\n2025-04-28,CASH WITHDRAWAL,,144.18\n2025-04-28,RESTAURANT #3,,45.16\n2025-05-01,ACME PAYROLL,4505.0,\n2025-05-02,RENT PAYMENT,,1623.28\n2025-05-03,TESCO STORE #1,,81.16\n2025-05-04,TESCO STORE #2,,113.63\n2025-05-06,TESCO STORE #3,,81.16\n2025-05-07,TESCO STORE #4,,223.65\n2025-05-09,UTILITY BILL ELECTRICITY,,147.9\n2025-05-11,UTILITY BILL GAS,,88.38\n2025-05-13,TRANSPORT OYSTER TOPUP 1,,50.5\n2025-05-15,TRANSPORT OYSTER TOPUP 2,,39.68\n2025-05-17,TRANSPORT OYSTER TOPUP 3,,34.27\n2025-05-18,TRANSPORT OYSTER TOPUP 4,,39.68\n2025-05-20,NETFLIX,,18.02\n2025-05-22,SPOTIFY,,28.84\n2025-05-24,GYM MEMBERSHIP,,54.09\n2025-05-25,RESTAURANT #1,,77.56\n2025-05-26,RESTAURANT #2,,55.91\n2025-05-27,RESTAURANT #3,,48.7\n2025-05-28,AMAZON ORDER #1,,77.56\n2025-05-28,AMAZON ORDER #2,,50.5\n2025-05-28,AMAZON ORDER #3,,63.13\n2025-05-28,CASH WITHDRAWAL,,160.58",
+                          "house_price": 305000
+                        },
+                        "name": "bank_data_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mortgage_deposit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-cfe8df41-2db3-404c-99e4-00cd0072dbc5",
+                        "name": "bank_data_agent",
+                        "response": {
+                          "result": "{\"status\": \"success\", \"message\": \"Available Investment estimated successfully\", \"suggested_investment\": 1184.0, \"average_surplus\": 1469.0, \"median_surplus\": 1480.0, \"average_income\": 4505.0, \"median_income\": 4505.0, \"is_affordable\": true}"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764604306.224887
+        }
+      ],
+      "session_input": {
+        "app_name": "mortgage_deposit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1764604390.8499868
+    }
+  ],
+  "creation_timestamp": 1764604107.1980498
+}
