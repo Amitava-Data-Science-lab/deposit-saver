@@ -71,29 +71,61 @@ for key, value in env_vars.items():
     display_value = value if "SECRET" not in key else f"{value[:30]}..." if len(value) > 30 else "***"
     print(f"  {key}: {display_value}")
 
-remote_app = agent_engines.create(
-    agent_engine=agent_app,
-    display_name="mortgage_deposit_agent",
-    requirements=[
-        "google-cloud-aiplatform[adk,agent_engines]",
-        "google-genai",
-        "pydantic==2.12.4",
-        "cloudpickle==3.1.2",
-        "pandas",
-        "google-cloud-storage",
-        "google-cloud-secret-manager",
-        "requests",
-        "python-dotenv",
-        "uvicorn[standard]",
-        "fastapi",
-        "opentelemetry-instrumentation-google-genai"
-    ],
-    extra_packages=["src", "mortgage_deposit_agent"],
-    env_vars=env_vars,  # Pass environment variables to deployed agent
-    min_instances=0,
-    max_instances=10,
-    resource_limits={"cpu": "2", "memory": "2Gi"}
-)
+AGENT_DISPLAY_NAME = "mortgage_deposit_agent"
+requirements = [
+    "google-cloud-aiplatform[adk,agent_engines]",
+    "google-genai",
+    "pydantic==2.12.4",
+    "cloudpickle==3.1.2",
+    "pandas",
+    "google-cloud-storage",
+    "google-cloud-secret-manager",
+    "requests",
+    "python-dotenv",
+    "uvicorn[standard]",
+    "fastapi",
+    "opentelemetry-instrumentation-google-genai"
+]
 
-print(f"Deployment finished!")
+# Try to find and update existing agent
+print("\nSearching for existing agent deployment...")
+try:
+    existing_agents = list(agent_engines.list(filter=f'display_name="{AGENT_DISPLAY_NAME}"'))
+
+    if existing_agents:
+        existing_agent = existing_agents[0]
+        print(f"Found existing agent: {existing_agent.resource_name}")
+        print("Updating agent deployment...")
+
+        remote_app = agent_engines.update(
+            resource_name=existing_agent.resource_name,
+            agent_engine=agent_app,
+            requirements=requirements,
+            extra_packages=["src", "mortgage_deposit_agent"],
+            env_vars=env_vars,
+            min_instances=0,
+            max_instances=10,
+            resource_limits={"cpu": "2", "memory": "2Gi"}
+        )
+        print("Agent updated successfully!")
+    else:
+        print("No existing agent found. Creating new deployment...")
+
+        remote_app = agent_engines.create(
+            agent_engine=agent_app,
+            display_name=AGENT_DISPLAY_NAME,
+            requirements=requirements,
+            extra_packages=["src", "mortgage_deposit_agent"],
+            env_vars=env_vars,
+            min_instances=0,
+            max_instances=10,
+            resource_limits={"cpu": "2", "memory": "2Gi"}
+        )
+        print("New agent created!")
+
+except Exception as e:
+    print(f"Error during deployment: {e}")
+    raise
+
+print(f"\nDeployment finished!")
 print(f"Resource Name: {remote_app.resource_name}")

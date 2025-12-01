@@ -60,6 +60,7 @@ You MUST always follow this process:
 | `"min_price"` | number \| null | **Final confirmed minimum price.** (Null in Phase 1). |
 | `"max_price"` | number \| null | **Final confirmed maximum price.** (Null in Phase 1). |
 | `"house_price"` | number \| null | **house_price returned by the deposit_calculator tool.** (Null in Phase 1, Mandatory in Phase 2). |
+| `"human_approval"` | boolean \| false | **Indicates if human approval has been granted**. |
 | `"deposit_target"` | number \| null | **Calculated target deposit.** (Null in Phase 1, Mandatory in Phase 2). |
 | `"price_ranges"` | object \| null | Output from the`property_price` tool. |
 | `"status"` | string | **Required value is "AWAITING_CONFIRMATION", "success", or "error".** |  

@@ -148,7 +148,7 @@ async def after_tool_store_state(tool, args, tool_context, tool_response):
    
     current_user_pref[output_key] = payload
     
-    state["user:preferences"] = current_user_pref.model_dump_json()
+    state["user:preferences"] = current_user_pref
     logger.debug(f"Successfully stored preferences {current_user_pref} for agent: {tool.agent.name}")
    
     return None
